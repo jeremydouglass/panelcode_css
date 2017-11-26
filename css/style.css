@@ -1,0 +1,393 @@
+body {
+  margin: 20px;
+  width: 1000px;
+  background: #eee;
+}
+
+.gallery {
+  display: block;
+  overflow: auto;
+  border: 0px solid #000;
+  margin-top: 40px;
+}
+.gallery > .title {
+  border-top: 1px solid #000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.gallery > .layout {
+  float: left; margin: 10px;
+}
+
+.gallery > .spread {
+  float: left; margin: 10px;
+}
+
+.gallery > p {
+  clear: both;
+}
+
+.spread {
+  display: flex;
+  position: relative;
+  overflow: auto;
+  border: 0px solid #f00;
+}
+
+/* style a codex center crease */
+.spread > .layout {
+  border-right: 8px solid #eee;
+}
+.spread > .layout:last-child {
+  border-right: 1px solid #000;
+}
+
+/****
+.spreadv {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  border: 0px solid #f00;
+}
+****/
+
+.spread2 {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border: 0px solid #f00;
+}
+.spread2 > .layout {
+  margin-top: 10px;
+  margin-right: 2px;
+}
+
+/****
+.gallery{
+  display: flex;
+}
+.gallery > div {
+  margin: 10px;
+}
+****/
+
+/* a layout is e.g. a single comic page */
+.layout {
+  display: grid;
+  position: relative;
+  /* align-content: stretch; */
+  width: 200px;  /* unit square */
+  height: 200px; /* unit square */
+  padding: 20px;
+  padding-bottom: 25px;
+  border: 1px solid #000;
+  background: #fff;
+  /*
+  grid-auto-rows: 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  */
+}
+.layout {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.layout.thumb {
+  width:  64px;  /* 14" */
+  height: 64px; /*  4" + title strip */
+  padding: 5px;
+}
+.layout.thumb > .label {
+  /* display: none; */
+  bottom: -14px;
+}
+.layout.thumb > .panelgroup > .panel {
+  color: transparent;
+}
+
+.layout.comicstrip-daily {
+  width:  280px;  /* 14" */
+  height: 120px; /*  4" + title strip */
+  padding: 5px;
+  padding-bottom: 20px;
+}
+.layout.comicstrip-sunday-full {
+  width: 280px;  /* 14" */
+  height: 420px; /* 20" + label strip */
+  padding: 5px;
+  padding-bottom: 20px;
+}
+.layout.comicstrip-sunday-half {
+  width: 280px;  /* 14" */
+  height: 220px; /* 10" + label strip */
+  padding: 5px;
+  padding-bottom: 20px;
+}
+.layout.comicstrip-sunday-half-blank {
+  width: 280px;  /* 14" */
+  height: 420px; /* 10" + label strip */
+  padding: 5px;
+  padding-bottom: 20px;
+}
+.layout.comicstrip-sunday-third {
+  width: 280px;  /* 14" */
+  height: 153px; /* 6.7" + label strip */
+  padding: 5px;
+  padding-bottom: 20px;
+}
+.layout.comicstrip-sunday-quarter {
+  width: 280px;  /* 14" */
+  height: 120px; /* 10" + label strip */
+  padding: 5px;
+  padding-bottom: 20px;
+}
+.layout.comicbook-us {
+  width: 220px;  /* 11" x 20px */
+  height: 340px; /* 17" x 20px */
+  padding: 20px;
+  padding-bottom: 25px;
+}
+
+/* label text for the layout
+   e.g. appearing in top/bottom margin
+   possibly a panelcode string or identifier
+   (pubdate, issue-pg, vol-ch-pg).
+   Text overflow for long .
+*/
+.layout > .label {
+  position:absolute;
+  top: 2px;
+  width: 100%;
+  text-align: center;
+  font-size: 75%;
+  overflow: hidden; /* crop overlong page name labels */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.layout > .label.bottom {
+  top: unset;
+  bottom: 2px;
+}
+.layout > .label.left {
+  left:   4px;
+  text-align: left;
+}
+.layout > .label.right {
+  right:  4px;
+  text-align: right;
+}
+
+/**
+ * layout heights 1-10
+ * attempt to stretch panel groups at ratios relative
+ * to one another. this approach doesn't work
+ * 
+ */
+layout.h1 { grid-template-rows: repeat(1, 1fr); }
+layout.h2 { grid-template-rows: repeat(2, 1fr); }
+layout.h3 { grid-template-rows: repeat(3, 1fr); }
+layout.h4 { grid-template-rows: repeat(4, 1fr); }
+layout.h5 { grid-template-rows: repeat(5, 1fr); }
+layout.h6 { grid-template-rows: repeat(6, 1fr); }
+layout.h7 { grid-template-rows: repeat(7, 1fr); }
+layout.h8 { grid-template-rows: repeat(8, 1fr); }
+layout.h9 { grid-template-rows: repeat(9, 1fr); }
+layout.h10{ grid-template-rows: repeat(10, 1fr); }
+
+/**
+ * a panelgroup is either:
+ * - a simple row
+ * - a group of rows that share the same column grid
+ * - a group of rows joined by rowspans
+ */
+.panelgroup {
+  display: grid;
+  height: auto;
+  white-space: nowrap;
+  min-width:  0px;
+  min-height: 0px;
+  grid-auto-columns: minmax(0, 1fr);
+   /*
+  overflow: hidden;
+  min-width:  0px;
+  min-height: 0px;
+
+  grid-template-columns: repeat(auto, 1fr); */
+  grid-gap: 5px;
+  border: 0px solid #00f;
+}
+.panel {
+  display: grid;
+  background-color: #ddd;
+  color: #000;
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: 1px;
+  /* text-align: center; */
+}
+.panel {
+  overflow: hidden;
+  font-size: 50%;
+}
+/*
+.panelgroup{
+  border-left:    1px solid #000;
+  border-right:   1px solid #000;
+}
+.panelgroup:first-child {
+  border-top:     1px solid #000;
+}
+.panelgroup:last-child {
+  border-bottom:  1px solid #000;
+}
+*/
+
+.panelgroup {
+  padding-bottom: 5px;
+}
+.panelgroup:last-child {
+  padding-bottom: 0px;
+}
+/*
+.panelgroup {
+  padding-top:   5px;
+  padding-bottom:  5px;
+}
+*/
+
+/**
+ * width 1-10
+ * specify the count of grid cells expected in a row
+ * or the count of columns in a row group
+ * ...would like to make this automatic
+ */
+.panelgroup.w1 { grid-template-columns: repeat(1, 1fr); }
+.panelgroup.w2 { grid-template-columns: repeat(2, 1fr); }
+.panelgroup.w3 { grid-template-columns: repeat(3, 1fr); }
+.panelgroup.w4 { grid-template-columns: repeat(4, 1fr); }
+.panelgroup.w5 { grid-template-columns: repeat(5, 1fr); }
+.panelgroup.w6 { grid-template-columns: repeat(6, 1fr); }
+.panelgroup.w7 { grid-template-columns: repeat(7, 1fr); }
+.panelgroup.w8 { grid-template-columns: repeat(8, 1fr); }
+.panelgroup.w9 { grid-template-columns: repeat(9, 1fr); }
+.panelgroup.w10{ grid-template-columns: repeat(10, 1fr); }
+.panelgroup.w11{ grid-template-columns: repeat(11, 1fr); }
+.panelgroup.w12{ grid-template-columns: repeat(12, 1fr); }
+.panelgroup.w13{ grid-template-columns: repeat(13, 1fr); }
+.panelgroup.w14{ grid-template-columns: repeat(14, 1fr); }
+.panelgroup.w15{ grid-template-columns: repeat(15, 1fr); }
+.panelgroup.w16{ grid-template-columns: repeat(16, 1fr); }
+.panelgroup.w17{ grid-template-columns: repeat(17, 1fr); }
+.panelgroup.w18{ grid-template-columns: repeat(18, 1fr); }
+.panelgroup.w19{ grid-template-columns: repeat(19, 1fr); }
+.panelgroup.w20{ grid-template-columns: repeat(20, 1fr); }
+
+/**
+ * panel column spans
+ */
+.panel.c1 { grid-column-end: span 1 }
+.panel.c2 { grid-column-end: span 2 }
+.panel.c3 { grid-column-end: span 3 }
+.panel.c4 { grid-column-end: span 4 }
+.panel.c5 { grid-column-end: span 5 }
+.panel.c6 { grid-column-end: span 6 }
+.panel.c7 { grid-column-end: span 7 }
+.panel.c8 { grid-column-end: span 8 }
+.panel.c9 { grid-column-end: span 9 }
+.panel.c10{ grid-column-end: span 10 }
+
+/**
+ * panel row spans
+ */
+.panel.r1 { grid-row-end: span 1 }
+.panel.r2 { grid-row-end: span 2 }
+.panel.r3 { grid-row-end: span 3 }
+.panel.r4 { grid-row-end: span 4 }
+.panel.r5 { grid-row-end: span 5 }
+
+/**
+ * zero panel fill style (blank / empty space)
+ */
+.panel.z {
+  background: #f6f6f6;
+  border: 1px solid #f3f3f3;
+  color: #ddd;
+}
+/**
+ * unencoded panel fill style (complex / ambiguous)
+ */
+.panel.u {
+  background: repeating-radial-gradient(
+      circle, 
+      #fff,
+      #ccc 8px
+    );  
+}
+
+/**
+ * abstract fill styles (gray)
+ */
+.panel.sg1 {
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAP0lEQVQoU42Q0QoAIAgDz///aMPAKKeQb26HTg0tB6zKVUhI4Bus5tMn2K4Djh7gBGXM7Uvo5riQ/BfUNwwTWfn+Cgg4zkoRAAAAAElFTkSuQmCC)repeat;
+}
+.panel.sg2 {
+  background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAASUlEQVQoU2M8c+bMfxMTE0YGLAAkB5bApmjmzJn/09PTGeE6YQLoGlCMBpkEUoBsJYaCs2fPMoCMhjmJOCuQ7YfphDsSmySyIgCHKzk26yoSmgAAAABJRU5ErkJggg==) repeat;
+}
+.panel.sg3 {
+  background-color:#fff;
+  background-image: radial-gradient(lightgray 25%, transparent 16%), radial-gradient(lightgray 25%, transparent 16%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+.panel.sg4 {
+  background-color: #eee;
+  background-image: linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray), linear-gradient(-45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray);
+  background-size:8px 8px;
+}
+
+/**
+ * abstract fill styles (color)
+ */
+.panel.sc1 {
+  background-color:#f99;
+}
+.panel.sc2 {
+  background-color:#9f9;
+}
+.panel.sc3 {
+  background-color:#99f;
+}
+.panel.sc4 {
+  background-color:#ff9;
+}
+.panel.sc5 {
+  background-color:#f9f;
+}
+.panel.sc6 {
+  background-color:#9ff;
+}
+
+.p1 { grid-column: 1 }
+.p2 { grid-column: 2 }
+.p3 { grid-column: 3 }
+.p4 { grid-column: 4 }
+.p5 { grid-column: 5 }
+.p6 { grid-column: 6 }
+.p7 { grid-column: 7 }
+.p8 { grid-column: 8 }
+.p9 { grid-column: 9 }
+.p10{ grid-column: 10 }
+
+#L10 { grid-template-rows: 1fr 1fr 1fr 1fr 1fr; }
+#L20 { grid-template-rows: 1fr 1fr 1fr 1fr 3fr 1fr 1fr; }
+
+#p1 { grid-column: 1 / span 2; }
+#p2 { grid-column: 3 / span 1; }
+#p3 { }
+#p4 { grid-column: span 2 ; grid-row: span 2; }
+#p5 { }

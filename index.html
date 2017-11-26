@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Panelcode -- CSS-Grid Renderer</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <h1>Panelcode Demo Gallery: CSS-Grid Renderer</h1>
+<p>* <em>Panelcode has multiple renderers, including rendering out to HTML-Tables and SVG-Tables (Scalable Vector Graphics). The CSS-Grid Renderer is based on recently updated standards for grid rendering using CSS.</em></p>
+
+<div class="gallery">
+  <div class="title">Basics: Rows and Columns</div>
+  <p>Panelcode is a very efficient shorthand when encoding simple page layouts. The encoding can be written and read by hand, and then programmatically processed for many purposes: searching, analyzing, rendering graphics and creating information visualizations, or producing scaffolds for layout editing or marking up pages with metadata.</p>
+  <div class="layout">
+    <div class="label bottom">1</div>
+    <div class="panelgroup">
+      <div class="panel">1</div>
+    </div>
+  </div>
+  <p>In panelcode, a number signifies a simple row of panels. A single number ("3") is a valid panelcode string that describes a layout with a single row of 3-columns.</p>  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">2</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">3</div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+    </div>
+  </div>
+  <p>The codes for the layouts "1" "2" and "3" result in the images aboce.</p> 
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">1_1</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+    </div>  
+    <div class="layout">
+      <div class="label bottom">1_1_1</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+    </div>  
+  </div>
+  <p>Rows are joined into layout stacks using underscores ("1_1_1").</p>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">2_2</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">3_3_3</div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+    </div>
+  </div>
+  <p>Combine rows into a stack to form a grid (3_3_3).</p>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">1_2_3</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">2</div>
+        <div class="panel p2">3</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">4</div>
+        <div class="panel p2">5</div>
+        <div class="panel p3">6</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">1_2_3_4</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+        <div class="panel">9</div>
+        <div class="panel">10</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">5_4_3_2_1</div>
+      <div class="panelgroup w5">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">6</div>
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+        <div class="panel">9</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">10</div>
+        <div class="panel">11</div>
+        <div class="panel">12</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">13</div>
+        <div class="panel">14</div>
+      </div>
+      <div class="panelgroup w1">
+        <div class="panel">15</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">6_5_4_3_2_1</div>
+      <div class="panelgroup w6">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+      </div>
+      <div class="panelgroup w5">
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+        <div class="panel">9</div>
+        <div class="panel">10</div>
+        <div class="panel">11</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">12</div>
+        <div class="panel">13</div>
+        <div class="panel">14</div>
+        <div class="panel">15</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">16</div>
+        <div class="panel">17</div>
+        <div class="panel">18</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">19</div>
+        <div class="panel">20</div>
+      </div>
+      <div class="panelgroup w1">
+        <div class="panel">21</div>
+      </div>
+    </div>
+  </div>
+  <p>Combine different row counts into one layout -- rows may form a grid, but this is not required. </p>
+
+</div>
+
+<div class="gallery">
+  <div class="title">Reading a Panelcode Image</div>
+    <p>Panelcode visualizations may have a different appearance and different elements depending on the renderer, however there are some basics that are common to the panelcode concepts. Consider this image:</p>
+    <div class="layout">
+      <div class="label top left">#:3</div>
+      <div class="label top right">ch3 p7</div>
+      <div class="label top">a glyph</div>
+      <div class="label bottom">1_2</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+    </div>
+  <p>A panelcode glyph will always include a wireframe depicting a cartesian approximation of a layout. Depending on the renderer this box-model of a page or screen may support empty area and unencoded regions (see more below). It may also support the use of encoded metadata to styling panels with different textures or colors etc. to indicate their nature -- e.g. full page spread -- or annotations of contents -- e.g. incidents of speech (see more below). Panelcode glyphs are designed to be viewed en masse in large collections or from a distance, but they may include numbers that indicate the encoding order -- which is often (but not always) the suggested reading order for the panels in a layout.</p>
+  <p>Panelcode glyphs appear by default on an abstract unit square -- for example, it is neither the vertical rectangle of the comic book nor the horizontal rectangle of the newspaper cartoon strip. This is to emphasize the concept that a particular geometric arragement of panels might refer to either medium, or both, or something. However, panelcode glphys can also be styled to media-specific dimensions -- either the dimensions of a media genre (e.g. a contemporary US comic), a specific object (e.g. <em>Mouse Guard</em>), or a mixed media collection (e.g. the artifacts of <em>Building Stories</em>).</p>
+  <p>The margins of a panelcode glyph may also contain additional information, including:
+  </p>
+  <ul>
+    <li>The panelcode string used to generate the glyph.</li>
+    <li>A title / caption for the layout, giving it context.</li>
+    <li>A layout reference -- such as a strip publication date, or a volume / issue and page number.</li>
+    <li>Page metadata - such as a count of panels, or a categorization or tagging of contents.
+  </ul>
+</div>
+
+<div class="gallery">
+  <div class="title">Sequences and Sorting</div>
+  <p>The following sequence counts through the number of simple, row-based compositions of 1-3 rows, and 1-3 panels per row, giving a maximum grid of 3x3.<p>
+  
+  <div class="layout thumb">
+    <div class="label bottom">1</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2</div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+  
+  <div class="layout thumb">
+    <div class="label bottom">3</div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+  
+  <div class="layout thumb">
+    <div class="label bottom">1_1</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_2</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_3</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_1</div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_2</div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_3</div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_1</div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_2</div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_3</div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_1_1</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_1_2</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_1_3</div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_2_1</div>
+ 
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_2_2</div>
+ 
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_2_3</div>
+ 
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_3_1</div>
+ 
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_3_2</div>
+ 
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">1_3_3</div>
+ 
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_1_1</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_1_2</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_1_3</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_2_1</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_2_2</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_2_3</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_3_1</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_3_2</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">2_3_3</div>
+ 
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_1_1</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_1_2</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_1_3</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_2_1</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_2_2</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_2_3</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_3_1</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_3_2</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <div class="layout thumb">
+    <div class="label bottom">3_3_3</div>
+ 
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel"></div>
+      <div class="panel"></div>
+      <div class="panel"></div>
+    </div>
+  </div>
+
+  <p>An interesting property of simple panelcode strings (those composed of simple rows) is that they can be sorted within a maximum grid (e.g. 2x2, 3x3, 4x4). Different sortings methods present different groupings of intuitively "similar" layouts. For example, an alphabetic sort groups layouts by increasing complexity of the top row (1, 2, 3 panels) and then by the second row within each group, et cetera. complexity of each page. A zero-padded numeric sort (shown here) </p>
+
+</div>
+
+<div class="gallery">
+  <div class="title">Column spans</div>
+
+    <div class="layout">
+      <div class="label bottom">2</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+    </div>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">2(1+c2)</div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel c2">2</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">2(c2+1)</div>
+      <div class="panelgroup w3">
+        <div class="panel c2">1</div>
+        <div class="panel">2</div>
+      </div>
+    </div>
+  </div>
+    <div class="layout">
+      <div class="label bottom">2_2</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+      </div>
+    </div>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">2(1+c3)_1</div>
+      <div class="panelgroup w4">
+        <div class="panel">1</div>
+        <div class="panel c3">2</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel c3">1</div>
+        <div class="panel">2</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">2(c3+1)_1</div>
+      <div class="panelgroup w4">
+        <div class="panel c3">1</div>
+        <div class="panel">2</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">3</div>
+        <div class="panel c3">4</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="gallery">
+  <div class="title">Row spans</div>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">(r2+1,1)</div>
+      <div class="panelgroup w2">
+        <div class="panel r2">1</div>
+        <div class="panel">1</div>
+        <div class="panel">1</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">(1+r2,1)</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel r2">1</div>
+        <div class="panel">1</div>
+      </div>
+    </div>
+  </div>  
+  <p>For rows that cross cross vertically into multiple rows, a special rowspan indicator is used with "r" for row plus the number of rows to span ("r2", "r3"). </p>
+  <p>This concept of a "rowspan" argument is present in early HTML-Tables, and also incorporated into CSS-Grid. Panelcode uses these concepts in part because they are longstanding traditions in rendering tabular data, and in part because shared concepts make it easier to parse a panecode string into a straightforward sequence of HTML or CSS elements that can directly render the described layout.</p>
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">1_2</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">2_1</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel">3</div>
+      </div>
+    </div>
+  </div>
+  <p>Compare with these very similar panel groups. Because the long panel is oriented horizontally rather than vertically these layouts can be described with a long row ("1"), and the encoding does not require rowspan notation.</p>
+  <div class="spread2">
+    <div class="layout thumb">
+      <div class="label bottom">1_2</div>
+      <div class="panelgroup">
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+    </div>
+    <div class="layout thumb">
+      <div class="label bottom">2_1</div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel"></div>
+      </div>
+    </div>
+    <div class="layout thumb">
+      <div class="label bottom">3(r2+1,1)</div>
+      <div class="panelgroup w2">
+        <div class="panel r2"></div>
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>  
+    </div>  
+    <div class="layout thumb">
+      <div class="label bottom">3(1+r2,1)</div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel r2"></div>
+        <div class="panel"></div>
+      </div>  
+    </div>  
+  </div>
+  <p>These four C-shaped compositions of 3 panels -- two based on row spans, two not -- are uncommon in newspaper comics, but are some of the most common building blocks of comic book pages.</p>
+  <p>Column spans and row spans may also be combined, as in the multi-row, multi-column panel in this example:</p>
+    <div class="layout">
+      <div class="label bottom">(c2r2+1,1)</div>
+      <div class="panelgroup w3">
+        <div class="panel c2 r2"></div>
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+    </div>
+</div>
+
+<div class="gallery">
+  <div class="title">Styles (blanks and ambiguities)</div>
+  <p>Consider the example of comics. While some genres of comics (such as newspaper strips) generally subdivide the available space into panels, many other forms commonly use compositions that leave significant regions of blank space. </p>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">zero (empty / blank)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+        <div class="panel z">0</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">zero (empty / blank)</div>
+      <div class="panelgroup w3">
+        <div class="panel z">0</div>
+        <div class="panel c2 r2 z">0</div>
+        <div class="panel">1</div>
+        <div class="panel c2">2</div>
+        <div class="panel z">0</div>
+        <div class="panel">3</div>
+        <div class="panel c2">4</div>
+      </div>
+    </div>
+  </div>
+  <p>When a 0 is used to encode a blank region the corresponding empty area is rendered on the panelcode grid, e.g. "1_0".</p><p>In the most complex cases, empty panels can also take column and row arguments, so compositions with large whitespace regions or complex combinations of blank and filled areas can be quickly marked: (0+0c2r2,1)_(c2+0)_(1+c2).</p>
+  <p>An empty or blank panel is a placeholder -- the 0 in a blank panel indicates that it does not count towards the total of a group or a total composition. By contrast, unencoded regions may count more.</p>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">unencoded (complex / ambiguous)</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel u">*</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">unencoded (complex / ambiguous)</div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel c2">2</div>
+        <div class="panel z"></div>
+        <div class="panel u">3</div>
+        <div class="panel r2 u">3</div>
+        <div class="panel c2">4</div>
+      </div>
+    </div>
+  </div>
+  <p>An unencoded region is a collection of panel-like objects whose geometry is too complex or too non-cartesian to be encode in panelcode shorthand. </p>
+
+</div>
+
+<div class="gallery">
+  <div class="title">Styles (color coding)</div>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">styles (color highlights)</div>
+      <div class="panelgroup w3">
+        <div class="panel sc1">sc1</div>
+        <div class="panel sc2">sc2</div>
+        <div class="panel sc3">sc3</div>
+        <div class="panel sc4">sc4</div>
+        <div class="panel sc5">sc5</div>
+        <div class="panel sc6">sc6</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="spread2">
+    <div class="layout thumb">
+      <div class="label bottom">2_2_1</div>
+   
+      <div class="panelgroup w2">
+        <div class="panel sc1"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel sc1"></div>
+      </div>
+    </div>
+  
+    <div class="layout thumb">
+      <div class="label bottom">3_3_1</div>
+   
+      <div class="panelgroup w3">
+        <div class="panel"></div>
+        <div class="panel sc1"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel"></div>
+        <div class="panel sc1"></div>
+        <div class="panel sc1"></div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel"></div>
+      </div>
+    </div>
+  
+    <div class="layout thumb">
+      <div class="label bottom">2_2</div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel sc1"></div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel sc1"></div>
+      </div>
+    </div>
+  
+    <div class="layout thumb">
+      <div class="label bottom">1</div>
+      <div class="panelgroup">
+        <div class="panel sc1"></div>
+      </div>
+    </div>
+  
+    <div class="layout thumb">
+      <div class="label bottom">2_3_2</div>
+   
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel"></div>
+        <div class="panel sc1"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+    </div>
+  
+    <div class="layout thumb">
+      <div class="label bottom">3_2_2</div>
+   
+      <div class="panelgroup w3">
+        <div class="panel sc1"></div>
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel"></div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel"></div>
+        <div class="panel sc1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gallery">
+  <div class="title">Newspaper comic strip layouts</div>
+
+    <div class="layout comicstrip-sunday-half">
+      <div class="label bottom">"Sunday half-page" 2(c3+1)_2_2(1+c2) </div>
+      <div class="panelgroup w4">
+      <div class="panel c3">1</div>
+      <div class="panel">2</div>
+    </div>
+      <div class="panelgroup w2">
+      <div class="panel">3</div>
+      <div class="panel">4</div>
+    </div>
+      <div class="panelgroup w4">
+      <div class="panel">5</div>
+      <div class="panel c3">6</div>
+    </div>
+    </div>
+    <div class="layout comicstrip-sunday-third">
+      <div class="label bottom">"Sunday third" 2_2(1+c3)</div>
+      <div class="panelgroup w2">
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">5</div>
+        <div class="panel c3">6</div>
+      </div>
+    </div>
+    <div class="layout comicstrip-sunday-quarter">
+      <div class="label bottom">"Sunday quarter" 3(c3+1+c2)_3(c2+1+c3)</div>
+      <div class="panelgroup w6">
+        <div class="panel c3">1</div>
+        <div class="panel">2</div>
+        <div class="panel c2">3</div>
+      </div>
+      <div class="panelgroup w6">
+        <div class="panel c2">4</div>
+        <div class="panel">5</div>
+        <div class="panel c3">6</div>
+      </div>
+    </div>
+    <div class="layout comicstrip-daily">
+      <div class="label bottom">4 "Daily strip"</div>
+      <div class="panelgroup w4">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+      </div>
+    </div>
+</div>
+
+  <div class="spread">
+    <div class="layout comicstrip-sunday-full">
+      <div class="label bottom">"Sunday full-page" 2_2_2_2_2_2</div>
+      <div class="panelgroup w2">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">9</div>
+        <div class="panel">10</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">11</div>
+        <div class="panel">12</div>
+      </div>
+    </div>
+    <div class="layout comicstrip-sunday-half-blank" style="grid-template-rows: 1fr 1fr 1fr 3fr;">
+      <div class="label bottom">"Sunday half-page" 2(c3+1)_2_2(1+c3)_0 {1,1,1,3}</div>
+      <div class="panelgroup w4">
+        <div class="panel c3">1</div>
+        <div class="panel">2</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">5</div>
+        <div class="panel c3">6</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel z">0</div>
+      </div>
+    </div>
+  </div>
+
+<div class="gallery">
+  <div class="title">Comic Books</div>
+
+  <div class="layout comicbook-us">
+    <div class="label bottom">1_1_1</div>
+    <div class="panelgroup">
+      <div class="panel">1</div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel">2</div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel">3</div>
+    </div>
+  </div>
+
+  <div class="layout comicbook-us">
+    <div class="label bottom">1_2_3</div>
+    <div class="panelgroup">
+      <div class="panel">1</div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel">2</div>
+      <div class="panel">3</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel">4</div>
+      <div class="panel">5</div>
+      <div class="panel">6</div>
+    </div>
+  </div>
+  
+  <div class="layout comicbook-us">
+    <div class="label bottom">2_2_3</div>
+    <div class="panelgroup w2">
+      <div class="panel">1</div>
+      <div class="panel">2</div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel">3</div>
+      <div class="panel">4</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel">1</div>
+      <div class="panel">2</div>
+      <div class="panel">3</div>
+    </div>
+  </div>
+
+  <div class="layout comicbook-us">
+    <div class="label bottom">2(1+c2)_2(c2+1)_3</div>
+    <div class="panelgroup w3">
+      <div class="panel">3</div>
+      <div class="panel c2">4</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel c2">1</div>
+      <div class="panel">2</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel">5</div>
+      <div class="panel">6</div>
+      <div class="panel">7</div>
+    </div>
+  </div>
+
+  <div class="layout comicbook-us">
+    <div class="label bottom">3_3_3</div>
+    <div class="panelgroup w3">
+      <div class="panel">1</div>
+      <div class="panel">2</div>
+      <div class="panel">3</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel">4</div>
+      <div class="panel">5</div>
+      <div class="panel">6</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel">7</div>
+      <div class="panel">8</div>
+      <div class="panel">9</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="gallery">
+  <div class="title">Tests and Development</div>
+
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">1_1 (vert. symmetric labels)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+      </div>
+    </div>  
+    <div class="layout">
+      <div class="label bottom">1_1 (vert. asymmetric labels)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+        <div class="panel"></div>
+      </div>
+    </div>  
+  </div>    
+  
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">3_3_3</div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+        <div class="panel">9</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">3x3 (3_3_3)</div>
+      <div class="panelgroup w3">
+        <div class="panel">1</div>
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+        <div class="panel">9</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="layout">
+    <div class="label bottom">2_2_3 (text ratio and overflow test)</div>
+    <div class="panelgroup w2">
+      <div class="panel">1</div>
+      <div class="panel">2000</div>
+    </div>
+    <div class="panelgroup w2">
+      <div class="panel">3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603</div>
+      <div class="panel">4</div>
+    </div>
+    <div class="panelgroup w3">
+      <div class="panel">5 Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</div>
+      <div class="panel">6</div>
+      <div class="panel">7</div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="panelgroup">
+      <div id="p1" class="panel">1</div>
+      <div id="p2" class="panel">2</div>
+      <div id="p4" class="panel">3</div>
+      <div id="p3" class="panel">4</div>
+      <div id="p5" class="panel">5</div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel" style="grid-column: 1;">1</div>
+      <div class="panel" style="grid-column: 2;">2</div>
+      <div class="panel" style="grid-column: 3;">3</div>
+      <div class="panel" style="grid-column: 4;">4</div>
+      <div class="panel" style="grid-column: 5;">5</div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="label bottom">10_10_20_20 (comparison tests)</div>
+    <div class="panelgroup w10">
+      <div class="panel">1</div>
+      <div class="panel">2</div>
+      <div class="panel">3</div>
+      <div class="panel">4</div>
+      <div class="panel">5</div>
+      <div class="panel">6</div>
+      <div class="panel">7</div>
+      <div class="panel">8</div>
+      <div class="panel">9</div>
+      <div class="panel">10</div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel" style="grid-column: 1 ;">1</div>
+      <div class="panel" style="grid-column: 2 ;">2</div>
+      <div class="panel" style="grid-column: 3 ;">3</div>
+      <div class="panel" style="grid-column: 4 ;">4</div>
+      <div class="panel" style="grid-column: 5 ;">5</div>
+      <div class="panel" style="grid-column: 6 ;">6</div>
+      <div class="panel" style="grid-column: 7 ;">7</div>
+      <div class="panel" style="grid-column: 8 ;">8</div>
+      <div class="panel" style="grid-column: 9 ;">9</div>
+      <div class="panel" style="grid-column: 10;">10</div>
+    </div>
+    <div class="panelgroup w20">
+      <div class="panel">1</div>
+      <div class="panel">2</div>
+      <div class="panel">3</div>
+      <div class="panel">4</div>
+      <div class="panel">5</div>
+      <div class="panel">6</div>
+      <div class="panel">7</div>
+      <div class="panel">8</div>
+      <div class="panel">9</div>
+      <div class="panel">10</div>
+      <div class="panel">11</div>
+      <div class="panel">12</div>
+      <div class="panel">13</div>
+      <div class="panel">14</div>
+      <div class="panel">15</div>
+      <div class="panel">16</div>
+      <div class="panel">17</div>
+      <div class="panel">18</div>
+      <div class="panel">19</div>
+      <div class="panel">20</div>
+    </div>
+    <div class="panelgroup">
+      <div class="panel" style="grid-column: 1 ;">1</div>
+      <div class="panel" style="grid-column: 2 ;">2</div>
+      <div class="panel" style="grid-column: 3 ;">3</div>
+      <div class="panel" style="grid-column: 4 ;">4</div>
+      <div class="panel" style="grid-column: 5 ;">5</div>
+      <div class="panel" style="grid-column: 6 ;">6</div>
+      <div class="panel" style="grid-column: 7 ;">7</div>
+      <div class="panel" style="grid-column: 8 ;">8</div>
+      <div class="panel" style="grid-column: 9 ;">9</div>
+      <div class="panel" style="grid-column: 10;">10</div>
+      <div class="panel" style="grid-column: 11;">11</div>
+      <div class="panel" style="grid-column: 12;">12</div>
+      <div class="panel" style="grid-column: 13;">13</div>
+      <div class="panel" style="grid-column: 14;">14</div>
+      <div class="panel" style="grid-column: 15;">15</div>
+      <div class="panel" style="grid-column: 16;">16</div>
+      <div class="panel" style="grid-column: 17;">17</div>
+      <div class="panel" style="grid-column: 18;">18</div>
+      <div class="panel" style="grid-column: 19;">19</div>
+      <div class="panel" style="grid-column: 20;">20</div>
+    </div>
+  </div>
+
+  <div class="spread">
+    <div class="layout">
+      <div class="label bottom">1_2_3_4_5_6_7_8_9_10 (panel order)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">2</div>
+        <div class="panel p2">3</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">4</div>
+        <div class="panel p2">5</div>
+        <div class="panel p3">6</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">7</div>
+        <div class="panel p2">8</div>
+        <div class="panel p3">9</div>
+        <div class="panel p4">10</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">11</div>
+        <div class="panel p2">12</div>
+        <div class="panel p3">13</div>
+        <div class="panel p4">14</div>
+        <div class="panel p5">15</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">16</div>
+        <div class="panel p2">17</div>
+        <div class="panel p3">18</div>
+        <div class="panel p4">19</div>
+        <div class="panel p5">20</div>
+        <div class="panel p6">21</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">22</div>
+        <div class="panel p2">23</div>
+        <div class="panel p3">24</div>
+        <div class="panel p4">25</div>
+        <div class="panel p5">26</div>
+        <div class="panel p6">27</div>
+        <div class="panel p7">28</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">29</div>
+        <div class="panel p2">30</div>
+        <div class="panel p3">31</div>
+        <div class="panel p4">32</div>
+        <div class="panel p5">33</div>
+        <div class="panel p6">34</div>
+        <div class="panel p7">35</div>
+        <div class="panel p8">36</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">37</div>
+        <div class="panel p2">38</div>
+        <div class="panel p3">39</div>
+        <div class="panel p4">40</div>
+        <div class="panel p5">41</div>
+        <div class="panel p6">42</div>
+        <div class="panel p7">43</div>
+        <div class="panel p8">44</div>
+        <div class="panel p9">45</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">46</div>
+        <div class="panel p2">47</div>
+        <div class="panel p3">48</div>
+        <div class="panel p4">49</div>
+        <div class="panel p5">50</div>
+        <div class="panel p6">51</div>
+        <div class="panel p7">52</div>
+        <div class="panel p8">53</div>
+        <div class="panel p9">54</div>
+        <div class="panel p10">55</div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="label bottom">1_2_3_4_5_6_7_8_9_10 (group order)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+      </div>
+      <div class="panelgroup w4">
+        <div class="panel">7</div>
+        <div class="panel">8</div>
+        <div class="panel">9</div>
+        <div class="panel">10</div>
+      </div>
+      <div class="panelgroup w5">
+        <div class="panel">11</div>
+        <div class="panel">12</div>
+        <div class="panel">13</div>
+        <div class="panel">14</div>
+        <div class="panel">15</div>
+      </div>
+      <div class="panelgroup w6">
+        <div class="panel">16</div>
+        <div class="panel">17</div>
+        <div class="panel">18</div>
+        <div class="panel">19</div>
+        <div class="panel">20</div>
+        <div class="panel">21</div>
+      </div>
+      <div class="panelgroup w7">
+        <div class="panel">22</div>
+        <div class="panel">23</div>
+        <div class="panel">24</div>
+        <div class="panel">25</div>
+        <div class="panel">26</div>
+        <div class="panel">27</div>
+        <div class="panel">28</div>
+      </div>
+      <div class="panelgroup w8">
+        <div class="panel">29</div>
+        <div class="panel">30</div>
+        <div class="panel">31</div>
+        <div class="panel">32</div>
+        <div class="panel">33</div>
+        <div class="panel">34</div>
+        <div class="panel">35</div>
+        <div class="panel">36</div>
+      </div>
+      <div class="panelgroup w9">
+        <div class="panel">37</div>
+        <div class="panel">38</div>
+        <div class="panel">39</div>
+        <div class="panel">40</div>
+        <div class="panel">41</div>
+        <div class="panel">42</div>
+        <div class="panel">43</div>
+        <div class="panel">44</div>
+        <div class="panel">45</div>
+      </div>
+      <div class="panelgroup w10">
+        <div class="panel">46</div>
+        <div class="panel">47</div>
+        <div class="panel">48</div>
+        <div class="panel">49</div>
+        <div class="panel">50</div>
+        <div class="panel">51</div>
+        <div class="panel">52</div>
+        <div class="panel">53</div>
+        <div class="panel">54</div>
+        <div class="panel">55</div>
+      </div>
+    </div>
+  </div>
+
+    <div class="spread">
+    <div class="layout">
+      <div class="label bottom">1_2_3 (panel start numbers)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">2</div>
+        <div class="panel p2">3</div>
+      </div>
+      <div class="panelgroup">
+        <div class="panel p1">4</div>
+        <div class="panel p2">5</div>
+        <div class="panel p3">6</div>
+      </div>
+    </div>
+    <div class="layout">
+      <div class="label bottom">1_2_3 (panelgroup colspan counts)</div>
+      <div class="panelgroup">
+        <div class="panel">1</div>
+      </div>
+      <div class="panelgroup w2">
+        <div class="panel">2</div>
+        <div class="panel">3</div>
+      </div>
+      <div class="panelgroup w3">
+        <div class="panel">4</div>
+        <div class="panel">5</div>
+        <div class="panel">6</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  
+  
+</body>
+</html>
