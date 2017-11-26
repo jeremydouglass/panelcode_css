@@ -1,0 +1,24 @@
+/**
+ * zero panel fill style (blank / empty space)
+ */
+.panel.x {
+  background: transparent;
+  border: 1px transparent;
+  color: transparent;
+}
+.panel.z {
+  background: #f6f6f6;
+  border: 1px solid #f3f3f3;
+  color: #ddd;
+}
+
+/**
+ * unencoded panel fill style (complex / ambiguous)
+ */
+.panel.u {
+  background: repeating-radial-gradient(
+      circle, 
+      #fff,
+      #ccc 8px
+    );  
+}

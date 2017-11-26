@@ -1,0 +1,68 @@
+/** ==============================
+    Panels
+    ============================== **/
+
+/** 
+ *  A panel (in the panelcode-box renderer) is a rectangular unit of space.
+ *  It is generally full, but may be empty. It may have a texture, color,
+ *  label, bleeds, or all of the above.
+ */
+
+.panel {
+  display: grid; /* inset is vertical -- w flex, inset is horizontal */
+  align-items: center;
+  justify-content: center;
+
+  background-color: #ddd;
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 0px; /* 2px */
+  padding: 1px;
+  /* text-align: center; */
+}
+.panel {
+  overflow: hidden;
+  font-size: 50%;
+}
+
+/**
+ * panel column spans
+ */
+.panel.c1 { grid-column-end: span 1 }
+.panel.c2 { grid-column-end: span 2 }
+.panel.c3 { grid-column-end: span 3 }
+.panel.c4 { grid-column-end: span 4 }
+.panel.c5 { grid-column-end: span 5 }
+.panel.c6 { grid-column-end: span 6 }
+.panel.c7 { grid-column-end: span 7 }
+.panel.c8 { grid-column-end: span 8 }
+.panel.c9 { grid-column-end: span 9 }
+.panel.c10{ grid-column-end: span 10 }
+
+/**
+ * panel row spans
+ */
+.panel.r1 { grid-row-end: span 1 }
+.panel.r2 { grid-row-end: span 2 }
+.panel.r3 { grid-row-end: span 3 }
+.panel.r4 { grid-row-end: span 4 }
+.panel.r5 { grid-row-end: span 5 }
+.panel.r6 { grid-row-end: span 6 }
+.panel.r7 { grid-row-end: span 7 }
+.panel.r8 { grid-row-end: span 8 }
+.panel.r9 { grid-row-end: span 9 }
+.panel.r10{ grid-row-end: span 10 }
+
+/**
+ * panel column placements
+ */
+.p1 { grid-column: 1 }
+.p2 { grid-column: 2 }
+.p3 { grid-column: 3 }
+.p4 { grid-column: 4 }
+.p5 { grid-column: 5 }
+.p6 { grid-column: 6 }
+.p7 { grid-column: 7 }
+.p8 { grid-column: 8 }
+.p9 { grid-column: 9 }
+.p10{ grid-column: 10}

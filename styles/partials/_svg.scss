@@ -1,0 +1,11 @@
+/** ==============================
+    Body margins
+    ============================== **/
+
+/**
+ * This stylesheet is also used by inline svg and object-loaded svg files, 
+ * so it must not set body margins or the iframe will clip layout contents.
+ */
+body {
+  /* margin: 0px; */
+}

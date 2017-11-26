@@ -1,0 +1,161 @@
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="200" border="0" viewBox="0 0 200 200">
+  <foreignObject x="0" y="0" width="200" height="200">
+    <head xmlns="http://www.w3.org/1999/xhtml">
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+      body { margin: 0px; }
+
+/* a layout is e.g. a single comic page */
+.layout {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.layout {
+  display: grid;
+  position: relative;
+  /* align-content: stretch; */
+  width: 200px;  /* unit square */
+  height: 200px; /* unit square */
+  padding: 20px;
+  padding-bottom: 25px;
+  border: 1px solid #000;
+  background: #fff;
+  grid-gap: 5px;
+  /*
+  grid-auto-rows: 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  */
+}
+
+.panel > .layout {
+  display: grid;
+  border: 0px;
+  margin: 10px;
+  padding: 0px;
+  width:  130px; /* 65%; 130px; */
+  height: 130px; /* 65%; 130px; */
+  background: transparent;
+  clear: both;
+}
+
+.panel > .panelgroup {
+  display: grid;
+  border: 0px;
+  margin: 10px;
+  padding: 0px;
+  width:  130px; /* 65%; 130px; */
+  height: 130px; /* 65%; 130px; */
+  background: transparent;
+  clear: both;
+}
+
+/* label text for the layout
+   e.g. appearing in top/bottom margin
+   possibly a panelcode string or identifier
+   (pubdate, issue-pg, vol-ch-pg).
+   Text overflow for long .
+*/
+.layout > .label {
+  position:absolute;
+  top: 2px;
+  width: 100%;
+  text-align: center;
+  font-size: 75%;
+  overflow: hidden; /* crop overlong page name labels */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.layout > .label.bottom {
+  top: unset;
+  bottom: 2px;
+}
+.layout > .label.left {
+  left:   4px;
+  text-align: left;
+}
+.layout > .label.right {
+  right:  4px;
+  text-align: right;
+}
+
+/**
+ * a panelgroup is either:
+ * - a simple row
+ * - a group of rows that share the same column grid
+ * - a group of rows joined by rowspans
+ */
+.panelgroup {
+  display: grid;
+  height: auto;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  min-width:  0px;
+  min-height: 0px;
+  grid-auto-columns: minmax(0, 1fr);
+   /* grid-template-columns: repeat(auto, 1fr); */
+  grid-gap: 5px; /* 5px -- in-group gap */
+  border: 0px solid #00f;
+}
+
+.panel {
+  /* display: flex; */
+  display: grid; /* inset is vertical -- w flex, inset is horizontal */
+  align-items: center;
+  justify-content: center;
+
+  background-color: #ddd;
+  color: #000;
+  border: 1px solid #999;
+  border-radius: 0px; /* 2px */
+  padding: 1px;
+  /* text-align: center; */
+}
+.panel {
+  overflow: hidden;
+  font-size: 50%;
+}
+
+/*
+.panelgroup{
+  border-left:    1px solid #000;
+  border-right:   1px solid #000;
+}
+.panelgroup:first-child {
+  border-top:     1px solid #000;
+}
+.panelgroup:last-child {
+  border-bottom:  1px solid #000;
+}
+*/
+
+.panelgroup {
+  padding-bottom: 0px;
+}
+.panelgroup:last-child {
+  padding-bottom: 0px;
+}
+/*
+.panelgroup {
+  padding-top:   5px;
+  padding-bottom:  5px;
+}
+*/
+
+      </style>
+    </head>
+    <body xmlns="http://www.w3.org/1999/xhtml">
+      <div class="layout">
+        <div class="label bottom">3</div>
+        <div class="panelgroup w3">
+          <div class="panel">1</div>
+          <div class="panel">2</div>
+          <div class="panel">3</div>
+        </div>
+      </div>
+    </body>
+  </foreignObject>
+</svg>

@@ -1,0 +1,60 @@
+/** Fill Styles (Spreads, Layouts, Groups, and Panels)
+    ============================== **/
+
+/**
+ * abstract fill styles (color)
+ */
+.black,   .black .layout   { background-color: #000; }
+.white,   .white .layout   { background-color: #fff; }
+
+/**
+ * abstract fill styles (color)
+ */
+.red,     .red .layout     { background-color: #f99; }
+.green,   .green .layout   { background-color: #9f9; }
+.blue,    .bluye .layout   { background-color: #99f; }
+.yellow,  .yellow .layout  { background-color: #ff9; }
+.magenta, .magenta .layout { background-color: #f9f; }
+.cyan,    .cyan .layout    { background-color: #9ff; }
+
+/**
+ * abstract fill styles (gray)
+ */
+.gray0, .gray0 .layout { background-color: #000; } /* black */
+.gray1, .gray1 .layout { background-color: #111; }
+.gray2, .gray2 .layout { background-color: #222; }
+.gray3, .gray3 .layout { background-color: #333; }
+.gray4, .gray4 .layout { background-color: #444; }
+.gray5, .gray5 .layout { background-color: #555; }
+.gray6, .gray6 .layout { background-color: #666; }
+.gray7, .gray7 .layout { background-color: #777; }
+.gray8, .gray8 .layout { background-color: #888; }
+.gray9, .gray9 .layout { background-color: #999; }
+.grayA, .grayA .layout { background-color: #aaa; }
+.grayB, .grayB .layout { background-color: #bbb; }
+.grayC, .grayC .layout { background-color: #ccc; }
+.grayD, .grayD .layout { background-color: #ddd; }
+.grayE, .grayE .layout { background-color: #eee; }
+.grayF, .grayF .layout { background-color: #fff; } /* white */
+
+/**
+ * abstract fill styles (texture)
+ */
+.texture1 {
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAAP0lEQVQoU42Q0QoAIAgDz///aMPAKKeQb26HTg0tB6zKVUhI4Bus5tMn2K4Djh7gBGXM7Uvo5riQ/BfUNwwTWfn+Cgg4zkoRAAAAAElFTkSuQmCC)repeat;
+}
+.texture2 {
+  background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAASUlEQVQoU2M8c+bMfxMTE0YGLAAkB5bApmjmzJn/09PTGeE6YQLoGlCMBpkEUoBsJYaCs2fPMoCMhjmJOCuQ7YfphDsSmySyIgCHKzk26yoSmgAAAABJRU5ErkJggg==) repeat;
+}
+.texture3 {
+  background-color:#fff;
+  background-image: radial-gradient(lightgray 25%, transparent 16%), radial-gradient(lightgray 25%, transparent 16%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+.texture4 {
+  background-color: #eee;
+  background-image: linear-gradient(45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray), linear-gradient(-45deg, lightgray 25%, transparent 25%, transparent 75%, lightgray 75%, lightgray);
+  background-size:8px 8px;
+}

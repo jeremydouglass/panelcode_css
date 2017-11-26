@@ -1,0 +1,39 @@
+/** ==============================
+    Gallery
+    ============================== **/
+
+/**
+ * A gallery is a group of panelcode layouts; may be interspersed with text.
+ * 
+ * In addition to acting as a display collection, a gallery can apply
+ * styles such as sizing, RTL reading order, show/hide labels, etc.
+ */
+.gallery {
+  display: block;
+  overflow: auto;
+  padding: 10px 10px 10px 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /** provide background contrast for white layouts **/
+  background: #cde;
+  border: 1px solid #ddd;
+  clear: both;
+}
+/** flush to sides **/
+.gallery .gallery {
+  padding: 10px 0px;
+}
+
+/** layouts and spreads can be stacked up **/
+.gallery > .layout {
+  float: left;
+  margin: 10px;
+}
+.gallery > .spread {
+  float: left;
+  margin: 10px;
+}
+/** interspersed text may separate stacks of images in the gallery **/
+.gallery > p {
+  clear: both;
+}

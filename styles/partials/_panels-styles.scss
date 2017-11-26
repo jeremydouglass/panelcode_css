@@ -1,0 +1,125 @@
+/** ==============================
+    Panel styles
+    ============================== **/
+
+/** 
+ *  Rise / drop -- tilt panel clockwise / counterclockwise
+ *  label, bleeds, or all of the above.
+ */
+
+.rot-up.panel,
+.rot-up .panel {
+  transform:rotate(-15deg);
+}
+.rot-down.panel,
+.rot-down .panel {
+  transform:rotate(15deg);
+}
+
+/** 
+ *  Scale panel up or down around its center.
+ */
+
+.scale-25.panel,
+.scale-25 > .panel {
+  transform:scale(0.25,0.25);
+}
+.scale-50.panel,
+.scale-50 > .panel {
+  transform:scale(0.50,0.50);
+}
+.scale-75.panel,
+.scale-75 > .panel {
+  transform:scale(0.75,0.75);
+}
+.scale-100.panel,
+.scale-100 > .panel {
+  transform:scale(1.00,1.00);
+}
+.scale-125.panel,
+.scale-125 > .panel {
+  transform:scale(1.25,1.25);
+}
+.scale-150.panel,
+.scale-150 > .panel {
+  transform:scale(1.50,1.50);
+}
+.scale-175.panel,
+.scale-175 .panel {
+  transform:scale(1.75,1.75);
+}
+.scale-200.panel,
+.scale-200 .panel {
+  transform:scale(2.00,2.00);
+}
+.scale-250.panel,
+.scale-250 .panel {
+  transform:scale(2.50,2.50);
+}
+.scale-300.panel,
+.scale-300 .panel {
+  transform:scale(3.00,3.00);
+}
+
+/** 
+ *  Skew panel forward or back.
+ */
+
+.skew-fwd.panel,
+.skew-fwd .panel,
+.rtl.skew-back.panel,
+.rtl .skew-back.panel,
+.rtl .skew-back .panel {
+  transform: skewx(-15deg);
+  transform-origin: center;  
+}
+.skew-back.panel,
+.skew-back .panel,
+.rtl.skew-fwd.panel,
+.rtl .skew-fwd.panel,
+.rtl .skew-fwd .panel {
+  transform: skewx(15deg);
+  transform-origin: left;  
+}
+
+/** 
+ *  Tip panelgroup rows up or down.
+ */
+
+.tilt-up.panel:not(.tilt-none),
+.tilt-up.panelgroup:not(.tilt-none),
+.tilt-up .panelgroup:not(.tilt-none) {
+  transform: rotate(-10deg) skewx(-10deg);
+}
+.tilt-down.panel:not(.tilt-none),
+.tilt-down.panelgroup:not(.tilt-none),
+.tilt-down .panelgroup:not(.tilt-none) {
+  transform: rotate(10deg) skewx(10deg);
+}
+
+.skew-up.panel,
+.skew-up .panel {
+  transform: skewy(-15deg);
+  transform-origin: center;  
+}
+.skew-down.panel,
+.skew-down .panel {
+  transform: skewy(15deg);
+  transform-origin: left;  
+}
+
+.iso.layout,
+.iso.panelgroup,
+.iso.panel {
+  transform:rotateX(60deg) rotateY(0deg) rotateZ(-45deg);  
+}
+
+
+/** 
+ *  Circle
+ */
+
+.circle.panel,
+.circle .panel {
+  border-radius: 50%;
+}

@@ -1,0 +1,131 @@
+/** ==============================
+    Spreads
+    ============================== **/
+
+/**
+ * A spread connects several layouts into a visual group.
+ *
+ * A simple group can be any number of pages, and is a horizontal strip.
+ * A two-page (codex) spread is the most common, but spreads might include:
+ * -  a wrap-around book cover
+ * -  a full page of a newspaper comics section 
+ * -  sections of a long vertical mobile comic
+ * -  a poster or non-traditional surface
+ */
+
+.spread {
+  display:  flex;
+  position: relative;
+  overflow: hidden;
+  border:   0px solid #ddd;
+  padding:  0px;
+  /** currently outside layout captions are hidden on spreads **/
+  /*padding-bottom: 14px;*/
+}
+/* style a simple codex-style center crease -
+     the page has a grey border on the right
+     UNLESS it is the final page
+ */
+
+/** Film-Strip Spread (Default)
+    ============================== **/
+
+.spread:not(.vertical) > .layout:first-child {
+  border-left: 1px solid #000;
+}
+.spread:not(.vertical) > .layout {
+  border-right: 2px dotted #eee;
+  border-left:  2px dotted #999;
+}
+.spread:not(.vertical) > .layout:last-child {
+  border-right: 1px solid #000;
+}
+
+/** Vertical Spread
+    ============================== **/
+
+.spread.vertical {
+  display:grid;
+}
+.spread.vertical > .layout:first-child {
+  border-top: 1px solid #000;
+}
+.spread.vertical > .layout {
+  border-bottom: 2px dotted #eee;
+  border-top:  2px dotted #999;
+}
+.spread.vertical > .layout:last-child {
+  border-bottom: 1px solid #000;
+}
+
+/* .nolabel to remove layout labels */
+.nolabel > .layout,
+.nolabel.layout {
+  padding-bottom: 5px !important;
+}
+.nolabel > .layout > .label,
+.nolabel.layout > .label,
+.nolabel.label {
+  display: none !important;
+}
+
+.spread.rtl > .layout:first-child {
+  border-right: 1px solid #000;
+}
+.spread.rtl > .layout {
+  border-right: 2px dotted #eee;
+  border-left:  2px dotted #999;
+}
+.spread.rtl > .layout:last-child {
+  border-left: 1px solid #000;
+}
+/* might be able to make preserve ltr text in rtl layouts
+ * more systematically, see https://stackoverflow.com/a/36182303/7207622
+ * re:selecting for https://www.w3schools.com/cssref/pr_text_direction.asp
+ * a partial solution implemented: https://stackoverflow.com/a/17074934/7207622
+ */
+/* see also http://rtlcss.com/learn/getting-started/why-rtlcss/index.html */
+
+/* codex style spreads */
+.spread.codex > .layout:nth-child(odd),
+.codex > .spread > .layout:nth-child(odd) {
+  margin-left:  3px;
+  border-left:  1px solid #000;
+  border-right: 3px solid #eee;
+}
+.spread.codex > .layout:nth-child(even),
+.codex > .spread > .layout:nth-child(even) {
+  border-left:  3px solid #ccc;
+  border-right: 1px solid #000;
+  margin-right: 3px;
+}
+.spread.codex > .layout:first-child,
+.codex > .spread > .layout:first-child {
+  margin-left:  0px;
+}
+.spread.codex > .layout:last-child,
+.codex > .spread > .layout:last-child {
+  margin-right: 0px;
+}
+
+
+/****
+.spreadv {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  border: 0px solid #f00;
+}
+****/
+
+.spread2 {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border: 0px solid #f00;
+}
+.spread2 > .layout {
+  margin-top: 10px;
+  margin-right: 2px;
+}

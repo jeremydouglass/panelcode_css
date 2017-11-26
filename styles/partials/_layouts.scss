@@ -1,0 +1,82 @@
+/** ==============================
+    Layouts
+    ============================== **/
+
+/**
+ *  a layout is e.g. a single compositional unit, e.g a page (comic book),
+*   or a strip (newspaper comics).
+ */
+.layout {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.layout {
+  display: grid;
+  position: relative;
+  /* align-content: stretch; */
+  width: 200px;  /* unit square */
+  height: 200px; /* unit square */
+  padding: 20px;
+  padding-bottom: 25px;
+  border: 1px solid #000;
+  background: #fff;
+  grid-gap: 5px;
+  overflow: hidden;
+  /*
+  grid-auto-rows: 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  */
+}
+
+/** Layout Rendering Directions
+    ============================== **/
+
+/** ...for galleries and spreads **/
+// .rtl .layout {
+//   direction: rtl;
+// }
+.rtl {
+  direction: rtl;  
+}
+.rtl .label {
+  direction: ltr;
+}
+
+/** ==============================
+    Labels
+    ============================== **/
+
+/* label text for the layout
+   e.g. appearing in top/bottom margin
+   possibly a panelcode string or identifier
+   (pubdate, issue-pg, vol-ch-pg).
+   Text overflow for long .
+*/
+
+.layout > .label {
+  position:absolute;
+  top: 2px;
+  width: 100%;
+  text-align: center;
+  font-size: 75%;
+  overflow: hidden; /* crop overlong page name labels */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.layout .label:hover {
+  overflow: visible;
+}
+.layout > .label.bottom {
+  top: unset;
+  bottom: 2px;
+}
+.layout > .label.left {
+  left:   4px;
+  text-align: left;
+}
+.layout > .label.right {
+  right:  4px;
+  text-align: right;
+}

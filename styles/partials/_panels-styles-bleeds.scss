@@ -1,0 +1,234 @@
+/** ==============================
+    Bleeds
+    ============================== **/
+
+.panel.bleed{
+  position: relative;
+  /* overflow: visible; */
+  background:#ccc;
+}
+.panel.bleed:before {
+  position: absolute;
+  overflow: hidden;
+  content: '';
+//  left: 0;
+//  top:0;
+  height: 100%;
+  width: 100%; /* 100vw */
+  z-index: -1;
+}
+
+.panel.bleed.all {
+  position: absolute;
+  height: 120%;  /* magic number 127% */
+  width: 120%;   /* magic number 127%/133% */
+  transform: translate(-20px, -20px);
+  text-align:  center;
+  border: 2px #000;
+}
+.panel.bleed.up {
+  bottom: 10%;
+  height: 105%;
+//  height: 150%; /* magic number 150% */
+//  bottom: 55%;  /* magic number 55% */
+  /* align text label to bottom of box https://stackoverflow.com/a/17123364/7207622 */
+  display: flex;
+  align-items: flex-end;
+  /* end align */
+}
+.panel.bleed.down {
+  height: 150%;
+}
+.panel.bleed.left {
+  margin-left: -2px;
+  text-align:right;
+//  width: 140%;
+//  transform: translateX(-40%);
+  width: 150%;
+  right: 17%; /* magic number */
+
+}
+.panel.bleed.right {
+  width: 150%;
+}
+/* fix text-align not working with flex display in up+left corner-case */
+//.panel.bleed.up.left {
+//  justify-content: flex-end;
+//}
+
+.panel.bleed.all {
+  background: repeating-linear-gradient(
+    0deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.left {
+  background: repeating-linear-gradient(
+    0deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.right {
+  background: repeating-linear-gradient(
+    180deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.up {
+  background: repeating-linear-gradient(
+    90deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.down {
+  background: repeating-linear-gradient(
+    270deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.up.left {
+  background: repeating-linear-gradient(
+    45deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.down.right {
+  background: repeating-linear-gradient(
+    45deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.up.right {
+  background: repeating-linear-gradient(
+    -45deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+.panel.bleed.down.left {
+  background: repeating-linear-gradient(
+    -45deg,
+    #aaa 4px,
+    #ddd 8px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//.panel.bleed{
+//  position: relative;
+//  /* overflow: visible; */
+//  background:#ccc;
+//}
+//.panel.bleed:before {
+//  position: absolute;
+//  overflow: hidden;
+//  content: '';
+////  left: 0;
+////  top:0;
+//  height: 100%;
+//  width: 100%; /* 100vw */
+//  z-index: -1;
+//}
+//
+//.panel.bleed.all {
+//  position: absolute;
+//  padding: 0;
+//  margin:  0;
+//  text-align:  center;
+//  height: 200%;
+//  width:  200%;
+////  height: 200px;  /* magic number 127% */
+////  width: 200px;   /* magic number 127%/133% */
+//  border: 2px #000;
+//}
+//.panel.bleed.up {
+//  height: 150%; /* magic number 150% */
+//  bottom: 55%;  /* magic number 55% */
+//  /* align text label to bottom of box https://stackoverflow.com/a/17123364/7207622 */
+//  display: flex;
+//  align-items: flex-end;
+//  /* end align */
+//}
+//.panel.bleed.down {
+//  height: 150%;
+//}
+//.panel.bleed.left {
+//  margin-left: -2px;
+//  text-align:right;
+//  width: 150%;
+//  right: 17%; /* magic number */
+//
+//}
+//.panel.bleed.right {
+//  width: 150%;
+//}
+///* fix text-align not working with flex display in up+left corner-case */
+//.panel.bleed.up.left {
+//  justify-content: flex-end;
+//}
+//
+//.panel.bleed.all {
+//  background: repeating-linear-gradient(
+//    0deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.left {
+//  background: repeating-linear-gradient(
+//    0deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.right {
+//  background: repeating-linear-gradient(
+//    180deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.up {
+//  background: repeating-linear-gradient(
+//    90deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.down {
+//  background: repeating-linear-gradient(
+//    270deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.up.left {
+//  background: repeating-linear-gradient(
+//    45deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.down.right {
+//  background: repeating-linear-gradient(
+//    45deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.up.right {
+//  background: repeating-linear-gradient(
+//    -45deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
+//.panel.bleed.down.left {
+//  background: repeating-linear-gradient(
+//    -45deg,
+//    #aaa 4px,
+//    #ddd 8px);
+//}
