@@ -11,7 +11,7 @@
  * It may also appear on top of the panelcode, as a semi-opaque overlay.
  */
 
-div.layout > div.img {
+ .layout > div.img {
   position:absolute;
   width:100%;
   height:100%;
@@ -22,19 +22,19 @@ div.layout > div.img {
     max-height:100%;
     object-fit: contain;
   }
-  &.show {
-   opacity:0.0;
-   &:hover{
-    opacity:1.0;
-    }
+}
+.ishow div.img {
+  opacity:0.0;
+  &:hover{
+   opacity:1.0;
   }
-  &.hide {
-    opacity:1.0;
-    &:hover{
-      opacity:0.0;
-    }
+}
+.ihide div.img {
+  opacity:1.0;
+  &:hover{
+    opacity:0.0;
   }
-  &.over {
-    opacity:0.33;
-  }
+}
+.iover div.img {
+  opacity:0.33;
 }
