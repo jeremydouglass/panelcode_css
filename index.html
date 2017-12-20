@@ -21,13 +21,14 @@
 			</div>
 		</figure>
 			<h1 style="border-top: 0; margin-top: 0; padding-top: 0;">Panelcode: <br>layout markup and visualization</h1>
-		<p><em>Jeremy Douglass<br>2017-11</em></p>
+		<p><em>Jeremy Douglass<br>2017-12</em></p>
 		<div style="clear:both;"></div>
 
 		<nav class="hang">
 			<ul>
 				<li><a href="#basics">Basics</a></li>
 				<li><a href="#reading">Reading</a></li>
+				<li><a href="#images">Images</a></li>
 				<li><a href="#spans">Spans</a></li>
 				<li><a href="#sizes">Sizes</a></li>
 				<li><a href="#spreads">Spreads</a></li>
@@ -994,6 +995,345 @@
 				</div>
 				<p>The glyph for <code>c3+1_2_1+c3</code> rendered on a unit square, then rerendered while tagged as a newspaper comicstrip (14x10 aspect ratio, Sunday half-page) or as a comicbook page (11x17 aspect ratio, contemporary US comic). Panelcode output may visually match the specific media it was encoded from, or it may also abstract page dimensions when comparing layouts in mixed media collections.</p>
 			</div>
+		</details>
+	</section>
+
+	<section id="images">
+		<details open>
+			<summary>
+				<h2>Images and Panelcode</h2>
+			</summary>
+			
+			<div class="gallery comicbook-us mini"><ins id="firstdiff"></ins>	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout iover">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">	
+					<div class="layout ibefore"><div class="img"><img src="images/174.png"></div></div>	
+					<div class="layout ibefore">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>
+			
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout iafter">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>
+			
+					</div>	
+					<div class="layout iafter"><div class="img"><img src="images/174.png"></div></div>	
+				</div>	
+			</div>
+			
+			<p>Panelcode can also specify methods for companion image display. Specfing an <code>img</code> path displays that image on top of the layout. The <code>ishow</code> and <code>ihide</code> attributes make the image interactively show or hide on hover.</p>
+			
+			<div class="gallery comicbook-us small">	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">img=174.png</div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout ishow">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">ishow</div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout ihide">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">ihide</div>	
+					</div>
+			
+				</div>	
+			</div>
+			
+			
+			<p>Use <code>iover</code> to style the image as semi-opaque (onion skin). The “over” image layer can also be fully shown or fully hidden with <code>ishow</code> or <code>ihide</code>.</p>
+			
+			<div class="gallery comicbook-us small">	
+				<div class="spread ">
+			
+					<div class="layout iover">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">iover</div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout iover ishow">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">iover ishow</div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout iover ihide">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">iover ihide</div>	
+					</div>
+			
+				</div>	
+			</div>
+			
+			
+			<p>Images can also be displayed in a companion layout joined into a spread either before or after the associated panelcode layout, using <code>ibefore</code> or <code>iafter</code>. These pages optionally take a separate label, <code>ilabel</code>.</p>
+			
+			<div class="gallery comicbook-us small">	
+				<div class="spread ">	
+					<div class="layout ibefore"><div class="img"><img src="images/174.png"></div>			<div class="label bottom">ibefore</div></div>	
+					<div class="layout ibefore">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout iafter">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>
+					</div>	
+					<div class="layout iafter"><div class="img"><img src="images/174.png"></div>			<div class="label bottom">iafter</div></div>	
+				</div>	
+			</div>
+			
+			
+			<p>Finally, a collection such as a spread or gallery can all be styled in the same way using a single argument. Here is the same gallery:</p>
+			
+			<p>Styled with <code>iafter</code>:</p>
+			
+			<div class="gallery comicbook-us small iafter">	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>
+			
+									<div class="label bottom">174</div>	
+					</div>	
+					<div class="layout "><div class="img"><img src="images/174.png"></div></div>	
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w4">	
+							<div class="panel ">1</div>	
+							<div class="panel ">2</div>	
+							<div class="panel c2">3</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">4</div>	
+							<div class="panel r2">5</div>	
+							<div class="panel ">6</div>	
+						</div>	
+						<div class="panelgroup	w1">	
+							<div class="panel ">7</div>	
+						</div>
+			
+									<div class="label bottom">175</div>	
+					</div>	
+					<div class="layout "><div class="img"><img src="images/175.png"></div></div>	
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w3">	
+							<div class="panel ">1</div>	
+							<div class="panel c2">2</div>	
+						</div>	
+						<div class="panelgroup	w7">	
+							<div class="panel c4">3</div>	
+							<div class="panel c3">4</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">5</div>	
+							<div class="panel ">6</div>	
+						</div>
+			
+									<div class="label bottom">176</div>	
+					</div>	
+					<div class="layout "><div class="img"><img src="images/176.png"></div></div>	
+				</div>	
+			</div>
+			
+			
+			<p>Styled with <code>iover ishow</code>:</p>
+			
+			<div class="gallery comicbook-us small iover ishow">	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w1">	
+							<div class="panel ">1</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">2</div>	
+							<div class="panel r2">3</div>	
+							<div class="panel ">4</div>	
+						</div>	
+					<div class="img"><img src="images/174.png"></div>	
+									<div class="label bottom">174</div>	
+					</div>
+			
+				</div>	
+				<div class="spread ">
+			
+					<div class="layout ">	
+						<div class="panelgroup	w4">	
+							<div class="panel ">1</div>	
+							<div class="panel ">2</div>	
+							<div class="panel c2">3</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">4</div>	
+							<div class="panel r2">5</div>	
+							<div class="panel ">6</div>	
+						</div>	
+						<div class="panelgroup	w1">	
+							<div class="panel ">7</div>	
+						</div>	
+					<div class="img"><img src="images/175.png"></div>	
+									<div class="label bottom">175</div>	
+					</div>
+			
+			
+					<div class="layout ">	
+						<div class="panelgroup	w3">	
+							<div class="panel ">1</div>	
+							<div class="panel c2">2</div>	
+						</div>	
+						<div class="panelgroup	w7">	
+							<div class="panel c4">3</div>	
+							<div class="panel c3">4</div>	
+						</div>	
+						<div class="panelgroup	w2">	
+							<div class="panel ">5</div>	
+							<div class="panel ">6</div>	
+						</div>	
+					<div class="img"><img src="images/176.png"></div>	
+									<div class="label bottom">176</div>	
+					</div>
+			
+				</div>	
+			</div>
+			
 		</details>
 	</section>
 	
