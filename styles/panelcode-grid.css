@@ -234,6 +234,38 @@
   text-align: right; }
 
 /** ==============================
+    Layout Images (overlays and companion images)
+    ============================== **/
+/**
+ * A pimg defines a container for an image (e.g. a page image).
+ * It is scaled to the size of the media container, without distorting.
+ * It may appear to the left, right, above or below the reference
+ * panelcode (this is determined by the specific renderer).
+ * 
+ * It may also appear on top of the panelcode, as a semi-opaque overlay.
+ */
+div.layout > div.img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px; }
+  div.layout > div.img > img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; }
+  div.layout > div.img.show {
+    opacity: 0.0; }
+    div.layout > div.img.show:hover {
+      opacity: 1.0; }
+  div.layout > div.img.hide {
+    opacity: 1.0; }
+    div.layout > div.img.hide:hover {
+      opacity: 0.0; }
+  div.layout > div.img.over {
+    opacity: 0.33; }
+
+/** ==============================
     Layout Aspect Ratios (MEDIA)
     ============================== **/
 /* defaults */
