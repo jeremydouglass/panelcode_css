@@ -244,26 +244,29 @@
  * 
  * It may also appear on top of the panelcode, as a semi-opaque overlay.
  */
-div.layout > div.img {
+.layout > div.img {
   position: absolute;
   width: 100%;
   height: 100%;
   padding: 0px;
   margin: 0px; }
-  div.layout > div.img > img {
+  .layout > div.img > img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; }
-  div.layout > div.img.show {
-    opacity: 0.0; }
-    div.layout > div.img.show:hover {
-      opacity: 1.0; }
-  div.layout > div.img.hide {
+
+.ishow div.img {
+  opacity: 0.0; }
+  .ishow div.img:hover {
     opacity: 1.0; }
-    div.layout > div.img.hide:hover {
-      opacity: 0.0; }
-  div.layout > div.img.over {
-    opacity: 0.33; }
+
+.ihide div.img {
+  opacity: 1.0; }
+  .ihide div.img:hover {
+    opacity: 0.0; }
+
+.iover div.img {
+  opacity: 0.33; }
 
 /** ==============================
     Layout Aspect Ratios (MEDIA)
