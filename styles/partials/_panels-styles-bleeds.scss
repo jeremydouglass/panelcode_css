@@ -2,6 +2,73 @@
     Bleeds
     ============================== **/
 
+.panel.bl {
+  background: #d3d3d3;
+}
+.panel.bl.left {
+  transform-origin: right; transform: scale(1.55,1);
+}
+.panel.bl.right {
+  transform-origin: left; transform: scale(1.55,1);
+}
+.panel.bl.up {
+  transform-origin: bottom; transform: scale(1,1.55);
+}
+.panel.bl.down {
+  transform-origin: top; transform: scale(1,1.55);
+}
+.panel.bl.left.up {
+  transform-origin: bottom right; transform: scale(1.55,1.55);
+}
+.panel.bl.right.up {
+  transform-origin: bottom left; transform: scale(1.55,1.55);
+}
+.panel.bl.left.down {
+  transform-origin: top right; transform: scale(1.55,1.55);
+}
+.panel.bl.right.down {
+  transform-origin: top left; transform: scale(1.55,1.55);
+}
+.panel.bl.left.right {
+  transform-origin: center center; transform: scale(1.6,1);
+}
+.panel.bl.up.down {
+  transform-origin: center center; transform: scale(1,1.6);
+}
+.panel.bl.left.right.up {
+  transform-origin: center bottom; transform: scale(1.6,1.55);
+}
+.panel.bl.left.right.down {
+  transform-origin: center top; transform: scale(1.6,1.55);
+}
+.panel.bl.up.down.left {
+  transform-origin: right center; transform: scale(1.55,1.6);
+}
+.panel.bl.up.down.right {
+  transform-origin: left center; transform: scale(1.55,1.6);
+}
+.panel.bl.up.down.left.right {
+  transform-origin: center center; transform: scale(1.6,1.6);
+}
+
+.panel.bl.up-half {
+  transform-origin: center bottom; transform: scale(1.6,1.55);
+}
+.panel.bl.down-half {
+  transform-origin: center top; transform: scale(1.6,1.55);
+}
+.panel.bl.left-half {
+  transform-origin: right center; transform: scale(1.55,1.6);
+}
+.panel.bl.right-half {
+  transform-origin: left center; transform: scale(1.55,1.6);
+}
+.panel.bl.all {
+  transform-origin: center center; transform: scale(1.6,1.6);
+}
+
+
+
 .panel.bleed{
   position: relative;
   /* overflow: visible; */
