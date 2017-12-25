@@ -69,16 +69,22 @@
   display: none !important;
 }
 
-.spread.rtl > .layout:first-child {
-  border-right: 1px solid #000;
+.rtl {
+  &.spread:not(.vertical),
+  & .spread:not(.vertical) {
+    & > .layout{
+      border-right: 2px dotted #eee;
+      border-left:  2px dotted #999;
+      &:first-child {
+        border-right: 1px solid #000;
+      }
+      &:last-child {
+        border-left: 1px solid #000;
+      }
+    }
+  }
 }
-.spread.rtl > .layout {
-  border-right: 2px dotted #eee;
-  border-left:  2px dotted #999;
-}
-.spread.rtl > .layout:last-child {
-  border-left: 1px solid #000;
-}
+
 /* might be able to make preserve ltr text in rtl layouts
  * more systematically, see https://stackoverflow.com/a/36182303/7207622
  * re:selecting for https://www.w3schools.com/cssref/pr_text_direction.asp
