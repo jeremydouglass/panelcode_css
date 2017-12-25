@@ -18,9 +18,16 @@
   padding: 0px;
   margin: 0px;
   & > img {
-    max-width:100%;
-    max-height:100%;
-    object-fit: contain;
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit: fill; /* or contain */
+    & + img {            /* any image after the first */
+      position:absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
   }
 }
 .ishow div.img {
@@ -36,5 +43,5 @@
   }
 }
 .iover div.img {
-  opacity:0.33;
+  opacity:0.15;
 }
