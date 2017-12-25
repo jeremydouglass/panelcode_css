@@ -41,28 +41,13 @@
 */
 
 /**
- * width 1-10
+ * width
  * specify the count of grid cells expected in a row
- * or the count of columns in a row group
- * ...would like to make this automatic
+ * or the count of columns in a row group.
+ * Currently the html renderer computes w values
+ * from panel counts and column widths
+ * in order for layouts to wrap correctly.
  */
-.panelgroup.w1 , .spread.w1  { grid-template-columns: repeat(1, 1fr); }
-.panelgroup.w2 , .spread.w2  { grid-template-columns: repeat(2, 1fr); }
-.panelgroup.w3 , .spread.w3  { grid-template-columns: repeat(3, 1fr); }
-.panelgroup.w4 , .spread.w4  { grid-template-columns: repeat(4, 1fr); }
-.panelgroup.w5 , .spread.w5  { grid-template-columns: repeat(5, 1fr); }
-.panelgroup.w6 , .spread.w6  { grid-template-columns: repeat(6, 1fr); }
-.panelgroup.w7 , .spread.w7  { grid-template-columns: repeat(7, 1fr); }
-.panelgroup.w8 , .spread.w8  { grid-template-columns: repeat(8, 1fr); }
-.panelgroup.w9 , .spread.w9  { grid-template-columns: repeat(9, 1fr); }
-.panelgroup.w10, .spread.w10 { grid-template-columns: repeat(10, 1fr); }
-.panelgroup.w11, .spread.w11 { grid-template-columns: repeat(11, 1fr); }
-.panelgroup.w12, .spread.w12 { grid-template-columns: repeat(12, 1fr); }
-.panelgroup.w13, .spread.w13 { grid-template-columns: repeat(13, 1fr); }
-.panelgroup.w14, .spread.w14 { grid-template-columns: repeat(14, 1fr); }
-.panelgroup.w15, .spread.w15 { grid-template-columns: repeat(15, 1fr); }
-.panelgroup.w16, .spread.w16 { grid-template-columns: repeat(16, 1fr); }
-.panelgroup.w17, .spread.w17 { grid-template-columns: repeat(17, 1fr); }
-.panelgroup.w18, .spread.w18 { grid-template-columns: repeat(18, 1fr); }
-.panelgroup.w19, .spread.w19 { grid-template-columns: repeat(19, 1fr); }
-.panelgroup.w20, .spread.w20 { grid-template-columns: repeat(20, 1fr); }
+ @for $i from 1 through 20 {
+  .panelgroup.w#{$i} , .spread.w#{$i} { grid-template-columns: repeat(#{$i}, 1fr); }
+}
