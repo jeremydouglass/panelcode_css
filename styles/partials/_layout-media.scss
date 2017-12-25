@@ -36,16 +36,16 @@ $width: 200px;
 @mixin sizelist($aspect, $width) {
   &.layout,
   & .layout {
-    @include layout($aspect, $width, 1, 5px);
-    padding-bottom: 20px;
+    @include layout($aspect, $width, 1, 4px);
+    /* * padding-bottom: 20px; * */
   }
   &.small,
   & .small,
   .small & {
     &.layout,
     & .layout {
-      @include layout($aspect, $width, 1/2, 5px);
-      padding-bottom: 20px;
+      @include layout($aspect, $width, 1/2, 3px);
+      /* * padding-bottom: 20px; * */
     }
   }
   &.thumb,
@@ -53,8 +53,8 @@ $width: 200px;
   .thumb & {
     &.layout,
     & .layout {
-      @include layout($aspect, $width, 32/100, 3px);
-      padding-bottom: 20px;
+      @include layout($aspect, $width, 32/100, 2px);
+      /* * padding-bottom: 20px; * */
       .label {
         position: absolute;
       }
@@ -65,7 +65,7 @@ $width: 200px;
   .mini & {
     &.layout,
     & .layout {
-      @include layout($aspect, $width, 16/100, 2px, 2px);
+      @include layout($aspect, $width, 16/100, 1px, 2px);
       .label {
         position: absolute;
         bottom: -14px !important;
@@ -163,6 +163,13 @@ div {
   $width: 200px; // 280px
   &-us { /* 11" x 17" */ 
     @include sizelist(11.0/17.0, $width);  
+  }
+  &-short { /* 11" x 15" aspect */
+    @include sizelist(11.0/15.0, $width);
+    &.layout,
+    & .layout {
+      padding: 20px 15px 20px 15px;
+    }  
   }
 }
 
