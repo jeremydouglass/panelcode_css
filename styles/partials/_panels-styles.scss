@@ -16,9 +16,37 @@
   transform:rotate(15deg);
 }
 
+$degrees-list: 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90;
+@each $degree in $degrees-list {
+  .rot-up-#{$degree}.panel,
+  .rot-up-#{$degree} .panel {
+    transform:rotate(-#{$degree}deg);
+  }
+  .rot-down-#{$degree}.panel,
+  .rot-down-#{$degree} .panel {
+    transform:rotate(#{$degree}deg);
+  }
+  .rot-#{$degree}.panel,
+  .rot-#{$degree} .panel {
+    transform:rotate(-#{$degree}deg);
+  }
+  .rot#{$degree}.panel,
+  .rot#{$degree} .panel {
+    transform:rotate(#{$degree}deg);
+  }
+}
+
 /** 
  *  Scale panel up or down around its center.
  */
+
+$scale-list: 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 300;
+@each $scale in $scale-list {
+  .scale-#{$scale}.panel,
+  .scale-#{$scale} > .panel {
+    transform:scale(#{$scale/100.0},#{$scale/100.0});
+  }
+}
 
 .scale-25.panel,
 .scale-25 > .panel {
@@ -114,6 +142,26 @@
   transform:rotateX(60deg) rotateY(0deg) rotateZ(-45deg);  
 }
 
+$trans-list: 10 20 30 40 50;
+@each $shift in $trans-list {
+  $shiftp: percentage($shift/100);
+  .tx#{$shift}.panel,
+  .tx#{$shift} > .panel {
+    transform: translateX(#{$shiftp});
+  }
+  .tx-#{$shift}.panel,
+  .tx-#{$shift} > .panel {
+    transform: translateX(-#{$shiftp});
+  }
+  .ty#{$shift}.panel,
+  .ty#{$shift} > .panel {
+    transform: translateY(#{$shiftp});
+  }
+  .ty-#{$shift}.panel,
+  .ty-#{$shift} > .panel {
+    transform: translateY(-#{$shiftp});
+  }
+}
 
 /** 
  *  Circle
