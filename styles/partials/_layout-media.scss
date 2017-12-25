@@ -39,6 +39,15 @@ $width: 200px;
     @include layout($aspect, $width, 1, 4px);
     /* * padding-bottom: 20px; * */
   }
+  &.default,
+  & .default,
+  .default & {
+    &.layout,
+    & .layout {
+      @include layout($aspect, $width, 1, 4px);
+      /* * padding-bottom: 20px; * */
+    }
+  }
   &.small,
   & .small,
   .small & {
