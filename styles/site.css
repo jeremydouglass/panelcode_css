@@ -123,11 +123,3 @@ code {
   border-radius: 4px;
   padding: 1px;
 }
-.label code {
-  padding: 0px;
-}
-.black .label code {
-  background: #373737;
-  border: 1px solid #444;
-  color: #fff;
-}
