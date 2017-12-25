@@ -101,15 +101,13 @@
 .nolabel.label {
   display: none !important; }
 
-.spread.rtl > .layout:first-child {
-  border-right: 1px solid #000; }
-
-.spread.rtl > .layout {
+.rtl.spread:not(.vertical) > .layout, .rtl .spread:not(.vertical) > .layout {
   border-right: 2px dotted #eee;
   border-left: 2px dotted #999; }
-
-.spread.rtl > .layout:last-child {
-  border-left: 1px solid #000; }
+  .rtl.spread:not(.vertical) > .layout:first-child, .rtl .spread:not(.vertical) > .layout:first-child {
+    border-right: 1px solid #000; }
+  .rtl.spread:not(.vertical) > .layout:last-child, .rtl .spread:not(.vertical) > .layout:last-child {
+    border-left: 1px solid #000; }
 
 /* might be able to make preserve ltr text in rtl layouts
  * more systematically, see https://stackoverflow.com/a/36182303/7207622
@@ -233,6 +231,22 @@
   right: 4px;
   text-align: right; }
 
+.layout > .label {
+  background: rgba(250, 250, 250, 0.5);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1px;
+  margin: 2px;
+  width: 90%; }
+
+.label code {
+  padding: 0px; }
+
+.black .label code {
+  background: #373737;
+  border: 1px solid #444;
+  color: #fff; }
+
 /** ==============================
     Layout Images (overlays and companion images)
     ============================== **/
@@ -251,9 +265,17 @@
   padding: 0px;
   margin: 0px; }
   .layout > div.img > img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain; }
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    /* or contain */ }
+    .layout > div.img > img + img {
+      /* any image after the first */
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: fill; }
 
 .ishow div.img {
   opacity: 0.0; }
@@ -266,7 +288,7 @@
     opacity: 0.0; }
 
 .iover div.img {
-  opacity: 0.33; }
+  opacity: 0.15; }
 
 /** ==============================
     Layout Aspect Ratios (MEDIA)
@@ -278,36 +300,44 @@
 div.layout, div .layout {
   width: 200px;
   height: 214px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
   div.layout .panelgroup, div .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 4px; }
+div.default.layout, div.default .layout, div .default.layout, div .default .layout, .default div.layout, .default div .layout {
+  width: 200px;
+  height: 214px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  div.default.layout .panelgroup, div.default .layout .panelgroup, div .default.layout .panelgroup, div .default .layout .panelgroup, .default div.layout .panelgroup, .default div .layout .panelgroup {
+    grid-gap: 4px; }
 div.small.layout, div.small .layout, div .small.layout, div .small .layout, .small div.layout, .small div .layout {
   width: 100px;
   height: 114px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 3px;
+  grid-gap: 3px;
+  /* * padding-bottom: 20px; * */ }
   div.small.layout .panelgroup, div.small .layout .panelgroup, div .small.layout .panelgroup, div .small .layout .panelgroup, .small div.layout .panelgroup, .small div .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 3px; }
 div.thumb.layout, div.thumb .layout, div .thumb.layout, div .thumb .layout, .thumb div.layout, .thumb div .layout {
   width: 64px;
   height: 78px;
-  padding: 3px;
-  grid-gap: 3px;
-  padding-bottom: 20px; }
+  padding: 2px;
+  grid-gap: 2px;
+  /* * padding-bottom: 20px; * */ }
   div.thumb.layout .panelgroup, div.thumb .layout .panelgroup, div .thumb.layout .panelgroup, div .thumb .layout .panelgroup, .thumb div.layout .panelgroup, .thumb div .layout .panelgroup {
-    grid-gap: 3px; }
+    grid-gap: 2px; }
   div.thumb.layout .label, div.thumb .layout .label, div .thumb.layout .label, div .thumb .layout .label, .thumb div.layout .label, .thumb div .layout .label {
     position: absolute; }
 div.mini.layout, div.mini .layout, div .mini.layout, div .mini .layout, .mini div.layout, .mini div .layout {
   width: 32px;
   height: 34px;
-  padding: 2px;
-  grid-gap: 2px; }
+  padding: 1px;
+  grid-gap: 1px; }
   div.mini.layout .panelgroup, div.mini .layout .panelgroup, div .mini.layout .panelgroup, div .mini .layout .panelgroup, .mini div.layout .panelgroup, .mini div .layout .panelgroup {
-    grid-gap: 2px; }
+    grid-gap: 1px; }
   div.mini.layout .label, div.mini .layout .label, div .mini.layout .label, div .mini .layout .label, .mini div.layout .label, .mini div .layout .label {
     position: absolute;
     bottom: -14px !important; }
@@ -378,36 +408,44 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
   .comicbook-us.layout, .comicbook-us .layout {
     width: 200px;
     height: 323.0909090909px;
-    padding: 5px;
-    grid-gap: 5px;
-    padding-bottom: 20px; }
+    padding: 4px;
+    grid-gap: 4px;
+    /* * padding-bottom: 20px; * */ }
     .comicbook-us.layout .panelgroup, .comicbook-us .layout .panelgroup {
-      grid-gap: 5px; }
+      grid-gap: 4px; }
+  .comicbook-us.default.layout, .comicbook-us.default .layout, .comicbook-us .default.layout, .comicbook-us .default .layout, .default .comicbook-us.layout, .default .comicbook-us .layout {
+    width: 200px;
+    height: 323.0909090909px;
+    padding: 4px;
+    grid-gap: 4px;
+    /* * padding-bottom: 20px; * */ }
+    .comicbook-us.default.layout .panelgroup, .comicbook-us.default .layout .panelgroup, .comicbook-us .default.layout .panelgroup, .comicbook-us .default .layout .panelgroup, .default .comicbook-us.layout .panelgroup, .default .comicbook-us .layout .panelgroup {
+      grid-gap: 4px; }
   .comicbook-us.small.layout, .comicbook-us.small .layout, .comicbook-us .small.layout, .comicbook-us .small .layout, .small .comicbook-us.layout, .small .comicbook-us .layout {
     width: 100px;
     height: 168.5454545455px;
-    padding: 5px;
-    grid-gap: 5px;
-    padding-bottom: 20px; }
+    padding: 3px;
+    grid-gap: 3px;
+    /* * padding-bottom: 20px; * */ }
     .comicbook-us.small.layout .panelgroup, .comicbook-us.small .layout .panelgroup, .comicbook-us .small.layout .panelgroup, .comicbook-us .small .layout .panelgroup, .small .comicbook-us.layout .panelgroup, .small .comicbook-us .layout .panelgroup {
-      grid-gap: 5px; }
+      grid-gap: 3px; }
   .comicbook-us.thumb.layout, .comicbook-us.thumb .layout, .comicbook-us .thumb.layout, .comicbook-us .thumb .layout, .thumb .comicbook-us.layout, .thumb .comicbook-us .layout {
     width: 64px;
     height: 112.9090909091px;
-    padding: 3px;
-    grid-gap: 3px;
-    padding-bottom: 20px; }
+    padding: 2px;
+    grid-gap: 2px;
+    /* * padding-bottom: 20px; * */ }
     .comicbook-us.thumb.layout .panelgroup, .comicbook-us.thumb .layout .panelgroup, .comicbook-us .thumb.layout .panelgroup, .comicbook-us .thumb .layout .panelgroup, .thumb .comicbook-us.layout .panelgroup, .thumb .comicbook-us .layout .panelgroup {
-      grid-gap: 3px; }
+      grid-gap: 2px; }
     .comicbook-us.thumb.layout .label, .comicbook-us.thumb .layout .label, .comicbook-us .thumb.layout .label, .comicbook-us .thumb .layout .label, .thumb .comicbook-us.layout .label, .thumb .comicbook-us .layout .label {
       position: absolute; }
   .comicbook-us.mini.layout, .comicbook-us.mini .layout, .comicbook-us .mini.layout, .comicbook-us .mini .layout, .mini .comicbook-us.layout, .mini .comicbook-us .layout {
     width: 32px;
     height: 51.4545454545px;
-    padding: 2px;
-    grid-gap: 2px; }
+    padding: 1px;
+    grid-gap: 1px; }
     .comicbook-us.mini.layout .panelgroup, .comicbook-us.mini .layout .panelgroup, .comicbook-us .mini.layout .panelgroup, .comicbook-us .mini .layout .panelgroup, .mini .comicbook-us.layout .panelgroup, .mini .comicbook-us .layout .panelgroup {
-      grid-gap: 2px; }
+      grid-gap: 1px; }
     .comicbook-us.mini.layout .label, .comicbook-us.mini .layout .label, .comicbook-us .mini.layout .label, .comicbook-us .mini .layout .label, .mini .comicbook-us.layout .label, .mini .comicbook-us .layout .label {
       position: absolute;
       bottom: -14px !important; }
@@ -470,6 +508,113 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
     border: 0px solid #f00; }
     .comicbook-us.micro3.layout .panelgroup, .comicbook-us.micro3 .layout .panelgroup, .comicbook-us .micro3.layout .panelgroup, .comicbook-us .micro3 .layout .panelgroup, .micro3 .comicbook-us.layout .panelgroup, .micro3 .comicbook-us .layout .panelgroup {
       grid-gap: 1px; }
+.comicbook-short {
+  /* 11" x 15" aspect */ }
+  .comicbook-short.layout, .comicbook-short .layout {
+    width: 200px;
+    height: 286.7272727273px;
+    padding: 4px;
+    grid-gap: 4px;
+    /* * padding-bottom: 20px; * */ }
+    .comicbook-short.layout .panelgroup, .comicbook-short .layout .panelgroup {
+      grid-gap: 4px; }
+  .comicbook-short.default.layout, .comicbook-short.default .layout, .comicbook-short .default.layout, .comicbook-short .default .layout, .default .comicbook-short.layout, .default .comicbook-short .layout {
+    width: 200px;
+    height: 286.7272727273px;
+    padding: 4px;
+    grid-gap: 4px;
+    /* * padding-bottom: 20px; * */ }
+    .comicbook-short.default.layout .panelgroup, .comicbook-short.default .layout .panelgroup, .comicbook-short .default.layout .panelgroup, .comicbook-short .default .layout .panelgroup, .default .comicbook-short.layout .panelgroup, .default .comicbook-short .layout .panelgroup {
+      grid-gap: 4px; }
+  .comicbook-short.small.layout, .comicbook-short.small .layout, .comicbook-short .small.layout, .comicbook-short .small .layout, .small .comicbook-short.layout, .small .comicbook-short .layout {
+    width: 100px;
+    height: 150.3636363636px;
+    padding: 3px;
+    grid-gap: 3px;
+    /* * padding-bottom: 20px; * */ }
+    .comicbook-short.small.layout .panelgroup, .comicbook-short.small .layout .panelgroup, .comicbook-short .small.layout .panelgroup, .comicbook-short .small .layout .panelgroup, .small .comicbook-short.layout .panelgroup, .small .comicbook-short .layout .panelgroup {
+      grid-gap: 3px; }
+  .comicbook-short.thumb.layout, .comicbook-short.thumb .layout, .comicbook-short .thumb.layout, .comicbook-short .thumb .layout, .thumb .comicbook-short.layout, .thumb .comicbook-short .layout {
+    width: 64px;
+    height: 101.2727272727px;
+    padding: 2px;
+    grid-gap: 2px;
+    /* * padding-bottom: 20px; * */ }
+    .comicbook-short.thumb.layout .panelgroup, .comicbook-short.thumb .layout .panelgroup, .comicbook-short .thumb.layout .panelgroup, .comicbook-short .thumb .layout .panelgroup, .thumb .comicbook-short.layout .panelgroup, .thumb .comicbook-short .layout .panelgroup {
+      grid-gap: 2px; }
+    .comicbook-short.thumb.layout .label, .comicbook-short.thumb .layout .label, .comicbook-short .thumb.layout .label, .comicbook-short .thumb .layout .label, .thumb .comicbook-short.layout .label, .thumb .comicbook-short .layout .label {
+      position: absolute; }
+  .comicbook-short.mini.layout, .comicbook-short.mini .layout, .comicbook-short .mini.layout, .comicbook-short .mini .layout, .mini .comicbook-short.layout, .mini .comicbook-short .layout {
+    width: 32px;
+    height: 45.6363636364px;
+    padding: 1px;
+    grid-gap: 1px; }
+    .comicbook-short.mini.layout .panelgroup, .comicbook-short.mini .layout .panelgroup, .comicbook-short .mini.layout .panelgroup, .comicbook-short .mini .layout .panelgroup, .mini .comicbook-short.layout .panelgroup, .mini .comicbook-short .layout .panelgroup {
+      grid-gap: 1px; }
+    .comicbook-short.mini.layout .label, .comicbook-short.mini .layout .label, .comicbook-short .mini.layout .label, .comicbook-short .mini .layout .label, .mini .comicbook-short.layout .label, .mini .comicbook-short .layout .label {
+      position: absolute;
+      bottom: -14px !important; }
+    .comicbook-short.mini.layout:hover .label, .comicbook-short.mini .layout:hover .label, .comicbook-short .mini.layout:hover .label, .comicbook-short .mini .layout:hover .label, .mini .comicbook-short.layout:hover .label, .mini .comicbook-short .layout:hover .label {
+      bottom: 0px !important;
+      visibility: initial;
+      overflow: visible; }
+    .comicbook-short.mini.layout .panel, .comicbook-short.mini .layout .panel, .comicbook-short .mini.layout .panel, .comicbook-short .mini .layout .panel, .mini .comicbook-short.layout .panel, .mini .comicbook-short .layout .panel {
+      color: transparent;
+      /* hide panel text */ }
+  .comicbook-short.micro.layout, .comicbook-short.micro .layout, .comicbook-short .micro.layout, .comicbook-short .micro .layout, .micro .comicbook-short.layout, .micro .comicbook-short .layout {
+    width: 24px;
+    height: 33.7272727273px;
+    padding: 1px;
+    grid-gap: 1px;
+    background: #fff;
+    border: 1px solid #999; }
+    .comicbook-short.micro.layout .panelgroup, .comicbook-short.micro .layout .panelgroup, .comicbook-short .micro.layout .panelgroup, .comicbook-short .micro .layout .panelgroup, .micro .comicbook-short.layout .panelgroup, .micro .comicbook-short .layout .panelgroup {
+      grid-gap: 1px; }
+    .comicbook-short.micro.layout .label, .comicbook-short.micro .layout .label, .comicbook-short .micro.layout .label, .comicbook-short .micro .layout .label, .micro .comicbook-short.layout .label, .micro .comicbook-short .layout .label {
+      visibility: hidden;
+      position: absolute;
+      bottom: -14px !important; }
+    .comicbook-short.micro.layout:hover .label, .comicbook-short.micro .layout:hover .label, .comicbook-short .micro.layout:hover .label, .comicbook-short .micro .layout:hover .label, .micro .comicbook-short.layout:hover .label, .micro .comicbook-short .layout:hover .label {
+      visibility: initial;
+      overflow: visible; }
+    .comicbook-short.micro.layout .panel, .comicbook-short.micro .layout .panel, .comicbook-short .micro.layout .panel, .comicbook-short .micro .layout .panel, .micro .comicbook-short.layout .panel, .micro .comicbook-short .layout .panel {
+      border: 0px solid #999;
+      background: #ccc;
+      padding: 0px;
+      color: transparent;
+      /* hide panel text */ }
+  .comicbook-short.micro2.layout, .comicbook-short.micro2 .layout, .comicbook-short .micro2.layout, .comicbook-short .micro2 .layout, .micro3 .comicbook-short.layout, .micro3 .comicbook-short .layout {
+    width: 24px;
+    height: 32.7272727273px;
+    padding: 0px;
+    grid-gap: 0px;
+    background: #fff;
+    border: 0px solid #999; }
+    .comicbook-short.micro2.layout .panelgroup, .comicbook-short.micro2 .layout .panelgroup, .comicbook-short .micro2.layout .panelgroup, .comicbook-short .micro2 .layout .panelgroup, .micro3 .comicbook-short.layout .panelgroup, .micro3 .comicbook-short .layout .panelgroup {
+      grid-gap: 0px; }
+    .comicbook-short.micro2.layout .label, .comicbook-short.micro2 .layout .label, .comicbook-short .micro2.layout .label, .comicbook-short .micro2 .layout .label, .micro3 .comicbook-short.layout .label, .micro3 .comicbook-short .layout .label {
+      visibility: hidden;
+      position: absolute;
+      bottom: -14px !important; }
+    .comicbook-short.micro2.layout:hover .label, .comicbook-short.micro2 .layout:hover .label, .comicbook-short .micro2.layout:hover .label, .comicbook-short .micro2 .layout:hover .label, .micro3 .comicbook-short.layout:hover .label, .micro3 .comicbook-short .layout:hover .label {
+      visibility: initial;
+      overflow: visible; }
+    .comicbook-short.micro2.layout .panel, .comicbook-short.micro2 .layout .panel, .comicbook-short .micro2.layout .panel, .comicbook-short .micro2 .layout .panel, .micro3 .comicbook-short.layout .panel, .micro3 .comicbook-short .layout .panel {
+      border: 1px solid #999;
+      background: #fff;
+      padding: 0px;
+      color: transparent;
+      /* hide panel text */ }
+  .comicbook-short.micro3.layout, .comicbook-short.micro3 .layout, .comicbook-short .micro3.layout, .comicbook-short .micro3 .layout, .micro3 .comicbook-short.layout, .micro3 .comicbook-short .layout {
+    width: 24px;
+    height: 33.7272727273px;
+    padding: 1px;
+    grid-gap: 1px;
+    border: 0px solid #f00; }
+    .comicbook-short.micro3.layout .panelgroup, .comicbook-short.micro3 .layout .panelgroup, .comicbook-short .micro3.layout .panelgroup, .comicbook-short .micro3 .layout .panelgroup, .micro3 .comicbook-short.layout .panelgroup, .micro3 .comicbook-short .layout .panelgroup {
+      grid-gap: 1px; }
+  .comicbook-short.layout, .comicbook-short .layout {
+    padding: 20px 15px 20px 15px; }
 
 /** comicstrips
     ============================== **/
@@ -478,36 +623,44 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
   .comicstrip-daily.layout, .comicstrip-daily .layout {
     width: 300px;
     height: 99.7142857143px;
-    padding: 5px;
-    grid-gap: 5px;
-    padding-bottom: 20px; }
+    padding: 4px;
+    grid-gap: 4px;
+    /* * padding-bottom: 20px; * */ }
     .comicstrip-daily.layout .panelgroup, .comicstrip-daily .layout .panelgroup {
-      grid-gap: 5px; }
+      grid-gap: 4px; }
+  .comicstrip-daily.default.layout, .comicstrip-daily.default .layout, .comicstrip-daily .default.layout, .comicstrip-daily .default .layout, .default .comicstrip-daily.layout, .default .comicstrip-daily .layout {
+    width: 300px;
+    height: 99.7142857143px;
+    padding: 4px;
+    grid-gap: 4px;
+    /* * padding-bottom: 20px; * */ }
+    .comicstrip-daily.default.layout .panelgroup, .comicstrip-daily.default .layout .panelgroup, .comicstrip-daily .default.layout .panelgroup, .comicstrip-daily .default .layout .panelgroup, .default .comicstrip-daily.layout .panelgroup, .default .comicstrip-daily .layout .panelgroup {
+      grid-gap: 4px; }
   .comicstrip-daily.small.layout, .comicstrip-daily.small .layout, .comicstrip-daily .small.layout, .comicstrip-daily .small .layout, .small .comicstrip-daily.layout, .small .comicstrip-daily .layout {
     width: 150px;
     height: 56.8571428571px;
-    padding: 5px;
-    grid-gap: 5px;
-    padding-bottom: 20px; }
+    padding: 3px;
+    grid-gap: 3px;
+    /* * padding-bottom: 20px; * */ }
     .comicstrip-daily.small.layout .panelgroup, .comicstrip-daily.small .layout .panelgroup, .comicstrip-daily .small.layout .panelgroup, .comicstrip-daily .small .layout .panelgroup, .small .comicstrip-daily.layout .panelgroup, .small .comicstrip-daily .layout .panelgroup {
-      grid-gap: 5px; }
+      grid-gap: 3px; }
   .comicstrip-daily.thumb.layout, .comicstrip-daily.thumb .layout, .comicstrip-daily .thumb.layout, .comicstrip-daily .thumb .layout, .thumb .comicstrip-daily.layout, .thumb .comicstrip-daily .layout {
     width: 96px;
     height: 41.4285714286px;
-    padding: 3px;
-    grid-gap: 3px;
-    padding-bottom: 20px; }
+    padding: 2px;
+    grid-gap: 2px;
+    /* * padding-bottom: 20px; * */ }
     .comicstrip-daily.thumb.layout .panelgroup, .comicstrip-daily.thumb .layout .panelgroup, .comicstrip-daily .thumb.layout .panelgroup, .comicstrip-daily .thumb .layout .panelgroup, .thumb .comicstrip-daily.layout .panelgroup, .thumb .comicstrip-daily .layout .panelgroup {
-      grid-gap: 3px; }
+      grid-gap: 2px; }
     .comicstrip-daily.thumb.layout .label, .comicstrip-daily.thumb .layout .label, .comicstrip-daily .thumb.layout .label, .comicstrip-daily .thumb .layout .label, .thumb .comicstrip-daily.layout .label, .thumb .comicstrip-daily .layout .label {
       position: absolute; }
   .comicstrip-daily.mini.layout, .comicstrip-daily.mini .layout, .comicstrip-daily .mini.layout, .comicstrip-daily .mini .layout, .mini .comicstrip-daily.layout, .mini .comicstrip-daily .layout {
     width: 48px;
     height: 15.7142857143px;
-    padding: 2px;
-    grid-gap: 2px; }
+    padding: 1px;
+    grid-gap: 1px; }
     .comicstrip-daily.mini.layout .panelgroup, .comicstrip-daily.mini .layout .panelgroup, .comicstrip-daily .mini.layout .panelgroup, .comicstrip-daily .mini .layout .panelgroup, .mini .comicstrip-daily.layout .panelgroup, .mini .comicstrip-daily .layout .panelgroup {
-      grid-gap: 2px; }
+      grid-gap: 1px; }
     .comicstrip-daily.mini.layout .label, .comicstrip-daily.mini .layout .label, .comicstrip-daily .mini.layout .label, .comicstrip-daily .mini .layout .label, .mini .comicstrip-daily.layout .label, .mini .comicstrip-daily .layout .label {
       position: absolute;
       bottom: -14px !important; }
@@ -577,36 +730,44 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .comicstrip-sunday-full.layout, .comicstrip-sunday-full .layout {
   width: 300px;
   height: 442.5714285714px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-full.layout .panelgroup, .comicstrip-sunday-full .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 4px; }
+.comicstrip-sunday-full.default.layout, .comicstrip-sunday-full.default .layout, .comicstrip-sunday-full .default.layout, .comicstrip-sunday-full .default .layout, .default .comicstrip-sunday-full.layout, .default .comicstrip-sunday-full .layout {
+  width: 300px;
+  height: 442.5714285714px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-sunday-full.default.layout .panelgroup, .comicstrip-sunday-full.default .layout .panelgroup, .comicstrip-sunday-full .default.layout .panelgroup, .comicstrip-sunday-full .default .layout .panelgroup, .default .comicstrip-sunday-full.layout .panelgroup, .default .comicstrip-sunday-full .layout .panelgroup {
+    grid-gap: 4px; }
 .comicstrip-sunday-full.small.layout, .comicstrip-sunday-full.small .layout, .comicstrip-sunday-full .small.layout, .comicstrip-sunday-full .small .layout, .small .comicstrip-sunday-full.layout, .small .comicstrip-sunday-full .layout {
   width: 150px;
   height: 228.2857142857px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 3px;
+  grid-gap: 3px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-full.small.layout .panelgroup, .comicstrip-sunday-full.small .layout .panelgroup, .comicstrip-sunday-full .small.layout .panelgroup, .comicstrip-sunday-full .small .layout .panelgroup, .small .comicstrip-sunday-full.layout .panelgroup, .small .comicstrip-sunday-full .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 3px; }
 .comicstrip-sunday-full.thumb.layout, .comicstrip-sunday-full.thumb .layout, .comicstrip-sunday-full .thumb.layout, .comicstrip-sunday-full .thumb .layout, .thumb .comicstrip-sunday-full.layout, .thumb .comicstrip-sunday-full .layout {
   width: 96px;
   height: 151.1428571429px;
-  padding: 3px;
-  grid-gap: 3px;
-  padding-bottom: 20px; }
+  padding: 2px;
+  grid-gap: 2px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-full.thumb.layout .panelgroup, .comicstrip-sunday-full.thumb .layout .panelgroup, .comicstrip-sunday-full .thumb.layout .panelgroup, .comicstrip-sunday-full .thumb .layout .panelgroup, .thumb .comicstrip-sunday-full.layout .panelgroup, .thumb .comicstrip-sunday-full .layout .panelgroup {
-    grid-gap: 3px; }
+    grid-gap: 2px; }
   .comicstrip-sunday-full.thumb.layout .label, .comicstrip-sunday-full.thumb .layout .label, .comicstrip-sunday-full .thumb.layout .label, .comicstrip-sunday-full .thumb .layout .label, .thumb .comicstrip-sunday-full.layout .label, .thumb .comicstrip-sunday-full .layout .label {
     position: absolute; }
 .comicstrip-sunday-full.mini.layout, .comicstrip-sunday-full.mini .layout, .comicstrip-sunday-full .mini.layout, .comicstrip-sunday-full .mini .layout, .mini .comicstrip-sunday-full.layout, .mini .comicstrip-sunday-full .layout {
   width: 48px;
   height: 70.5714285714px;
-  padding: 2px;
-  grid-gap: 2px; }
+  padding: 1px;
+  grid-gap: 1px; }
   .comicstrip-sunday-full.mini.layout .panelgroup, .comicstrip-sunday-full.mini .layout .panelgroup, .comicstrip-sunday-full .mini.layout .panelgroup, .comicstrip-sunday-full .mini .layout .panelgroup, .mini .comicstrip-sunday-full.layout .panelgroup, .mini .comicstrip-sunday-full .layout .panelgroup {
-    grid-gap: 2px; }
+    grid-gap: 1px; }
   .comicstrip-sunday-full.mini.layout .label, .comicstrip-sunday-full.mini .layout .label, .comicstrip-sunday-full .mini.layout .label, .comicstrip-sunday-full .mini .layout .label, .mini .comicstrip-sunday-full.layout .label, .mini .comicstrip-sunday-full .layout .label {
     position: absolute;
     bottom: -14px !important; }
@@ -676,36 +837,44 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .comicstrip-sunday-half.layout, .comicstrip-sunday-half .layout {
   width: 300px;
   height: 228.2857142857px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-half.layout .panelgroup, .comicstrip-sunday-half .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 4px; }
+.comicstrip-sunday-half.default.layout, .comicstrip-sunday-half.default .layout, .comicstrip-sunday-half .default.layout, .comicstrip-sunday-half .default .layout, .default .comicstrip-sunday-half.layout, .default .comicstrip-sunday-half .layout {
+  width: 300px;
+  height: 228.2857142857px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-sunday-half.default.layout .panelgroup, .comicstrip-sunday-half.default .layout .panelgroup, .comicstrip-sunday-half .default.layout .panelgroup, .comicstrip-sunday-half .default .layout .panelgroup, .default .comicstrip-sunday-half.layout .panelgroup, .default .comicstrip-sunday-half .layout .panelgroup {
+    grid-gap: 4px; }
 .comicstrip-sunday-half.small.layout, .comicstrip-sunday-half.small .layout, .comicstrip-sunday-half .small.layout, .comicstrip-sunday-half .small .layout, .small .comicstrip-sunday-half.layout, .small .comicstrip-sunday-half .layout {
   width: 150px;
   height: 121.1428571429px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 3px;
+  grid-gap: 3px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-half.small.layout .panelgroup, .comicstrip-sunday-half.small .layout .panelgroup, .comicstrip-sunday-half .small.layout .panelgroup, .comicstrip-sunday-half .small .layout .panelgroup, .small .comicstrip-sunday-half.layout .panelgroup, .small .comicstrip-sunday-half .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 3px; }
 .comicstrip-sunday-half.thumb.layout, .comicstrip-sunday-half.thumb .layout, .comicstrip-sunday-half .thumb.layout, .comicstrip-sunday-half .thumb .layout, .thumb .comicstrip-sunday-half.layout, .thumb .comicstrip-sunday-half .layout {
   width: 96px;
   height: 82.5714285714px;
-  padding: 3px;
-  grid-gap: 3px;
-  padding-bottom: 20px; }
+  padding: 2px;
+  grid-gap: 2px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-half.thumb.layout .panelgroup, .comicstrip-sunday-half.thumb .layout .panelgroup, .comicstrip-sunday-half .thumb.layout .panelgroup, .comicstrip-sunday-half .thumb .layout .panelgroup, .thumb .comicstrip-sunday-half.layout .panelgroup, .thumb .comicstrip-sunday-half .layout .panelgroup {
-    grid-gap: 3px; }
+    grid-gap: 2px; }
   .comicstrip-sunday-half.thumb.layout .label, .comicstrip-sunday-half.thumb .layout .label, .comicstrip-sunday-half .thumb.layout .label, .comicstrip-sunday-half .thumb .layout .label, .thumb .comicstrip-sunday-half.layout .label, .thumb .comicstrip-sunday-half .layout .label {
     position: absolute; }
 .comicstrip-sunday-half.mini.layout, .comicstrip-sunday-half.mini .layout, .comicstrip-sunday-half .mini.layout, .comicstrip-sunday-half .mini .layout, .mini .comicstrip-sunday-half.layout, .mini .comicstrip-sunday-half .layout {
   width: 48px;
   height: 36.2857142857px;
-  padding: 2px;
-  grid-gap: 2px; }
+  padding: 1px;
+  grid-gap: 1px; }
   .comicstrip-sunday-half.mini.layout .panelgroup, .comicstrip-sunday-half.mini .layout .panelgroup, .comicstrip-sunday-half .mini.layout .panelgroup, .comicstrip-sunday-half .mini .layout .panelgroup, .mini .comicstrip-sunday-half.layout .panelgroup, .mini .comicstrip-sunday-half .layout .panelgroup {
-    grid-gap: 2px; }
+    grid-gap: 1px; }
   .comicstrip-sunday-half.mini.layout .label, .comicstrip-sunday-half.mini .layout .label, .comicstrip-sunday-half .mini.layout .label, .comicstrip-sunday-half .mini .layout .label, .mini .comicstrip-sunday-half.layout .label, .mini .comicstrip-sunday-half .layout .label {
     position: absolute;
     bottom: -14px !important; }
@@ -775,36 +944,44 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .comicstrip-sunday-third.layout, .comicstrip-sunday-third .layout {
   width: 300px;
   height: 157.5714285714px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-third.layout .panelgroup, .comicstrip-sunday-third .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 4px; }
+.comicstrip-sunday-third.default.layout, .comicstrip-sunday-third.default .layout, .comicstrip-sunday-third .default.layout, .comicstrip-sunday-third .default .layout, .default .comicstrip-sunday-third.layout, .default .comicstrip-sunday-third .layout {
+  width: 300px;
+  height: 157.5714285714px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-sunday-third.default.layout .panelgroup, .comicstrip-sunday-third.default .layout .panelgroup, .comicstrip-sunday-third .default.layout .panelgroup, .comicstrip-sunday-third .default .layout .panelgroup, .default .comicstrip-sunday-third.layout .panelgroup, .default .comicstrip-sunday-third .layout .panelgroup {
+    grid-gap: 4px; }
 .comicstrip-sunday-third.small.layout, .comicstrip-sunday-third.small .layout, .comicstrip-sunday-third .small.layout, .comicstrip-sunday-third .small .layout, .small .comicstrip-sunday-third.layout, .small .comicstrip-sunday-third .layout {
   width: 150px;
   height: 85.7857142857px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 3px;
+  grid-gap: 3px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-third.small.layout .panelgroup, .comicstrip-sunday-third.small .layout .panelgroup, .comicstrip-sunday-third .small.layout .panelgroup, .comicstrip-sunday-third .small .layout .panelgroup, .small .comicstrip-sunday-third.layout .panelgroup, .small .comicstrip-sunday-third .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 3px; }
 .comicstrip-sunday-third.thumb.layout, .comicstrip-sunday-third.thumb .layout, .comicstrip-sunday-third .thumb.layout, .comicstrip-sunday-third .thumb .layout, .thumb .comicstrip-sunday-third.layout, .thumb .comicstrip-sunday-third .layout {
   width: 96px;
   height: 59.9428571429px;
-  padding: 3px;
-  grid-gap: 3px;
-  padding-bottom: 20px; }
+  padding: 2px;
+  grid-gap: 2px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-third.thumb.layout .panelgroup, .comicstrip-sunday-third.thumb .layout .panelgroup, .comicstrip-sunday-third .thumb.layout .panelgroup, .comicstrip-sunday-third .thumb .layout .panelgroup, .thumb .comicstrip-sunday-third.layout .panelgroup, .thumb .comicstrip-sunday-third .layout .panelgroup {
-    grid-gap: 3px; }
+    grid-gap: 2px; }
   .comicstrip-sunday-third.thumb.layout .label, .comicstrip-sunday-third.thumb .layout .label, .comicstrip-sunday-third .thumb.layout .label, .comicstrip-sunday-third .thumb .layout .label, .thumb .comicstrip-sunday-third.layout .label, .thumb .comicstrip-sunday-third .layout .label {
     position: absolute; }
 .comicstrip-sunday-third.mini.layout, .comicstrip-sunday-third.mini .layout, .comicstrip-sunday-third .mini.layout, .comicstrip-sunday-third .mini .layout, .mini .comicstrip-sunday-third.layout, .mini .comicstrip-sunday-third .layout {
   width: 48px;
   height: 24.9714285714px;
-  padding: 2px;
-  grid-gap: 2px; }
+  padding: 1px;
+  grid-gap: 1px; }
   .comicstrip-sunday-third.mini.layout .panelgroup, .comicstrip-sunday-third.mini .layout .panelgroup, .comicstrip-sunday-third .mini.layout .panelgroup, .comicstrip-sunday-third .mini .layout .panelgroup, .mini .comicstrip-sunday-third.layout .panelgroup, .mini .comicstrip-sunday-third .layout .panelgroup {
-    grid-gap: 2px; }
+    grid-gap: 1px; }
   .comicstrip-sunday-third.mini.layout .label, .comicstrip-sunday-third.mini .layout .label, .comicstrip-sunday-third .mini.layout .label, .comicstrip-sunday-third .mini .layout .label, .mini .comicstrip-sunday-third.layout .label, .mini .comicstrip-sunday-third .layout .label {
     position: absolute;
     bottom: -14px !important; }
@@ -874,36 +1051,44 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .comicstrip-sunday-quarter.layout, .comicstrip-sunday-quarter .layout {
   width: 300px;
   height: 121.1428571429px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-quarter.layout .panelgroup, .comicstrip-sunday-quarter .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 4px; }
+.comicstrip-sunday-quarter.default.layout, .comicstrip-sunday-quarter.default .layout, .comicstrip-sunday-quarter .default.layout, .comicstrip-sunday-quarter .default .layout, .default .comicstrip-sunday-quarter.layout, .default .comicstrip-sunday-quarter .layout {
+  width: 300px;
+  height: 121.1428571429px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-sunday-quarter.default.layout .panelgroup, .comicstrip-sunday-quarter.default .layout .panelgroup, .comicstrip-sunday-quarter .default.layout .panelgroup, .comicstrip-sunday-quarter .default .layout .panelgroup, .default .comicstrip-sunday-quarter.layout .panelgroup, .default .comicstrip-sunday-quarter .layout .panelgroup {
+    grid-gap: 4px; }
 .comicstrip-sunday-quarter.small.layout, .comicstrip-sunday-quarter.small .layout, .comicstrip-sunday-quarter .small.layout, .comicstrip-sunday-quarter .small .layout, .small .comicstrip-sunday-quarter.layout, .small .comicstrip-sunday-quarter .layout {
   width: 150px;
   height: 67.5714285714px;
-  padding: 5px;
-  grid-gap: 5px;
-  padding-bottom: 20px; }
+  padding: 3px;
+  grid-gap: 3px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-quarter.small.layout .panelgroup, .comicstrip-sunday-quarter.small .layout .panelgroup, .comicstrip-sunday-quarter .small.layout .panelgroup, .comicstrip-sunday-quarter .small .layout .panelgroup, .small .comicstrip-sunday-quarter.layout .panelgroup, .small .comicstrip-sunday-quarter .layout .panelgroup {
-    grid-gap: 5px; }
+    grid-gap: 3px; }
 .comicstrip-sunday-quarter.thumb.layout, .comicstrip-sunday-quarter.thumb .layout, .comicstrip-sunday-quarter .thumb.layout, .comicstrip-sunday-quarter .thumb .layout, .thumb .comicstrip-sunday-quarter.layout, .thumb .comicstrip-sunday-quarter .layout {
   width: 96px;
   height: 48.2857142857px;
-  padding: 3px;
-  grid-gap: 3px;
-  padding-bottom: 20px; }
+  padding: 2px;
+  grid-gap: 2px;
+  /* * padding-bottom: 20px; * */ }
   .comicstrip-sunday-quarter.thumb.layout .panelgroup, .comicstrip-sunday-quarter.thumb .layout .panelgroup, .comicstrip-sunday-quarter .thumb.layout .panelgroup, .comicstrip-sunday-quarter .thumb .layout .panelgroup, .thumb .comicstrip-sunday-quarter.layout .panelgroup, .thumb .comicstrip-sunday-quarter .layout .panelgroup {
-    grid-gap: 3px; }
+    grid-gap: 2px; }
   .comicstrip-sunday-quarter.thumb.layout .label, .comicstrip-sunday-quarter.thumb .layout .label, .comicstrip-sunday-quarter .thumb.layout .label, .comicstrip-sunday-quarter .thumb .layout .label, .thumb .comicstrip-sunday-quarter.layout .label, .thumb .comicstrip-sunday-quarter .layout .label {
     position: absolute; }
 .comicstrip-sunday-quarter.mini.layout, .comicstrip-sunday-quarter.mini .layout, .comicstrip-sunday-quarter .mini.layout, .comicstrip-sunday-quarter .mini .layout, .mini .comicstrip-sunday-quarter.layout, .mini .comicstrip-sunday-quarter .layout {
   width: 48px;
   height: 19.1428571429px;
-  padding: 2px;
-  grid-gap: 2px; }
+  padding: 1px;
+  grid-gap: 1px; }
   .comicstrip-sunday-quarter.mini.layout .panelgroup, .comicstrip-sunday-quarter.mini .layout .panelgroup, .comicstrip-sunday-quarter .mini.layout .panelgroup, .comicstrip-sunday-quarter .mini .layout .panelgroup, .mini .comicstrip-sunday-quarter.layout .panelgroup, .mini .comicstrip-sunday-quarter .layout .panelgroup {
-    grid-gap: 2px; }
+    grid-gap: 1px; }
   .comicstrip-sunday-quarter.mini.layout .label, .comicstrip-sunday-quarter.mini .layout .label, .comicstrip-sunday-quarter .mini.layout .label, .comicstrip-sunday-quarter .mini .layout .label, .mini .comicstrip-sunday-quarter.layout .label, .mini .comicstrip-sunday-quarter .layout .label {
     position: absolute;
     bottom: -14px !important; }
@@ -1060,6 +1245,36 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .panel.c10 {
   grid-column-end: span 10; }
 
+.panel.c11 {
+  grid-column-end: span 11; }
+
+.panel.c12 {
+  grid-column-end: span 12; }
+
+.panel.c13 {
+  grid-column-end: span 13; }
+
+.panel.c14 {
+  grid-column-end: span 14; }
+
+.panel.c15 {
+  grid-column-end: span 15; }
+
+.panel.c16 {
+  grid-column-end: span 16; }
+
+.panel.c17 {
+  grid-column-end: span 17; }
+
+.panel.c18 {
+  grid-column-end: span 18; }
+
+.panel.c19 {
+  grid-column-end: span 19; }
+
+.panel.c20 {
+  grid-column-end: span 20; }
+
 /**
  * panel row spans
  */
@@ -1092,6 +1307,36 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 
 .panel.r10 {
   grid-row-end: span 10; }
+
+.panel.r11 {
+  grid-row-end: span 11; }
+
+.panel.r12 {
+  grid-row-end: span 12; }
+
+.panel.r13 {
+  grid-row-end: span 13; }
+
+.panel.r14 {
+  grid-row-end: span 14; }
+
+.panel.r15 {
+  grid-row-end: span 15; }
+
+.panel.r16 {
+  grid-row-end: span 16; }
+
+.panel.r17 {
+  grid-row-end: span 17; }
+
+.panel.r18 {
+  grid-row-end: span 18; }
+
+.panel.r19 {
+  grid-row-end: span 19; }
+
+.panel.r20 {
+  grid-row-end: span 20; }
 
 /**
  * panel column placements
@@ -1126,6 +1371,36 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .p10 {
   grid-column: 10; }
 
+.p11 {
+  grid-column: 11; }
+
+.p12 {
+  grid-column: 12; }
+
+.p13 {
+  grid-column: 13; }
+
+.p14 {
+  grid-column: 14; }
+
+.p15 {
+  grid-column: 15; }
+
+.p16 {
+  grid-column: 16; }
+
+.p17 {
+  grid-column: 17; }
+
+.p18 {
+  grid-column: 18; }
+
+.p19 {
+  grid-column: 19; }
+
+.p20 {
+  grid-column: 20; }
+
 /** ==============================
     Panel styles
     ============================== **/
@@ -1141,9 +1416,417 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .rot-down .panel {
   transform: rotate(15deg); }
 
+.rot-up-5.panel,
+.rot-up-5 .panel {
+  transform: rotate(-5deg); }
+
+.rot-down-5.panel,
+.rot-down-5 .panel {
+  transform: rotate(5deg); }
+
+.rot-5.panel,
+.rot-5 .panel {
+  transform: rotate(-5deg); }
+
+.rot5.panel,
+.rot5 .panel {
+  transform: rotate(5deg); }
+
+.rot-up-10.panel,
+.rot-up-10 .panel {
+  transform: rotate(-10deg); }
+
+.rot-down-10.panel,
+.rot-down-10 .panel {
+  transform: rotate(10deg); }
+
+.rot-10.panel,
+.rot-10 .panel {
+  transform: rotate(-10deg); }
+
+.rot10.panel,
+.rot10 .panel {
+  transform: rotate(10deg); }
+
+.rot-up-15.panel,
+.rot-up-15 .panel {
+  transform: rotate(-15deg); }
+
+.rot-down-15.panel,
+.rot-down-15 .panel {
+  transform: rotate(15deg); }
+
+.rot-15.panel,
+.rot-15 .panel {
+  transform: rotate(-15deg); }
+
+.rot15.panel,
+.rot15 .panel {
+  transform: rotate(15deg); }
+
+.rot-up-20.panel,
+.rot-up-20 .panel {
+  transform: rotate(-20deg); }
+
+.rot-down-20.panel,
+.rot-down-20 .panel {
+  transform: rotate(20deg); }
+
+.rot-20.panel,
+.rot-20 .panel {
+  transform: rotate(-20deg); }
+
+.rot20.panel,
+.rot20 .panel {
+  transform: rotate(20deg); }
+
+.rot-up-25.panel,
+.rot-up-25 .panel {
+  transform: rotate(-25deg); }
+
+.rot-down-25.panel,
+.rot-down-25 .panel {
+  transform: rotate(25deg); }
+
+.rot-25.panel,
+.rot-25 .panel {
+  transform: rotate(-25deg); }
+
+.rot25.panel,
+.rot25 .panel {
+  transform: rotate(25deg); }
+
+.rot-up-30.panel,
+.rot-up-30 .panel {
+  transform: rotate(-30deg); }
+
+.rot-down-30.panel,
+.rot-down-30 .panel {
+  transform: rotate(30deg); }
+
+.rot-30.panel,
+.rot-30 .panel {
+  transform: rotate(-30deg); }
+
+.rot30.panel,
+.rot30 .panel {
+  transform: rotate(30deg); }
+
+.rot-up-35.panel,
+.rot-up-35 .panel {
+  transform: rotate(-35deg); }
+
+.rot-down-35.panel,
+.rot-down-35 .panel {
+  transform: rotate(35deg); }
+
+.rot-35.panel,
+.rot-35 .panel {
+  transform: rotate(-35deg); }
+
+.rot35.panel,
+.rot35 .panel {
+  transform: rotate(35deg); }
+
+.rot-up-40.panel,
+.rot-up-40 .panel {
+  transform: rotate(-40deg); }
+
+.rot-down-40.panel,
+.rot-down-40 .panel {
+  transform: rotate(40deg); }
+
+.rot-40.panel,
+.rot-40 .panel {
+  transform: rotate(-40deg); }
+
+.rot40.panel,
+.rot40 .panel {
+  transform: rotate(40deg); }
+
+.rot-up-45.panel,
+.rot-up-45 .panel {
+  transform: rotate(-45deg); }
+
+.rot-down-45.panel,
+.rot-down-45 .panel {
+  transform: rotate(45deg); }
+
+.rot-45.panel,
+.rot-45 .panel {
+  transform: rotate(-45deg); }
+
+.rot45.panel,
+.rot45 .panel {
+  transform: rotate(45deg); }
+
+.rot-up-50.panel,
+.rot-up-50 .panel {
+  transform: rotate(-50deg); }
+
+.rot-down-50.panel,
+.rot-down-50 .panel {
+  transform: rotate(50deg); }
+
+.rot-50.panel,
+.rot-50 .panel {
+  transform: rotate(-50deg); }
+
+.rot50.panel,
+.rot50 .panel {
+  transform: rotate(50deg); }
+
+.rot-up-55.panel,
+.rot-up-55 .panel {
+  transform: rotate(-55deg); }
+
+.rot-down-55.panel,
+.rot-down-55 .panel {
+  transform: rotate(55deg); }
+
+.rot-55.panel,
+.rot-55 .panel {
+  transform: rotate(-55deg); }
+
+.rot55.panel,
+.rot55 .panel {
+  transform: rotate(55deg); }
+
+.rot-up-60.panel,
+.rot-up-60 .panel {
+  transform: rotate(-60deg); }
+
+.rot-down-60.panel,
+.rot-down-60 .panel {
+  transform: rotate(60deg); }
+
+.rot-60.panel,
+.rot-60 .panel {
+  transform: rotate(-60deg); }
+
+.rot60.panel,
+.rot60 .panel {
+  transform: rotate(60deg); }
+
+.rot-up-65.panel,
+.rot-up-65 .panel {
+  transform: rotate(-65deg); }
+
+.rot-down-65.panel,
+.rot-down-65 .panel {
+  transform: rotate(65deg); }
+
+.rot-65.panel,
+.rot-65 .panel {
+  transform: rotate(-65deg); }
+
+.rot65.panel,
+.rot65 .panel {
+  transform: rotate(65deg); }
+
+.rot-up-70.panel,
+.rot-up-70 .panel {
+  transform: rotate(-70deg); }
+
+.rot-down-70.panel,
+.rot-down-70 .panel {
+  transform: rotate(70deg); }
+
+.rot-70.panel,
+.rot-70 .panel {
+  transform: rotate(-70deg); }
+
+.rot70.panel,
+.rot70 .panel {
+  transform: rotate(70deg); }
+
+.rot-up-75.panel,
+.rot-up-75 .panel {
+  transform: rotate(-75deg); }
+
+.rot-down-75.panel,
+.rot-down-75 .panel {
+  transform: rotate(75deg); }
+
+.rot-75.panel,
+.rot-75 .panel {
+  transform: rotate(-75deg); }
+
+.rot75.panel,
+.rot75 .panel {
+  transform: rotate(75deg); }
+
+.rot-up-80.panel,
+.rot-up-80 .panel {
+  transform: rotate(-80deg); }
+
+.rot-down-80.panel,
+.rot-down-80 .panel {
+  transform: rotate(80deg); }
+
+.rot-80.panel,
+.rot-80 .panel {
+  transform: rotate(-80deg); }
+
+.rot80.panel,
+.rot80 .panel {
+  transform: rotate(80deg); }
+
+.rot-up-85.panel,
+.rot-up-85 .panel {
+  transform: rotate(-85deg); }
+
+.rot-down-85.panel,
+.rot-down-85 .panel {
+  transform: rotate(85deg); }
+
+.rot-85.panel,
+.rot-85 .panel {
+  transform: rotate(-85deg); }
+
+.rot85.panel,
+.rot85 .panel {
+  transform: rotate(85deg); }
+
+.rot-up-90.panel,
+.rot-up-90 .panel {
+  transform: rotate(-90deg); }
+
+.rot-down-90.panel,
+.rot-down-90 .panel {
+  transform: rotate(90deg); }
+
+.rot-90.panel,
+.rot-90 .panel {
+  transform: rotate(-90deg); }
+
+.rot90.panel,
+.rot90 .panel {
+  transform: rotate(90deg); }
+
 /** 
  *  Scale panel up or down around its center.
  */
+.scale-10.panel,
+.scale-10 > .panel {
+  transform: scale(0.1, 0.1); }
+
+.scale-20.panel,
+.scale-20 > .panel {
+  transform: scale(0.2, 0.2); }
+
+.scale-30.panel,
+.scale-30 > .panel {
+  transform: scale(0.3, 0.3); }
+
+.scale-40.panel,
+.scale-40 > .panel {
+  transform: scale(0.4, 0.4); }
+
+.scale-50.panel,
+.scale-50 > .panel {
+  transform: scale(0.5, 0.5); }
+
+.scale-60.panel,
+.scale-60 > .panel {
+  transform: scale(0.6, 0.6); }
+
+.scale-70.panel,
+.scale-70 > .panel {
+  transform: scale(0.7, 0.7); }
+
+.scale-80.panel,
+.scale-80 > .panel {
+  transform: scale(0.8, 0.8); }
+
+.scale-90.panel,
+.scale-90 > .panel {
+  transform: scale(0.9, 0.9); }
+
+.scale-100.panel,
+.scale-100 > .panel {
+  transform: scale(1, 1); }
+
+.scale-110.panel,
+.scale-110 > .panel {
+  transform: scale(1.1, 1.1); }
+
+.scale-120.panel,
+.scale-120 > .panel {
+  transform: scale(1.2, 1.2); }
+
+.scale-130.panel,
+.scale-130 > .panel {
+  transform: scale(1.3, 1.3); }
+
+.scale-140.panel,
+.scale-140 > .panel {
+  transform: scale(1.4, 1.4); }
+
+.scale-150.panel,
+.scale-150 > .panel {
+  transform: scale(1.5, 1.5); }
+
+.scale-160.panel,
+.scale-160 > .panel {
+  transform: scale(1.6, 1.6); }
+
+.scale-170.panel,
+.scale-170 > .panel {
+  transform: scale(1.7, 1.7); }
+
+.scale-180.panel,
+.scale-180 > .panel {
+  transform: scale(1.8, 1.8); }
+
+.scale-190.panel,
+.scale-190 > .panel {
+  transform: scale(1.9, 1.9); }
+
+.scale-200.panel,
+.scale-200 > .panel {
+  transform: scale(2, 2); }
+
+.scale-210.panel,
+.scale-210 > .panel {
+  transform: scale(2.1, 2.1); }
+
+.scale-220.panel,
+.scale-220 > .panel {
+  transform: scale(2.2, 2.2); }
+
+.scale-230.panel,
+.scale-230 > .panel {
+  transform: scale(2.3, 2.3); }
+
+.scale-240.panel,
+.scale-240 > .panel {
+  transform: scale(2.4, 2.4); }
+
+.scale-250.panel,
+.scale-250 > .panel {
+  transform: scale(2.5, 2.5); }
+
+.scale-260.panel,
+.scale-260 > .panel {
+  transform: scale(2.6, 2.6); }
+
+.scale-270.panel,
+.scale-270 > .panel {
+  transform: scale(2.7, 2.7); }
+
+.scale-280.panel,
+.scale-280 > .panel {
+  transform: scale(2.8, 2.8); }
+
+.scale-290.panel,
+.scale-290 > .panel {
+  transform: scale(2.9, 2.9); }
+
+.scale-300.panel,
+.scale-300 > .panel {
+  transform: scale(3, 3); }
+
 .scale-25.panel,
 .scale-25 > .panel {
   transform: scale(0.25, 0.25); }
@@ -1231,6 +1914,86 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 .iso.panel {
   transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg); }
 
+.tx10.panel,
+.tx10 > .panel {
+  transform: translateX(10%); }
+
+.tx-10.panel,
+.tx-10 > .panel {
+  transform: translateX(-10%); }
+
+.ty10.panel,
+.ty10 > .panel {
+  transform: translateY(10%); }
+
+.ty-10.panel,
+.ty-10 > .panel {
+  transform: translateY(-10%); }
+
+.tx20.panel,
+.tx20 > .panel {
+  transform: translateX(20%); }
+
+.tx-20.panel,
+.tx-20 > .panel {
+  transform: translateX(-20%); }
+
+.ty20.panel,
+.ty20 > .panel {
+  transform: translateY(20%); }
+
+.ty-20.panel,
+.ty-20 > .panel {
+  transform: translateY(-20%); }
+
+.tx30.panel,
+.tx30 > .panel {
+  transform: translateX(30%); }
+
+.tx-30.panel,
+.tx-30 > .panel {
+  transform: translateX(-30%); }
+
+.ty30.panel,
+.ty30 > .panel {
+  transform: translateY(30%); }
+
+.ty-30.panel,
+.ty-30 > .panel {
+  transform: translateY(-30%); }
+
+.tx40.panel,
+.tx40 > .panel {
+  transform: translateX(40%); }
+
+.tx-40.panel,
+.tx-40 > .panel {
+  transform: translateX(-40%); }
+
+.ty40.panel,
+.ty40 > .panel {
+  transform: translateY(40%); }
+
+.ty-40.panel,
+.ty-40 > .panel {
+  transform: translateY(-40%); }
+
+.tx50.panel,
+.tx50 > .panel {
+  transform: translateX(50%); }
+
+.tx-50.panel,
+.tx-50 > .panel {
+  transform: translateX(-50%); }
+
+.ty50.panel,
+.ty50 > .panel {
+  transform: translateY(50%); }
+
+.ty-50.panel,
+.ty-50 > .panel {
+  transform: translateY(-50%); }
+
 /** 
  *  Circle
  */
@@ -1241,6 +2004,89 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 /** ==============================
     Bleeds
     ============================== **/
+.panel.bl {
+  background: #d3d3d3; }
+
+.panel.bl.left {
+  transform-origin: right;
+  transform: scale(1.55, 1); }
+
+.panel.bl.right {
+  transform-origin: left;
+  transform: scale(1.55, 1); }
+
+.panel.bl.up {
+  transform-origin: bottom;
+  transform: scale(1, 1.55); }
+
+.panel.bl.down {
+  transform-origin: top;
+  transform: scale(1, 1.55); }
+
+.panel.bl.left.up {
+  transform-origin: bottom right;
+  transform: scale(1.55, 1.55); }
+
+.panel.bl.right.up {
+  transform-origin: bottom left;
+  transform: scale(1.55, 1.55); }
+
+.panel.bl.left.down {
+  transform-origin: top right;
+  transform: scale(1.55, 1.55); }
+
+.panel.bl.right.down {
+  transform-origin: top left;
+  transform: scale(1.55, 1.55); }
+
+.panel.bl.left.right {
+  transform-origin: center center;
+  transform: scale(1.6, 1); }
+
+.panel.bl.up.down {
+  transform-origin: center center;
+  transform: scale(1, 1.6); }
+
+.panel.bl.left.right.up {
+  transform-origin: center bottom;
+  transform: scale(1.6, 1.55); }
+
+.panel.bl.left.right.down {
+  transform-origin: center top;
+  transform: scale(1.6, 1.55); }
+
+.panel.bl.up.down.left {
+  transform-origin: right center;
+  transform: scale(1.55, 1.6); }
+
+.panel.bl.up.down.right {
+  transform-origin: left center;
+  transform: scale(1.55, 1.6); }
+
+.panel.bl.up.down.left.right {
+  transform-origin: center center;
+  transform: scale(1.6, 1.6); }
+
+.panel.bl.up-half {
+  transform-origin: center bottom;
+  transform: scale(1.6, 1.55); }
+
+.panel.bl.down-half {
+  transform-origin: center top;
+  transform: scale(1.6, 1.55); }
+
+.panel.bl.left-half {
+  transform-origin: right center;
+  transform: scale(1.55, 1.6); }
+
+.panel.bl.right-half {
+  transform-origin: left center;
+  transform: scale(1.55, 1.6); }
+
+.panel.bl.all {
+  transform-origin: center center;
+  transform: scale(1.6, 1.6); }
+
 .panel.bleed {
   position: relative;
   /* overflow: visible; */
@@ -1355,10 +2201,12 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 }
 */
 /**
- * width 1-10
+ * width
  * specify the count of grid cells expected in a row
- * or the count of columns in a row group
- * ...would like to make this automatic
+ * or the count of columns in a row group.
+ * Currently the html renderer computes w values
+ * from panel counts and column widths
+ * in order for layouts to wrap correctly.
  */
 .panelgroup.w1, .spread.w1 {
   grid-template-columns: repeat(1, 1fr); }
@@ -1437,7 +2285,8 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
  * unencoded panel fill style (complex / ambiguous)
  */
 .panel.u {
-  background: repeating-radial-gradient(circle, #fff, #ccc 8px); }
+  background: repeating-radial-gradient(circle, #ddd, #ccc 8px);
+  font-size: 100%; }
 
 /** Fill Styles (Spreads, Layouts, Groups, and Panels)
     ============================== **/
