@@ -28,71 +28,20 @@
 /**
  * panel column spans
  */
-.panel.c1 { grid-column-end: span 1 }
-.panel.c2 { grid-column-end: span 2 }
-.panel.c3 { grid-column-end: span 3 }
-.panel.c4 { grid-column-end: span 4 }
-.panel.c5 { grid-column-end: span 5 }
-.panel.c6 { grid-column-end: span 6 }
-.panel.c7 { grid-column-end: span 7 }
-.panel.c8 { grid-column-end: span 8 }
-.panel.c9 { grid-column-end: span 9 }
-.panel.c10 { grid-column-end: span 10 }
-.panel.c11 { grid-column-end: span 11 }
-.panel.c12 { grid-column-end: span 12 }
-.panel.c13 { grid-column-end: span 13 }
-.panel.c14 { grid-column-end: span 14 }
-.panel.c15 { grid-column-end: span 15 }
-.panel.c16 { grid-column-end: span 16 }
-.panel.c17 { grid-column-end: span 17 }
-.panel.c18 { grid-column-end: span 18 }
-.panel.c19 { grid-column-end: span 19 }
-.panel.c20 { grid-column-end: span 20 }
+ @for $i from 1 through 20 {
+  .panel.c#{$i} { grid-column-end: span $i }
+}
 
 /**
  * panel row spans
  */
-.panel.r1 { grid-row-end: span 1 }
-.panel.r2 { grid-row-end: span 2 }
-.panel.r3 { grid-row-end: span 3 }
-.panel.r4 { grid-row-end: span 4 }
-.panel.r5 { grid-row-end: span 5 }
-.panel.r6 { grid-row-end: span 6 }
-.panel.r7 { grid-row-end: span 7 }
-.panel.r8 { grid-row-end: span 8 }
-.panel.r9 { grid-row-end: span 9 }
-.panel.r10 { grid-row-end: span 10 }
-.panel.r11 { grid-row-end: span 11 }
-.panel.r12 { grid-row-end: span 12 }
-.panel.r13 { grid-row-end: span 13 }
-.panel.r14 { grid-row-end: span 14 }
-.panel.r15 { grid-row-end: span 15 }
-.panel.r16 { grid-row-end: span 16 }
-.panel.r17 { grid-row-end: span 17 }
-.panel.r18 { grid-row-end: span 18 }
-.panel.r19 { grid-row-end: span 19 }
-.panel.r20 { grid-row-end: span 20 }
+ @for $i from 1 through 20 {
+  .panel.r#{$i} { grid-row-end: span $i }
+}
 
 /**
  * panel column placements
  */
-.p1 { grid-column: 1 }
-.p2 { grid-column: 2 }
-.p3 { grid-column: 3 }
-.p4 { grid-column: 4 }
-.p5 { grid-column: 5 }
-.p6 { grid-column: 6 }
-.p7 { grid-column: 7 }
-.p8 { grid-column: 8 }
-.p9 { grid-column: 9 }
-.p10{ grid-column: 10}
-.p11 { grid-column: 11 }
-.p12 { grid-column: 12 }
-.p13 { grid-column: 13 }
-.p14 { grid-column: 14 }
-.p15 { grid-column: 15 }
-.p16 { grid-column: 16 }
-.p17 { grid-column: 17 }
-.p18 { grid-column: 18 }
-.p19 { grid-column: 19 }
-.p20 { grid-column: 20 }
+ @for $i from 1 through 20 {
+  .p#{$i} { grid-column: $i }
+}
