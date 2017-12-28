@@ -2,69 +2,90 @@
     Bleeds
     ============================== **/
 
-.panel.bl {
+@mixin bleed( $back, $fwd ) {
   background: #d3d3d3;
-}
-.panel.bl.left {
-  transform-origin: right; transform: scale(1.55,1);
-}
-.panel.bl.right {
-  transform-origin: left; transform: scale(1.55,1);
-}
-.panel.bl.up {
-  transform-origin: bottom; transform: scale(1,1.55);
-}
-.panel.bl.down {
-  transform-origin: top; transform: scale(1,1.55);
-}
-.panel.bl.left.up {
-  transform-origin: bottom right; transform: scale(1.55,1.55);
-}
-.panel.bl.right.up {
-  transform-origin: bottom left; transform: scale(1.55,1.55);
-}
-.panel.bl.left.down {
-  transform-origin: top right; transform: scale(1.55,1.55);
-}
-.panel.bl.right.down {
-  transform-origin: top left; transform: scale(1.55,1.55);
-}
-.panel.bl.left.right {
-  transform-origin: center center; transform: scale(1.6,1);
-}
-.panel.bl.up.down {
-  transform-origin: center center; transform: scale(1,1.6);
-}
-.panel.bl.left.right.up {
-  transform-origin: center bottom; transform: scale(1.6,1.55);
-}
-.panel.bl.left.right.down {
-  transform-origin: center top; transform: scale(1.6,1.55);
-}
-.panel.bl.up.down.left {
-  transform-origin: right center; transform: scale(1.55,1.6);
-}
-.panel.bl.up.down.right {
-  transform-origin: left center; transform: scale(1.55,1.6);
-}
-.panel.bl.up.down.left.right {
-  transform-origin: center center; transform: scale(1.6,1.6);
+  &-up, &-u {
+    &.panel, & .panel {
+      transform-origin: bottom; transform: scale(1,1.55);
+    } 
+  }
+  &-down, &-d {
+    &.panel, & .panel {
+      transform-origin: top; transform: scale(1,1.55);
+    }
+  }
+  &-back, &-b {
+    &.panel, & .panel {
+      transform-origin: $fwd; transform: scale(1.55,1);
+    }
+  }
+  &-fwd, &-f {
+    &.panel, & .panel {
+      transform-origin: $back; transform: scale(1.55,1);
+    }
+  }
+  &-back-fwd, &-bf, &-fwd-back, &-fb {
+    &.panel, & .panel {
+      transform-origin: center; transform: scale(1.55,1);
+    }
+  }
+  &-up-down, &-ud, &-down-up, &du {
+    &.panel, & .panel {
+      transform-origin: center center; transform: scale(1,1.55);
+    }
+  }
+  &-up-back, &-ub, &-back-up, &-bu {
+    &.panel, & .panel {
+      transform-origin: bottom $fwd; transform: scale(1.55,1.55);
+    }
+  }
+  &-up-fwd, &-uf, &-fwd-up, &-fu {
+    &.panel, & .panel {
+      transform-origin: bottom $back; transform: scale(1.55,1.55);
+    }
+  }
+  &-down-back, &-db, &-back-down, &-bd {
+    &.panel, & .panel {
+      transform-origin: top $fwd; transform: scale(1.55,1.55);
+    }
+  }
+  &-down-fwd, &-df, &-fwd-down, &-fd {
+    &.panel, & .panel {
+      transform-origin: top $back; transform: scale(1.55,1.55);
+    }
+  }
+  &-up-half, &-uh, &-up-fwd-back, &-ufb, &-up-back-fwd, &-ubf {
+    &.panel, & .panel {
+      transform-origin: center bottom; transform: scale(1.55,1.55);
+    }
+  }
+  &-down-half, &-dh, &-down-fwd-back, &-dfb, &-down-back-fwd, &-dbf {
+    &.panel, & .panel {
+      transform-origin: center top; transform: scale(1.55,1.55);
+    }
+  }
+  &-back-half, &-bh, &-up-down-back, &-udb, &-back-up-down, &-bud {
+    &.panel, & .panel {
+      transform-origin: $fwd center; transform: scale(1.55,1.55);
+    }
+  }
+  &-fwd-half, &-fh, &-up-down-fwd, &-udf, &-fwd-up-down, &-fud {
+    &.panel, & .panel {
+      transform-origin: $back center; transform: scale(1.55,1.55);
+    }
+  }
+  &-all, &-a {
+    &.panel, & .panel {
+      transform-origin: center center; transform: scale(1.55,1.55);
+    }
+  }
 }
 
-.panel.bl.up-half {
-  transform-origin: center bottom; transform: scale(1.6,1.55);
+.bleed, .b {
+  @include bleed( left, right )
 }
-.panel.bl.down-half {
-  transform-origin: center top; transform: scale(1.6,1.55);
-}
-.panel.bl.left-half {
-  transform-origin: right center; transform: scale(1.55,1.6);
-}
-.panel.bl.right-half {
-  transform-origin: left center; transform: scale(1.55,1.6);
-}
-.panel.bl.all {
-  transform-origin: center center; transform: scale(1.6,1.6);
+.prtl .bleed, .prtl .b {
+  @include bleed( right, left )
 }
 
 
@@ -177,19 +198,6 @@
     #aaa 4px,
     #ddd 8px);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //.panel.bleed{
