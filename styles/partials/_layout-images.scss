@@ -43,5 +43,18 @@
   }
 }
 .iover div.img {
-  opacity:0.15;
+  opacity:0.50;
 }
+.iover.ishow div.img {
+  opacity:0.20;
+  &:hover{
+    opacity:1.0;
+  }
+}
+.iover.ihide div.img {
+  opacity:0.60;
+  &:hover{
+    opacity:0.0;
+  }
+}
+
