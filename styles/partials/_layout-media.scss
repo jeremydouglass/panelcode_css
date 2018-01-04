@@ -185,35 +185,21 @@ div {
 /** comicstrips
     ============================== **/
 
-@mixin comicstrip-padfix() {
-  &.layout,
-  & .layout {
-    padding: 5px 5px 20px 5px;
-    & .panelgroup {
-      grid-gap: 5px;
-    }
-  }
-}
 .comicstrip {
   $width: 300px; // 280px
   &-daily { /* 14" x 20" */ 
     @include sizelist(14.0/4.0, $width);
-    @include comicstrip-padfix;
   }
   &-sunday-full {
-    @include sizelist(14.0/20.0, $width);  
-    @include comicstrip-padfix;
+    @include sizelist(14.0/20.0, $width);
   }
   &-sunday-half {
-    @include sizelist(14.0/10.0, $width);  
-    @include comicstrip-padfix;
+    @include sizelist(14.0/10.0, $width);
   }
   &-sunday-third {
     @include sizelist(14.0/6.7, $width);  
-    @include comicstrip-padfix;
   }
   &-sunday-quarter {
     @include sizelist(14.0/5.0, $width);  
-    @include comicstrip-padfix;
   }
 }
