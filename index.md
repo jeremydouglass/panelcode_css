@@ -618,7 +618,7 @@ _ skew-back + skew-fwd + skew-back
 | 2+r2.skew-back
 , c2.skew-back
 _ skew-back + skew-fwd + skew-back
-{::: small rtl}
+  {::: small prtl }
 ```
 
 
@@ -756,25 +756,30 @@ While in graphic novels and comicbooks the unit of composition is often the page
 
 ##  Direction
 
-An encoding may indicate and be rendered in LTR or RTL reading order.
+An encoding may indicate and be rendered in Lef-to-Right (LTR) or Right-to-Left (RTL) reading order.
 
 ```panelcode
-  (r2+2,2)_(1+c2+c4){: ltr label='LTR: (r2+2,2)_(1+c2+c4)'}
-| (r2+2,2)_(1+c2+c4){: rtl label='RTL: (r2+2,2)_(1+c2+c4)'}
+  (r2+2,2)_(1+c2+c4) {: ltr }
+| (r2+2,2)_(1+c2+c4) {: prtl }
 ```
 
 Here the same Panelcode string is rendered in Japenese manga reading order on the right and as a mirrored translation on the left. Panel labels are preserved, with "1" starting in the upper right or upper left, respectively.
 
 ```panelcode
-  r2+1,1   {: label='LTR: r2+1,1' }
-| 2_1      {: label='LTR: 2_1' }
-| 1+0_0+1  {: label='LTR: 1+0_0+1' }
-{:: ltr small }
+  r2+1,1   {: ltr }
+| 2_1      {: ltr }
+| 1+0_0+1  {: ltr }
 
-; r2+1,1   {: label='RTL: r2+1,1' }
-| 2_1      {: label='RTL: 2_1' }
-| 1+0_0+1  {: label='RTL: 1+0_0+1' }
-{:: rtl small }
+; r2+1,1   {: prtl }
+| 2_1      {: prtl }
+| 1+0_0+1  {: prtl }
+
+; r2+1,1
+| 2_1
+| 1+0_0+1
+{:: prtl}
+
+{::: small }
 ```
 
 A sequence of pages can also be rendered RTL, as when encoding the pages of a tankoban. Here the Panelcode:
