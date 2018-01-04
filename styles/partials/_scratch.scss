@@ -29,3 +29,58 @@ In the end I went with an explicit nocontrol / noconsole detected by the pre-par
 }
 
 **/
+
+/** 
+
+Directional overrides for consoles
+
+I spent a while spinning my wheels trying to figure out the Marked 2 bug -- it turned out that Javascript was actively rewriting my rtl / lrt tags, so nothing was having the effect that I expected. All of this code turned out to be unnecessary once the consoles were correctly defined.
+
+At any rate, RTL-marked galleries were printing console controls and console content from the right margin, with backwards syntax clauses on the panelcode. Terrible! But it was fixed without needing any of this:
+
+
+*[dir="ltr"] { direction: ltr; unicode-bidi: embed; }
+
+*[dir="rtl"] { direction: rtl; unicode-bidi: embed; }
+
+bdo[dir="ltr"] { direction: ltr; unicode-bidi: bidi-override; }
+
+bdo[dir="rtl"] { direction: rtl; unicode-bidi: bidi-override; }
+
+div.gallery.prtl {
+  direction: ltr !important;
+}
+div.gallery.prtl details summary {
+  direction: ltr !important;
+}
+div.gallery.prtl details {
+  direction: ltr !important;
+}
+div.gallery.prtl details[open] {
+  direction: ltr !important;
+}
+div.gallery.prtl details pre {
+  direction: ltr !important;
+}
+div.gallery.prtl details[open] pre {
+  direction: ltr !important;
+}
+div.gallery.prtl details pre code {
+  direction: ltr !important;
+}
+div.gallery.prtl details[open] pre code {
+  direction: ltr !important;
+}
+div.gallery.prtl details pre code.panelcode {
+  direction: ltr !important;
+}
+div.gallery.prtl details[open] pre code.panelcode {
+  direction: ltr !important;
+}
+div.gallery.prtl details code {
+  direction: ltr !important;
+}
+div.gallery.prtl details[open] code {
+  direction: ltr !important;
+}
+**/
