@@ -101,12 +101,12 @@
 .nolabel.label {
   display: none !important; }
 
-.rtl.spread:not(.vertical) > .layout, .rtl .spread:not(.vertical) > .layout {
+.prtl.spread:not(.vertical) > .layout, .prtl .spread:not(.vertical) > .layout {
   border-right: 2px dotted #eee;
   border-left: 2px dotted #999; }
-  .rtl.spread:not(.vertical) > .layout:first-child, .rtl .spread:not(.vertical) > .layout:first-child {
+  .prtl.spread:not(.vertical) > .layout:first-child, .prtl .spread:not(.vertical) > .layout:first-child {
     border-right: 1px solid #000; }
-  .rtl.spread:not(.vertical) > .layout:last-child, .rtl .spread:not(.vertical) > .layout:last-child {
+  .prtl.spread:not(.vertical) > .layout:last-child, .prtl .spread:not(.vertical) > .layout:last-child {
     border-left: 1px solid #000; }
 
 /* might be able to make preserve ltr text in rtl layouts
@@ -190,10 +190,12 @@
 /** Layout Rendering Directions
     ============================== **/
 /** ...for galleries and spreads **/
-.rtl {
+.prtl.spread, .prtl .spread {
+  direction: rtl; }
+.prtl.layout, .prtl .layout {
   direction: rtl; }
 
-.rtl .label {
+.prtl .label {
   direction: ltr; }
 
 /** ==============================
@@ -288,7 +290,17 @@
     opacity: 0.0; }
 
 .iover div.img {
-  opacity: 0.15; }
+  opacity: 0.50; }
+
+.iover.ishow div.img {
+  opacity: 0.20; }
+  .iover.ishow div.img:hover {
+    opacity: 1.0; }
+
+.iover.ihide div.img {
+  opacity: 0.60; }
+  .iover.ihide div.img:hover {
+    opacity: 0.0; }
 
 /** ==============================
     Layout Aspect Ratios (MEDIA)
@@ -723,10 +735,6 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
     border: 0px solid #f00; }
     .comicstrip-daily.micro3.layout .panelgroup, .comicstrip-daily.micro3 .layout .panelgroup, .comicstrip-daily .micro3.layout .panelgroup, .comicstrip-daily .micro3 .layout .panelgroup, .micro3 .comicstrip-daily.layout .panelgroup, .micro3 .comicstrip-daily .layout .panelgroup {
       grid-gap: 1px; }
-  .comicstrip-daily.layout, .comicstrip-daily .layout {
-    padding: 5px 5px 20px 5px; }
-    .comicstrip-daily.layout .panelgroup, .comicstrip-daily .layout .panelgroup {
-      grid-gap: 5px; }
 .comicstrip-sunday-full.layout, .comicstrip-sunday-full .layout {
   width: 300px;
   height: 442.5714285714px;
@@ -830,10 +838,6 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
   border: 0px solid #f00; }
   .comicstrip-sunday-full.micro3.layout .panelgroup, .comicstrip-sunday-full.micro3 .layout .panelgroup, .comicstrip-sunday-full .micro3.layout .panelgroup, .comicstrip-sunday-full .micro3 .layout .panelgroup, .micro3 .comicstrip-sunday-full.layout .panelgroup, .micro3 .comicstrip-sunday-full .layout .panelgroup {
     grid-gap: 1px; }
-.comicstrip-sunday-full.layout, .comicstrip-sunday-full .layout {
-  padding: 5px 5px 20px 5px; }
-  .comicstrip-sunday-full.layout .panelgroup, .comicstrip-sunday-full .layout .panelgroup {
-    grid-gap: 5px; }
 .comicstrip-sunday-half.layout, .comicstrip-sunday-half .layout {
   width: 300px;
   height: 228.2857142857px;
@@ -937,10 +941,6 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
   border: 0px solid #f00; }
   .comicstrip-sunday-half.micro3.layout .panelgroup, .comicstrip-sunday-half.micro3 .layout .panelgroup, .comicstrip-sunday-half .micro3.layout .panelgroup, .comicstrip-sunday-half .micro3 .layout .panelgroup, .micro3 .comicstrip-sunday-half.layout .panelgroup, .micro3 .comicstrip-sunday-half .layout .panelgroup {
     grid-gap: 1px; }
-.comicstrip-sunday-half.layout, .comicstrip-sunday-half .layout {
-  padding: 5px 5px 20px 5px; }
-  .comicstrip-sunday-half.layout .panelgroup, .comicstrip-sunday-half .layout .panelgroup {
-    grid-gap: 5px; }
 .comicstrip-sunday-third.layout, .comicstrip-sunday-third .layout {
   width: 300px;
   height: 157.5714285714px;
@@ -1044,10 +1044,6 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
   border: 0px solid #f00; }
   .comicstrip-sunday-third.micro3.layout .panelgroup, .comicstrip-sunday-third.micro3 .layout .panelgroup, .comicstrip-sunday-third .micro3.layout .panelgroup, .comicstrip-sunday-third .micro3 .layout .panelgroup, .micro3 .comicstrip-sunday-third.layout .panelgroup, .micro3 .comicstrip-sunday-third .layout .panelgroup {
     grid-gap: 1px; }
-.comicstrip-sunday-third.layout, .comicstrip-sunday-third .layout {
-  padding: 5px 5px 20px 5px; }
-  .comicstrip-sunday-third.layout .panelgroup, .comicstrip-sunday-third .layout .panelgroup {
-    grid-gap: 5px; }
 .comicstrip-sunday-quarter.layout, .comicstrip-sunday-quarter .layout {
   width: 300px;
   height: 121.1428571429px;
@@ -1151,11 +1147,434 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
   border: 0px solid #f00; }
   .comicstrip-sunday-quarter.micro3.layout .panelgroup, .comicstrip-sunday-quarter.micro3 .layout .panelgroup, .comicstrip-sunday-quarter .micro3.layout .panelgroup, .comicstrip-sunday-quarter .micro3 .layout .panelgroup, .micro3 .comicstrip-sunday-quarter.layout .panelgroup, .micro3 .comicstrip-sunday-quarter .layout .panelgroup {
     grid-gap: 1px; }
-.comicstrip-sunday-quarter.layout, .comicstrip-sunday-quarter .layout {
-  padding: 5px 5px 20px 5px; }
-  .comicstrip-sunday-quarter.layout .panelgroup, .comicstrip-sunday-quarter .layout .panelgroup {
-    grid-gap: 5px; }
+.comicstrip-linear.layout, .comicstrip-linear .layout {
+  width: 300px;
+  height: 67.5714285714px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-linear.layout .panelgroup, .comicstrip-linear .layout .panelgroup {
+    grid-gap: 4px; }
+.comicstrip-linear.default.layout, .comicstrip-linear.default .layout, .comicstrip-linear .default.layout, .comicstrip-linear .default .layout, .default .comicstrip-linear.layout, .default .comicstrip-linear .layout {
+  width: 300px;
+  height: 67.5714285714px;
+  padding: 4px;
+  grid-gap: 4px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-linear.default.layout .panelgroup, .comicstrip-linear.default .layout .panelgroup, .comicstrip-linear .default.layout .panelgroup, .comicstrip-linear .default .layout .panelgroup, .default .comicstrip-linear.layout .panelgroup, .default .comicstrip-linear .layout .panelgroup {
+    grid-gap: 4px; }
+.comicstrip-linear.small.layout, .comicstrip-linear.small .layout, .comicstrip-linear .small.layout, .comicstrip-linear .small .layout, .small .comicstrip-linear.layout, .small .comicstrip-linear .layout {
+  width: 150px;
+  height: 40.7857142857px;
+  padding: 3px;
+  grid-gap: 3px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-linear.small.layout .panelgroup, .comicstrip-linear.small .layout .panelgroup, .comicstrip-linear .small.layout .panelgroup, .comicstrip-linear .small .layout .panelgroup, .small .comicstrip-linear.layout .panelgroup, .small .comicstrip-linear .layout .panelgroup {
+    grid-gap: 3px; }
+.comicstrip-linear.thumb.layout, .comicstrip-linear.thumb .layout, .comicstrip-linear .thumb.layout, .comicstrip-linear .thumb .layout, .thumb .comicstrip-linear.layout, .thumb .comicstrip-linear .layout {
+  width: 96px;
+  height: 31.1428571429px;
+  padding: 2px;
+  grid-gap: 2px;
+  /* * padding-bottom: 20px; * */ }
+  .comicstrip-linear.thumb.layout .panelgroup, .comicstrip-linear.thumb .layout .panelgroup, .comicstrip-linear .thumb.layout .panelgroup, .comicstrip-linear .thumb .layout .panelgroup, .thumb .comicstrip-linear.layout .panelgroup, .thumb .comicstrip-linear .layout .panelgroup {
+    grid-gap: 2px; }
+  .comicstrip-linear.thumb.layout .label, .comicstrip-linear.thumb .layout .label, .comicstrip-linear .thumb.layout .label, .comicstrip-linear .thumb .layout .label, .thumb .comicstrip-linear.layout .label, .thumb .comicstrip-linear .layout .label {
+    position: absolute; }
+.comicstrip-linear.mini.layout, .comicstrip-linear.mini .layout, .comicstrip-linear .mini.layout, .comicstrip-linear .mini .layout, .mini .comicstrip-linear.layout, .mini .comicstrip-linear .layout {
+  width: 48px;
+  height: 10.5714285714px;
+  padding: 1px;
+  grid-gap: 1px; }
+  .comicstrip-linear.mini.layout .panelgroup, .comicstrip-linear.mini .layout .panelgroup, .comicstrip-linear .mini.layout .panelgroup, .comicstrip-linear .mini .layout .panelgroup, .mini .comicstrip-linear.layout .panelgroup, .mini .comicstrip-linear .layout .panelgroup {
+    grid-gap: 1px; }
+  .comicstrip-linear.mini.layout .label, .comicstrip-linear.mini .layout .label, .comicstrip-linear .mini.layout .label, .comicstrip-linear .mini .layout .label, .mini .comicstrip-linear.layout .label, .mini .comicstrip-linear .layout .label {
+    position: absolute;
+    bottom: -14px !important; }
+  .comicstrip-linear.mini.layout:hover .label, .comicstrip-linear.mini .layout:hover .label, .comicstrip-linear .mini.layout:hover .label, .comicstrip-linear .mini .layout:hover .label, .mini .comicstrip-linear.layout:hover .label, .mini .comicstrip-linear .layout:hover .label {
+    bottom: 0px !important;
+    visibility: initial;
+    overflow: visible; }
+  .comicstrip-linear.mini.layout .panel, .comicstrip-linear.mini .layout .panel, .comicstrip-linear .mini.layout .panel, .comicstrip-linear .mini .layout .panel, .mini .comicstrip-linear.layout .panel, .mini .comicstrip-linear .layout .panel {
+    color: transparent;
+    /* hide panel text */ }
+.comicstrip-linear.micro.layout, .comicstrip-linear.micro .layout, .comicstrip-linear .micro.layout, .comicstrip-linear .micro .layout, .micro .comicstrip-linear.layout, .micro .comicstrip-linear .layout {
+  width: 36px;
+  height: 7.4285714286px;
+  padding: 1px;
+  grid-gap: 1px;
+  background: #fff;
+  border: 1px solid #999; }
+  .comicstrip-linear.micro.layout .panelgroup, .comicstrip-linear.micro .layout .panelgroup, .comicstrip-linear .micro.layout .panelgroup, .comicstrip-linear .micro .layout .panelgroup, .micro .comicstrip-linear.layout .panelgroup, .micro .comicstrip-linear .layout .panelgroup {
+    grid-gap: 1px; }
+  .comicstrip-linear.micro.layout .label, .comicstrip-linear.micro .layout .label, .comicstrip-linear .micro.layout .label, .comicstrip-linear .micro .layout .label, .micro .comicstrip-linear.layout .label, .micro .comicstrip-linear .layout .label {
+    visibility: hidden;
+    position: absolute;
+    bottom: -14px !important; }
+  .comicstrip-linear.micro.layout:hover .label, .comicstrip-linear.micro .layout:hover .label, .comicstrip-linear .micro.layout:hover .label, .comicstrip-linear .micro .layout:hover .label, .micro .comicstrip-linear.layout:hover .label, .micro .comicstrip-linear .layout:hover .label {
+    visibility: initial;
+    overflow: visible; }
+  .comicstrip-linear.micro.layout .panel, .comicstrip-linear.micro .layout .panel, .comicstrip-linear .micro.layout .panel, .comicstrip-linear .micro .layout .panel, .micro .comicstrip-linear.layout .panel, .micro .comicstrip-linear .layout .panel {
+    border: 0px solid #999;
+    background: #ccc;
+    padding: 0px;
+    color: transparent;
+    /* hide panel text */ }
+.comicstrip-linear.micro2.layout, .comicstrip-linear.micro2 .layout, .comicstrip-linear .micro2.layout, .comicstrip-linear .micro2 .layout, .micro3 .comicstrip-linear.layout, .micro3 .comicstrip-linear .layout {
+  width: 36px;
+  height: 6.4285714286px;
+  padding: 0px;
+  grid-gap: 0px;
+  background: #fff;
+  border: 0px solid #999; }
+  .comicstrip-linear.micro2.layout .panelgroup, .comicstrip-linear.micro2 .layout .panelgroup, .comicstrip-linear .micro2.layout .panelgroup, .comicstrip-linear .micro2 .layout .panelgroup, .micro3 .comicstrip-linear.layout .panelgroup, .micro3 .comicstrip-linear .layout .panelgroup {
+    grid-gap: 0px; }
+  .comicstrip-linear.micro2.layout .label, .comicstrip-linear.micro2 .layout .label, .comicstrip-linear .micro2.layout .label, .comicstrip-linear .micro2 .layout .label, .micro3 .comicstrip-linear.layout .label, .micro3 .comicstrip-linear .layout .label {
+    visibility: hidden;
+    position: absolute;
+    bottom: -14px !important; }
+  .comicstrip-linear.micro2.layout:hover .label, .comicstrip-linear.micro2 .layout:hover .label, .comicstrip-linear .micro2.layout:hover .label, .comicstrip-linear .micro2 .layout:hover .label, .micro3 .comicstrip-linear.layout:hover .label, .micro3 .comicstrip-linear .layout:hover .label {
+    visibility: initial;
+    overflow: visible; }
+  .comicstrip-linear.micro2.layout .panel, .comicstrip-linear.micro2 .layout .panel, .comicstrip-linear .micro2.layout .panel, .comicstrip-linear .micro2 .layout .panel, .micro3 .comicstrip-linear.layout .panel, .micro3 .comicstrip-linear .layout .panel {
+    border: 1px solid #999;
+    background: #fff;
+    padding: 0px;
+    color: transparent;
+    /* hide panel text */ }
+.comicstrip-linear.micro3.layout, .comicstrip-linear.micro3 .layout, .comicstrip-linear .micro3.layout, .comicstrip-linear .micro3 .layout, .micro3 .comicstrip-linear.layout, .micro3 .comicstrip-linear .layout {
+  width: 36px;
+  height: 7.4285714286px;
+  padding: 1px;
+  grid-gap: 1px;
+  border: 0px solid #f00; }
+  .comicstrip-linear.micro3.layout .panelgroup, .comicstrip-linear.micro3 .layout .panelgroup, .comicstrip-linear .micro3.layout .panelgroup, .comicstrip-linear .micro3 .layout .panelgroup, .micro3 .comicstrip-linear.layout .panelgroup, .micro3 .comicstrip-linear .layout .panelgroup {
+    grid-gap: 1px; }
 
+/* based on Solarized https://github.com/altercation/solarized
+ * generated by panelcode.highlight.SolarizedStyle() 
+ */
+.highlight .hll {
+  background-color: #ffffcc; }
+
+.highlight {
+  background: #fdf6e3;
+  color: #657b83; }
+
+.highlight .c {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment */
+.highlight .k {
+  color: #dc322f; }
+
+/* Keyword */
+.highlight .l {
+  color: #6c71c4; }
+
+/* Literal */
+.highlight .n {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name */
+.highlight .o {
+  color: #d33682;
+  font-weight: bold; }
+
+/* Operator */
+.highlight .p {
+  color: #657b83;
+  font-weight: bold; }
+
+/* Punctuation */
+.highlight .ch {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment.Hashbang */
+.highlight .cm {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment.Multiline */
+.highlight .cp {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment.Preproc */
+.highlight .cpf {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment.PreprocFile */
+.highlight .c1 {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment.Single */
+.highlight .cs {
+  color: #93a1a1;
+  font-style: italic; }
+
+/* Comment.Special */
+.highlight .kc {
+  color: #dc322f; }
+
+/* Keyword.Constant */
+.highlight .kd {
+  color: #dc322f; }
+
+/* Keyword.Declaration */
+.highlight .kn {
+  color: #dc322f; }
+
+/* Keyword.Namespace */
+.highlight .kp {
+  color: #dc322f; }
+
+/* Keyword.Pseudo */
+.highlight .kr {
+  color: #dc322f; }
+
+/* Keyword.Reserved */
+.highlight .kt {
+  color: #dc322f; }
+
+/* Keyword.Type */
+.highlight .ld {
+  color: #6c71c4; }
+
+/* Literal.Date */
+.highlight .m {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number */
+.highlight .s {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String */
+.highlight .na {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Attribute */
+.highlight .nb {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Builtin */
+.highlight .nc {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Class */
+.highlight .no {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Constant */
+.highlight .nd {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Decorator */
+.highlight .ni {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Entity */
+.highlight .ne {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Exception */
+.highlight .nf {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Function */
+.highlight .nl {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Label */
+.highlight .nn {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Namespace */
+.highlight .nx {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Other */
+.highlight .py {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Property */
+.highlight .nt {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Tag */
+.highlight .nv {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Variable */
+.highlight .ow {
+  color: #d33682;
+  font-weight: bold; }
+
+/* Operator.Word */
+.highlight .w {
+  color: #657b83; }
+
+/* Text.Whitespace */
+.highlight .mb {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number.Bin */
+.highlight .mf {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number.Float */
+.highlight .mh {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number.Hex */
+.highlight .mi {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number.Integer */
+.highlight .mo {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number.Oct */
+.highlight .sa {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Affix */
+.highlight .sb {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Backtick */
+.highlight .sc {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Char */
+.highlight .dl {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Delimiter */
+.highlight .sd {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Doc */
+.highlight .s2 {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Double */
+.highlight .se {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Escape */
+.highlight .sh {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Heredoc */
+.highlight .si {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Interpol */
+.highlight .sx {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Other */
+.highlight .sr {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Regex */
+.highlight .s1 {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Single */
+.highlight .ss {
+  color: #2aa198;
+  font-style: italic;
+  background-color: #eee8d5; }
+
+/* Literal.String.Symbol */
+.highlight .bp {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Builtin.Pseudo */
+.highlight .fm {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Function.Magic */
+.highlight .vc {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Variable.Class */
+.highlight .vg {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Variable.Global */
+.highlight .vi {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Variable.Instance */
+.highlight .vm {
+  color: #6c71c4;
+  font-weight: bold; }
+
+/* Name.Variable.Magic */
+.highlight .il {
+  color: #268bd2;
+  font-weight: bold; }
+
+/* Literal.Number.Integer.Long */
 /** ==============================
     Insets
     ============================== **/
@@ -1872,17 +2291,17 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
  */
 .skew-fwd.panel,
 .skew-fwd .panel,
-.rtl.skew-back.panel,
-.rtl .skew-back.panel,
-.rtl .skew-back .panel {
+.prtl.skew-back.panel,
+.prtl .skew-back.panel,
+.prtl .skew-back .panel {
   transform: skewx(-15deg);
   transform-origin: center; }
 
 .skew-back.panel,
 .skew-back .panel,
-.rtl.skew-fwd.panel,
-.rtl .skew-fwd.panel,
-.rtl .skew-fwd .panel {
+.prtl.skew-fwd.panel,
+.prtl .skew-fwd.panel,
+.prtl .skew-fwd .panel {
   transform: skewx(15deg);
   transform-origin: left; }
 
@@ -2004,88 +2423,101 @@ div.micro3.layout, div.micro3 .layout, div .micro3.layout, div .micro3 .layout, 
 /** ==============================
     Bleeds
     ============================== **/
-.panel.bl {
+.bleed, .b {
   background: #d3d3d3; }
+  .bleed-up.panel, .bleed-up .panel, .bleed-u.panel, .bleed-u .panel, .b-up.panel, .b-up .panel, .b-u.panel, .b-u .panel {
+    transform-origin: bottom;
+    transform: scale(1, 1.55); }
+  .bleed-down.panel, .bleed-down .panel, .bleed-d.panel, .bleed-d .panel, .b-down.panel, .b-down .panel, .b-d.panel, .b-d .panel {
+    transform-origin: top;
+    transform: scale(1, 1.55); }
+  .bleed-back.panel, .bleed-back .panel, .bleed-b.panel, .bleed-b .panel, .b-back.panel, .b-back .panel, .b-b.panel, .b-b .panel {
+    transform-origin: right;
+    transform: scale(1.55, 1); }
+  .bleed-fwd.panel, .bleed-fwd .panel, .bleed-f.panel, .bleed-f .panel, .b-fwd.panel, .b-fwd .panel, .b-f.panel, .b-f .panel {
+    transform-origin: left;
+    transform: scale(1.55, 1); }
+  .bleed-back-fwd.panel, .bleed-back-fwd .panel, .bleed-bf.panel, .bleed-bf .panel, .bleed-fwd-back.panel, .bleed-fwd-back .panel, .bleed-fb.panel, .bleed-fb .panel, .b-back-fwd.panel, .b-back-fwd .panel, .b-bf.panel, .b-bf .panel, .b-fwd-back.panel, .b-fwd-back .panel, .b-fb.panel, .b-fb .panel {
+    transform-origin: center;
+    transform: scale(1.55, 1); }
+  .bleed-up-down.panel, .bleed-up-down .panel, .bleed-ud.panel, .bleed-ud .panel, .bleed-down-up.panel, .bleed-down-up .panel, .bleeddu.panel, .bleeddu .panel, .b-up-down.panel, .b-up-down .panel, .b-ud.panel, .b-ud .panel, .b-down-up.panel, .b-down-up .panel, .bdu.panel, .bdu .panel {
+    transform-origin: center center;
+    transform: scale(1, 1.55); }
+  .bleed-up-back.panel, .bleed-up-back .panel, .bleed-ub.panel, .bleed-ub .panel, .bleed-back-up.panel, .bleed-back-up .panel, .bleed-bu.panel, .bleed-bu .panel, .b-up-back.panel, .b-up-back .panel, .b-ub.panel, .b-ub .panel, .b-back-up.panel, .b-back-up .panel, .b-bu.panel, .b-bu .panel {
+    transform-origin: bottom right;
+    transform: scale(1.55, 1.55); }
+  .bleed-up-fwd.panel, .bleed-up-fwd .panel, .bleed-uf.panel, .bleed-uf .panel, .bleed-fwd-up.panel, .bleed-fwd-up .panel, .bleed-fu.panel, .bleed-fu .panel, .b-up-fwd.panel, .b-up-fwd .panel, .b-uf.panel, .b-uf .panel, .b-fwd-up.panel, .b-fwd-up .panel, .b-fu.panel, .b-fu .panel {
+    transform-origin: bottom left;
+    transform: scale(1.55, 1.55); }
+  .bleed-down-back.panel, .bleed-down-back .panel, .bleed-db.panel, .bleed-db .panel, .bleed-back-down.panel, .bleed-back-down .panel, .bleed-bd.panel, .bleed-bd .panel, .b-down-back.panel, .b-down-back .panel, .b-db.panel, .b-db .panel, .b-back-down.panel, .b-back-down .panel, .b-bd.panel, .b-bd .panel {
+    transform-origin: top right;
+    transform: scale(1.55, 1.55); }
+  .bleed-down-fwd.panel, .bleed-down-fwd .panel, .bleed-df.panel, .bleed-df .panel, .bleed-fwd-down.panel, .bleed-fwd-down .panel, .bleed-fd.panel, .bleed-fd .panel, .b-down-fwd.panel, .b-down-fwd .panel, .b-df.panel, .b-df .panel, .b-fwd-down.panel, .b-fwd-down .panel, .b-fd.panel, .b-fd .panel {
+    transform-origin: top left;
+    transform: scale(1.55, 1.55); }
+  .bleed-up-half.panel, .bleed-up-half .panel, .bleed-uh.panel, .bleed-uh .panel, .bleed-up-fwd-back.panel, .bleed-up-fwd-back .panel, .bleed-ufb.panel, .bleed-ufb .panel, .bleed-up-back-fwd.panel, .bleed-up-back-fwd .panel, .bleed-ubf.panel, .bleed-ubf .panel, .b-up-half.panel, .b-up-half .panel, .b-uh.panel, .b-uh .panel, .b-up-fwd-back.panel, .b-up-fwd-back .panel, .b-ufb.panel, .b-ufb .panel, .b-up-back-fwd.panel, .b-up-back-fwd .panel, .b-ubf.panel, .b-ubf .panel {
+    transform-origin: center bottom;
+    transform: scale(1.55, 1.55); }
+  .bleed-down-half.panel, .bleed-down-half .panel, .bleed-dh.panel, .bleed-dh .panel, .bleed-down-fwd-back.panel, .bleed-down-fwd-back .panel, .bleed-dfb.panel, .bleed-dfb .panel, .bleed-down-back-fwd.panel, .bleed-down-back-fwd .panel, .bleed-dbf.panel, .bleed-dbf .panel, .b-down-half.panel, .b-down-half .panel, .b-dh.panel, .b-dh .panel, .b-down-fwd-back.panel, .b-down-fwd-back .panel, .b-dfb.panel, .b-dfb .panel, .b-down-back-fwd.panel, .b-down-back-fwd .panel, .b-dbf.panel, .b-dbf .panel {
+    transform-origin: center top;
+    transform: scale(1.55, 1.55); }
+  .bleed-back-half.panel, .bleed-back-half .panel, .bleed-bh.panel, .bleed-bh .panel, .bleed-up-down-back.panel, .bleed-up-down-back .panel, .bleed-udb.panel, .bleed-udb .panel, .bleed-back-up-down.panel, .bleed-back-up-down .panel, .bleed-bud.panel, .bleed-bud .panel, .b-back-half.panel, .b-back-half .panel, .b-bh.panel, .b-bh .panel, .b-up-down-back.panel, .b-up-down-back .panel, .b-udb.panel, .b-udb .panel, .b-back-up-down.panel, .b-back-up-down .panel, .b-bud.panel, .b-bud .panel {
+    transform-origin: right center;
+    transform: scale(1.55, 1.55); }
+  .bleed-fwd-half.panel, .bleed-fwd-half .panel, .bleed-fh.panel, .bleed-fh .panel, .bleed-up-down-fwd.panel, .bleed-up-down-fwd .panel, .bleed-udf.panel, .bleed-udf .panel, .bleed-fwd-up-down.panel, .bleed-fwd-up-down .panel, .bleed-fud.panel, .bleed-fud .panel, .b-fwd-half.panel, .b-fwd-half .panel, .b-fh.panel, .b-fh .panel, .b-up-down-fwd.panel, .b-up-down-fwd .panel, .b-udf.panel, .b-udf .panel, .b-fwd-up-down.panel, .b-fwd-up-down .panel, .b-fud.panel, .b-fud .panel {
+    transform-origin: left center;
+    transform: scale(1.55, 1.55); }
+  .bleed-all.panel, .bleed-all .panel, .bleed-a.panel, .bleed-a .panel, .b-all.panel, .b-all .panel, .b-a.panel, .b-a .panel {
+    transform-origin: center center;
+    transform: scale(1.55, 1.55); }
 
-.panel.bl.left {
-  transform-origin: right;
-  transform: scale(1.55, 1); }
-
-.panel.bl.right {
-  transform-origin: left;
-  transform: scale(1.55, 1); }
-
-.panel.bl.up {
-  transform-origin: bottom;
-  transform: scale(1, 1.55); }
-
-.panel.bl.down {
-  transform-origin: top;
-  transform: scale(1, 1.55); }
-
-.panel.bl.left.up {
-  transform-origin: bottom right;
-  transform: scale(1.55, 1.55); }
-
-.panel.bl.right.up {
-  transform-origin: bottom left;
-  transform: scale(1.55, 1.55); }
-
-.panel.bl.left.down {
-  transform-origin: top right;
-  transform: scale(1.55, 1.55); }
-
-.panel.bl.right.down {
-  transform-origin: top left;
-  transform: scale(1.55, 1.55); }
-
-.panel.bl.left.right {
-  transform-origin: center center;
-  transform: scale(1.6, 1); }
-
-.panel.bl.up.down {
-  transform-origin: center center;
-  transform: scale(1, 1.6); }
-
-.panel.bl.left.right.up {
-  transform-origin: center bottom;
-  transform: scale(1.6, 1.55); }
-
-.panel.bl.left.right.down {
-  transform-origin: center top;
-  transform: scale(1.6, 1.55); }
-
-.panel.bl.up.down.left {
-  transform-origin: right center;
-  transform: scale(1.55, 1.6); }
-
-.panel.bl.up.down.right {
-  transform-origin: left center;
-  transform: scale(1.55, 1.6); }
-
-.panel.bl.up.down.left.right {
-  transform-origin: center center;
-  transform: scale(1.6, 1.6); }
-
-.panel.bl.up-half {
-  transform-origin: center bottom;
-  transform: scale(1.6, 1.55); }
-
-.panel.bl.down-half {
-  transform-origin: center top;
-  transform: scale(1.6, 1.55); }
-
-.panel.bl.left-half {
-  transform-origin: right center;
-  transform: scale(1.55, 1.6); }
-
-.panel.bl.right-half {
-  transform-origin: left center;
-  transform: scale(1.55, 1.6); }
-
-.panel.bl.all {
-  transform-origin: center center;
-  transform: scale(1.6, 1.6); }
+.prtl .bleed, .prtl .b {
+  background: #d3d3d3; }
+  .prtl .bleed-up.panel, .prtl .bleed-up .panel, .prtl .bleed-u.panel, .prtl .bleed-u .panel, .prtl .b-up.panel, .prtl .b-up .panel, .prtl .b-u.panel, .prtl .b-u .panel {
+    transform-origin: bottom;
+    transform: scale(1, 1.55); }
+  .prtl .bleed-down.panel, .prtl .bleed-down .panel, .prtl .bleed-d.panel, .prtl .bleed-d .panel, .prtl .b-down.panel, .prtl .b-down .panel, .prtl .b-d.panel, .prtl .b-d .panel {
+    transform-origin: top;
+    transform: scale(1, 1.55); }
+  .prtl .bleed-back.panel, .prtl .bleed-back .panel, .prtl .bleed-b.panel, .prtl .bleed-b .panel, .prtl .b-back.panel, .prtl .b-back .panel, .prtl .b-b.panel, .prtl .b-b .panel {
+    transform-origin: left;
+    transform: scale(1.55, 1); }
+  .prtl .bleed-fwd.panel, .prtl .bleed-fwd .panel, .prtl .bleed-f.panel, .prtl .bleed-f .panel, .prtl .b-fwd.panel, .prtl .b-fwd .panel, .prtl .b-f.panel, .prtl .b-f .panel {
+    transform-origin: right;
+    transform: scale(1.55, 1); }
+  .prtl .bleed-back-fwd.panel, .prtl .bleed-back-fwd .panel, .prtl .bleed-bf.panel, .prtl .bleed-bf .panel, .prtl .bleed-fwd-back.panel, .prtl .bleed-fwd-back .panel, .prtl .bleed-fb.panel, .prtl .bleed-fb .panel, .prtl .b-back-fwd.panel, .prtl .b-back-fwd .panel, .prtl .b-bf.panel, .prtl .b-bf .panel, .prtl .b-fwd-back.panel, .prtl .b-fwd-back .panel, .prtl .b-fb.panel, .prtl .b-fb .panel {
+    transform-origin: center;
+    transform: scale(1.55, 1); }
+  .prtl .bleed-up-down.panel, .prtl .bleed-up-down .panel, .prtl .bleed-ud.panel, .prtl .bleed-ud .panel, .prtl .bleed-down-up.panel, .prtl .bleed-down-up .panel, .prtl .bleeddu.panel, .prtl .bleeddu .panel, .prtl .b-up-down.panel, .prtl .b-up-down .panel, .prtl .b-ud.panel, .prtl .b-ud .panel, .prtl .b-down-up.panel, .prtl .b-down-up .panel, .prtl .bdu.panel, .prtl .bdu .panel {
+    transform-origin: center center;
+    transform: scale(1, 1.55); }
+  .prtl .bleed-up-back.panel, .prtl .bleed-up-back .panel, .prtl .bleed-ub.panel, .prtl .bleed-ub .panel, .prtl .bleed-back-up.panel, .prtl .bleed-back-up .panel, .prtl .bleed-bu.panel, .prtl .bleed-bu .panel, .prtl .b-up-back.panel, .prtl .b-up-back .panel, .prtl .b-ub.panel, .prtl .b-ub .panel, .prtl .b-back-up.panel, .prtl .b-back-up .panel, .prtl .b-bu.panel, .prtl .b-bu .panel {
+    transform-origin: bottom left;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-up-fwd.panel, .prtl .bleed-up-fwd .panel, .prtl .bleed-uf.panel, .prtl .bleed-uf .panel, .prtl .bleed-fwd-up.panel, .prtl .bleed-fwd-up .panel, .prtl .bleed-fu.panel, .prtl .bleed-fu .panel, .prtl .b-up-fwd.panel, .prtl .b-up-fwd .panel, .prtl .b-uf.panel, .prtl .b-uf .panel, .prtl .b-fwd-up.panel, .prtl .b-fwd-up .panel, .prtl .b-fu.panel, .prtl .b-fu .panel {
+    transform-origin: bottom right;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-down-back.panel, .prtl .bleed-down-back .panel, .prtl .bleed-db.panel, .prtl .bleed-db .panel, .prtl .bleed-back-down.panel, .prtl .bleed-back-down .panel, .prtl .bleed-bd.panel, .prtl .bleed-bd .panel, .prtl .b-down-back.panel, .prtl .b-down-back .panel, .prtl .b-db.panel, .prtl .b-db .panel, .prtl .b-back-down.panel, .prtl .b-back-down .panel, .prtl .b-bd.panel, .prtl .b-bd .panel {
+    transform-origin: top left;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-down-fwd.panel, .prtl .bleed-down-fwd .panel, .prtl .bleed-df.panel, .prtl .bleed-df .panel, .prtl .bleed-fwd-down.panel, .prtl .bleed-fwd-down .panel, .prtl .bleed-fd.panel, .prtl .bleed-fd .panel, .prtl .b-down-fwd.panel, .prtl .b-down-fwd .panel, .prtl .b-df.panel, .prtl .b-df .panel, .prtl .b-fwd-down.panel, .prtl .b-fwd-down .panel, .prtl .b-fd.panel, .prtl .b-fd .panel {
+    transform-origin: top right;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-up-half.panel, .prtl .bleed-up-half .panel, .prtl .bleed-uh.panel, .prtl .bleed-uh .panel, .prtl .bleed-up-fwd-back.panel, .prtl .bleed-up-fwd-back .panel, .prtl .bleed-ufb.panel, .prtl .bleed-ufb .panel, .prtl .bleed-up-back-fwd.panel, .prtl .bleed-up-back-fwd .panel, .prtl .bleed-ubf.panel, .prtl .bleed-ubf .panel, .prtl .b-up-half.panel, .prtl .b-up-half .panel, .prtl .b-uh.panel, .prtl .b-uh .panel, .prtl .b-up-fwd-back.panel, .prtl .b-up-fwd-back .panel, .prtl .b-ufb.panel, .prtl .b-ufb .panel, .prtl .b-up-back-fwd.panel, .prtl .b-up-back-fwd .panel, .prtl .b-ubf.panel, .prtl .b-ubf .panel {
+    transform-origin: center bottom;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-down-half.panel, .prtl .bleed-down-half .panel, .prtl .bleed-dh.panel, .prtl .bleed-dh .panel, .prtl .bleed-down-fwd-back.panel, .prtl .bleed-down-fwd-back .panel, .prtl .bleed-dfb.panel, .prtl .bleed-dfb .panel, .prtl .bleed-down-back-fwd.panel, .prtl .bleed-down-back-fwd .panel, .prtl .bleed-dbf.panel, .prtl .bleed-dbf .panel, .prtl .b-down-half.panel, .prtl .b-down-half .panel, .prtl .b-dh.panel, .prtl .b-dh .panel, .prtl .b-down-fwd-back.panel, .prtl .b-down-fwd-back .panel, .prtl .b-dfb.panel, .prtl .b-dfb .panel, .prtl .b-down-back-fwd.panel, .prtl .b-down-back-fwd .panel, .prtl .b-dbf.panel, .prtl .b-dbf .panel {
+    transform-origin: center top;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-back-half.panel, .prtl .bleed-back-half .panel, .prtl .bleed-bh.panel, .prtl .bleed-bh .panel, .prtl .bleed-up-down-back.panel, .prtl .bleed-up-down-back .panel, .prtl .bleed-udb.panel, .prtl .bleed-udb .panel, .prtl .bleed-back-up-down.panel, .prtl .bleed-back-up-down .panel, .prtl .bleed-bud.panel, .prtl .bleed-bud .panel, .prtl .b-back-half.panel, .prtl .b-back-half .panel, .prtl .b-bh.panel, .prtl .b-bh .panel, .prtl .b-up-down-back.panel, .prtl .b-up-down-back .panel, .prtl .b-udb.panel, .prtl .b-udb .panel, .prtl .b-back-up-down.panel, .prtl .b-back-up-down .panel, .prtl .b-bud.panel, .prtl .b-bud .panel {
+    transform-origin: left center;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-fwd-half.panel, .prtl .bleed-fwd-half .panel, .prtl .bleed-fh.panel, .prtl .bleed-fh .panel, .prtl .bleed-up-down-fwd.panel, .prtl .bleed-up-down-fwd .panel, .prtl .bleed-udf.panel, .prtl .bleed-udf .panel, .prtl .bleed-fwd-up-down.panel, .prtl .bleed-fwd-up-down .panel, .prtl .bleed-fud.panel, .prtl .bleed-fud .panel, .prtl .b-fwd-half.panel, .prtl .b-fwd-half .panel, .prtl .b-fh.panel, .prtl .b-fh .panel, .prtl .b-up-down-fwd.panel, .prtl .b-up-down-fwd .panel, .prtl .b-udf.panel, .prtl .b-udf .panel, .prtl .b-fwd-up-down.panel, .prtl .b-fwd-up-down .panel, .prtl .b-fud.panel, .prtl .b-fud .panel {
+    transform-origin: right center;
+    transform: scale(1.55, 1.55); }
+  .prtl .bleed-all.panel, .prtl .bleed-all .panel, .prtl .bleed-a.panel, .prtl .bleed-a .panel, .prtl .b-all.panel, .prtl .b-all .panel, .prtl .b-a.panel, .prtl .b-a .panel {
+    transform-origin: center center;
+    transform: scale(1.55, 1.55); }
 
 .panel.bleed {
   position: relative;
