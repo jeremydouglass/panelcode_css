@@ -53,7 +53,6 @@ figure {
   display: table;
   position: relative;
   background: #f00;
-  padding: auto;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -68,7 +67,6 @@ figcaption {
   display: table-caption;
   caption-side: bottom;
   position: absolute;
-  padding: auto;
   bottom: -18px;
 }
 
