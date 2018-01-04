@@ -1,7 +1,7 @@
 
 ```panelcode
 r3.gray9 + c2.r2.gray9, 1 + 1z
-{::: small }
+  {::: small dropcap }
 ```
 
 # Panelcode: layout markup and visualization
@@ -34,9 +34,21 @@ _2017-12_
 
 **Panelcode** is a minimal markup language for describing visual compositions as abstract layouts.
 
+```panelcode
+  1 {::: mini dropcap }
+```
+
 Use Panelcode to **quickly encode visual layouts for search and visual exploration**. Panelcode is optimized to be quickly and easily writable, readable, and editable by hand, with an emphasis on speed, concision, and human judgement. The tools were developed with a particular focus on compositions made of panels such as those occuring in comics, graphic novels, newspapers, magazines, websites, et cetera, and the first test cases have been performed on comics.
 
+```panelcode
+  2 {::: mini dropcap }
+```
+
 Panelcode supports multiple encoding schemes, but examples in this document use its base scheme: gridcode. Panelcode also has many extensions and shorthands, a number of which are touched on here: markup for blank spaces, annotations, unencoded regions, panel shapes, and bleeds. Finally, Panelcode has renderers to create multiple outputs, including SVG (Scalable Vector Graphics), scaffolding TEI-XML, and HTML-Tables.
+
+```panelcode
+  3 {::: mini dropcap }
+```
 
 **This document focuses on the gridcode HTML5-CSS3 renderer**, which renders panelcode as either HTML5 web content or stand-alone SVG image files. It is an illustrated tour of some of Panelcode's rendering features. Rather than walking through the complete language syntax, or discussing the design of the parser, it instead focuses on the gridcode renderer and walks through an illustrated tour of basic examples of Panelcode and what you can do with it: describe, summarize, compare, annotate, and vizualize layouts. This renderer supports:
 
@@ -70,12 +82,12 @@ Panelcode supports multiple encoding schemes, but examples in this document use 
 ; 2 | 3; 1_1 | 1_1_1
 ; 1_2 | 1_2_3 | 4_3_2_1 | 6_4_3_5_2_1
 ; 2_2 | 3_3_3
-{::: mini }
+  {::: mini nocode }
 ```
 
 ```panelcode
 r3.gray9 + c2.r2.gray9, 1 + 1z
-{::: mini }
+  {::: mini dropcap }
 ```
 
 Panelcode is a very efficient shorthand when encoding simple page layouts. Encodings may be written by hand and then parsed and programmatically processed for many purposes: searching, analyzing, rendering graphics and creating information visualizations, or producing scaffolds for layout editing or marking up pages with metadata.
@@ -93,7 +105,7 @@ The Panelcode strings "`1`" "`2`" and "`3`" appearing at the bottom of each glyp
 
 ```panelcode
   4
-{::: comicstrip-daily mini dropcap }
+  {::: comicstrip-daily mini dropcap }
 ```
 
 In Panelcode, a sequence of panels is the basic unit of description: A "`4`" means four panels, as in a typical daily newspaper comic, for example. Those panels proceed in whatever typical reading order they were encoded in -- left-to-right rows and top-to-bottom columns, in this case, but Panelcode input and/or output can be automatically mirrored for e.g. manga, scanlations and imported reprints.
