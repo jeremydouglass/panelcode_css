@@ -1,122 +1,104 @@
 body {
   background: #def;
   margin: auto;
-  margin-top:    20px;
+  margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px 20px 5px 20px;
   min-width: 300px;
-  max-width: 800px;
-}
+  max-width: 800px; }
 
 /* header and footer */
-
 header {
-  margin-top: 20px;
-}
+  margin-top: 20px; }
+
 footer {
-  margin-top:  100px;
-  border-top:  1px solid #000;
+  margin-top: 100px;
+  border-top: 1px solid #000;
   text-align: center;
   font-size: small;
-  font-style: italic;
-}
+  font-style: italic; }
 
 /* navigation menu */
-
 nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 nav ul li {
   display: inline-block;
   background: #cde;
   padding: 5px;
   margin: 5px;
-  border-right: 0px solid #000;
-}
+  border-right: 0px solid #000; }
+
 nav ul li:last-child {
-  border-right: 0;
-}
+  border-right: 0; }
+
 nav ul li a {
   color: #000;
-  text-decoration: none;
-}
+  text-decoration: none; }
+
 nav ul li:hover {
   background: #bcf;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 /* figures */
-
 figure {
   display: table;
   position: relative;
   background: #f00;
   text-align: center;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
+
 figure .spread {
-  margin: 0 auto;
-}
+  margin: 0 auto; }
+
 figure .layout {
-  margin: 0 auto;
-}
+  margin: 0 auto; }
+
 figcaption {
   display: table-caption;
   caption-side: bottom;
   position: absolute;
-  bottom: -18px;
-}
+  bottom: -18px; }
 
 /* sections and headers */
-
 section {
   border-top: 1px solid #000;
-  margin-top:    40px;
-  margin-bottom: 5px;
-}
+  margin-top: 40px;
+  margin-bottom: 5px; }
+
 h1 {
-  margin-top:  20px;
-  padding-top: 38px;
-}
-h2{
-  display: inline-block;
-}
+  margin-top: 20px;
+  padding-top: 38px; }
+
+h2 {
+  display: inline-block; }
 
 h3 {
-  border-top: 0px solid #000;
-}
+  border-top: 0px solid #000; }
 
 /* marigns and ornaments */
-
 .dropcap {
   float: left;
-  margin-right:  20px;
-  margin-top:     4px;
+  margin-right: 20px;
+  margin-top: 4px;
   margin-bottom: 10px;
-  clear: both;
-}
+  clear: both; }
+
 .dropcap.right {
-  float: right;
-}
-.dropcap+p { /* hang */
+  float: right; }
+
+.dropcap + p {
+  /* hang */
   margin-left: 50px;
   overflow: auto;
-  display: block;
-}
+  display: block; }
+
 .hang {
   margin-left: 50px;
   overflow: auto;
-  display: block;
-}
+  display: block; }
 
-/* code */
-
-code {
-  background: #f7f7f7;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 1px;
-}
+/*# sourceMappingURL=site.css.map */
