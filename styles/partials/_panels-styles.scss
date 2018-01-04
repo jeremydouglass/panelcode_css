@@ -95,17 +95,17 @@ $scale-list: 10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 
 
 .skew-fwd.panel,
 .skew-fwd .panel,
-.rtl.skew-back.panel,
-.rtl .skew-back.panel,
-.rtl .skew-back .panel {
+.prtl.skew-back.panel,
+.prtl .skew-back.panel,
+.prtl .skew-back .panel {
   transform: skewx(-15deg);
   transform-origin: center;  
 }
 .skew-back.panel,
 .skew-back .panel,
-.rtl.skew-fwd.panel,
-.rtl .skew-fwd.panel,
-.rtl .skew-fwd .panel {
+.prtl.skew-fwd.panel,
+.prtl .skew-fwd.panel,
+.prtl .skew-fwd .panel {
   transform: skewx(15deg);
   transform-origin: left;  
 }

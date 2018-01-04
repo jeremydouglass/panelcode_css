@@ -34,13 +34,18 @@
     ============================== **/
 
 /** ...for galleries and spreads **/
-// .rtl .layout {
+// .prtl .layout {
 //   direction: rtl;
 // }
-.rtl {
-  direction: rtl;  
+.prtl {
+  &.spread, & .spread {
+    direction: rtl;  
+  }
+  &.layout, & .layout {
+    direction: rtl;  
+  }
 }
-.rtl .label {
+.prtl .label {
   direction: ltr;
 }
 
