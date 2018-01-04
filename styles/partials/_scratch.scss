@@ -116,3 +116,21 @@ more flexibility without re-rendering.
 }
 
 */
+
+/*
+
+Suppress console for dropcaps
+
+.dropcap details {
+  display: none !important;
+}
+.gallery.dropcap:hover select {
+  display: none;
+}
+.gallery.dropcap select {
+  display: none;
+}
+
+*/
+
+
