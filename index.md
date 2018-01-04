@@ -328,16 +328,16 @@ Column spans and row spans may also be combined, as in the multi-row, multi-colu
 ```
 
 
-##  Display sizes and styles
+##  Sizes
 
 ```panelcode
 
-  1_2_3 {: default label='default'}
-; 1_2_3 {: small label='small'}
-; 1_2_3 {: thumb label='thumb'}
-; 1_2_3 {: mini label='mini'}
-; 1_2_3 {: micro label='micro'}
-; 1_2_3 {: micro2 label='micro2'}
+  1_2_3  {: default }
+; 1_2_3  {: small }
+; 1_2_3  {: thumb }
+; 1_2_3  {: mini }
+; 1_2_3  {: micro }
+; 1_2_3  {: micro2 }
 
 ```
 
@@ -348,85 +348,85 @@ These glyphs are the same html or SVG output, but rendered with a different CSS3
 #### default style
 
 ```panelcode
-  x      {: label='x'}
-; 1      {: label='1'}
-; 1_2    {: label='2'}
-; 2_2    {: label='2_2'}
-; 1_2_3  {: label='1_2_3'}
-; 3_3_3  {: label='3_3_3'}
-{::: default }
+  x
+; 1
+; 1_2
+; 2_2
+; 1_2_3
+; 3_3_3
+  {::: default }
 ```
 
 #### small
 
 ```panelcode
-  x      {: label='x'}
-; 1      {: label='1'}
-; 1_2    {: label='2'}
-; 2_2    {: label='2_2'}
-; 1_2_3  {: label='1_2_3'}
-; 3_3_3  {: label='3_3_3'}
-{::: small }
+  x
+; 1
+; 1_2
+; 2_2
+; 1_2_3
+; 3_3_3
+  {::: small }
 ```
 
 #### thumb
 
 ```panelcode
-  x      {: label='x'}
-; 1      {: label='1'}
-; 1_2    {: label='2'}
-; 2_2    {: label='2_2'}
-; 1_2_3  {: label='1_2_3'}
-; 3_3_3  {: label='3_3_3'}
-{::: thumb }
+  x
+; 1
+; 1_2
+; 2_2
+; 1_2_3
+; 3_3_3
+  {::: thumb }
 ```
 
 #### mini
 
 ```panelcode
-  x      {: label='x'}
-; 1      {: label='1'}
-; 1_2    {: label='2'}
-; 2_2    {: label='2_2'}
-; 1_2_3  {: label='1_2_3'}
-; 3_3_3  {: label='3_3_3'}
-{::: mini }
+  x
+; 1
+; 1_2
+; 2_2
+; 1_2_3
+; 3_3_3
+  {::: mini }
 ```
 
 #### micro
 
 ```panelcode
-  x      {: label='x'}
-; 1      {: label='1'}
-; 1_2    {: label='2'}
-; 2_2    {: label='2_2'}
-; 1_2_3  {: label='1_2_3'}
-; 3_3_3  {: label='3_3_3'}
-{::: micro }
+  x
+; 1
+; 1_2
+; 2_2
+; 1_2_3
+; 3_3_3
+  {::: micro }
 ```
 
 
 ## Spreads
 
 ```panelcode
-  x      {: label='x'}
-| 1      {: label='1'}
-| 1_2    {: label='2'}
-| 2_2    {: label='2_2'}
+  x
+| 1
+| 1_2
+| 2_2
 {:: thumb }
 
-; x      {: label='x'}
-| 1      {: label='1'}
-| 1_2    {: label='2'}
-| 2_2    {: label='2_2'}
+; x
+| 1
+| 1_2
+| 2_2
 {:: mini }
 
-; 1_2_3  {: label='1_2_3'}
-| 3_3_3  {: label='3_3_3'}
+; 1_2_3
+| 3_3_3
 {:: thumb }
 
-; 1_2_3  {: label='1_2_3'}
-| 3_3_3  {: label='3_3_3'}
+; 1_2_3
+| 3_3_3
 {:: mini }
 ```
 
