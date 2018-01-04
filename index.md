@@ -797,56 +797,122 @@ A sequence of pages can also be rendered RTL, as when encoding the pages of a ta
 
 ## Bleeds
 
-Bleeds are an annotation on a panel indicating that it proceed to some edge(s) of the space. A panel may bleed to one edge, two edges, three edges, or four.
+A bleed is an annotation on a panel indicating that it proceeds over the margin and to the edge of the layout space. Panels bleeds are specified with the keyword `bleed` plus a directional suffix -- they may bleed up, down, back, or forward.
 
-A panel may bleed in any direction or any combination of directions, including all directions (full page).
-
-```panelcode
-  bl.up _ 1 _ bl.down
-; bl.left + 1 + bl.right
-; 1.bl.up.left
-+ 1.bl.up
-+ 1.bl.up.right
-_ 1.bl.left
-+ 1
-+ 1.bl.right
-_ 1.bl.down.left
-+ 1.bl.down
-+ 1.bl.down.right
-; bl.up.down.left.right
-```
-(Currently full-page "left" bleeds have a display bug)
-
-Panel bleeds may go to any edge or to any corner (two edges).
-
-(Currently "up" bleeds have a text alignment bug.)
-
-(Currently "left" bleeds cover the center region of two page spreads.)
-
-A layout may contain any combination of panels with bleeds and non-bleeds, in any directions.
 
 ```panelcode
-  r2+2,2_1
-; r2.bl.up.left
-+ 2, 1 + bl.right
-_ bl.down
+  bleed-up _ bleed-down
+; bleed-back + bleed-fwd
+  {::: small }
 ```
+
+
+Direction can be combined. A panel with adjascent bleeds in two directions  proceeds to a corner. A panel with opposing bleeds cuts across the page in a band.
+
 
 ```panelcode
-  r2+2,2_1
-; r2.bl.up.left
-+ 2, 1 + bl.right
-_ bl.down
-{::: rtl}
+  bleed-up-back
++ bleed-up-fwd
+_ bleed-down-back
++ bleed-down-fwd
+; 0 + bleed-up-down  + 0
+; 0 _ bleed-back-fwd _ 0
+  {::: small }
 ```
 
-A minor issue: bleeds on the right side in a 2-unit spread may cross the centerline.
 
-Some issues with needing to be in a spread div otherwise the left edge loses containment. Some magic numbers in the css to manage offsets that go along with the scaling.
+Panels may also bleed to three different edges, for example `bleed-back-up-down`. For convenience, these bleeds may also be specified with the primary direction plus `-half`:
 
-The label div needs to come after bleed panels in order to be above them (visible) -- could try controlling with z-height.
 
-----------
+```panelcode
+  bleed-back-half + bleed-fwd-half
+; bleed-up-half _ bleed-down-half
+  {::: small}
+```
+
+
+A full-page spread may also be full-bleed, with bleeds in all four directions. This may be written `bleed-up-down-back-fwd`, but for convenience it call simply be written `bleed-all`:
+
+
+```panelcode
+  1         {: label='no bleeds' }
+| bleed-all {: label='bleed-all' }
+  {::: small}
+```
+
+
+For quick writing and editing, bleed annotations may be minified with `b-` plus a string with one letter per directon. `-half` and `-all` are shortened to `h` and `a`.
+
+
+```panelcode
+  b-ub + b-u + b-uf
+_ b-b  + 1   + b-f
+_ b-db + b-d + b-df
+
+; b-uh
+_ b-bf
+_ b-dh
+
+; b-bh + b-ud + b-fh
+
+; b-a
+  {::: thumb }
+```
+
+
+Although it is rare, a group, row, or layout may also be assigned a bleed that applies to every panel inside it -- for example, rows of panels that all bleed to the top or bottom, or columns of panels that all bleed to the inside or outside of a spread.
+
+
+```panelcode
+  3 { b-u }
+_ 3 { b-d }
+
+; 1_1_1 {: b-f }
+| 1_1_1 {: b-b }
+
+; 1_1_1 {: b-b }
+| 1_1_1 {: b-f }
+
+  {::: thumb }
+```
+
+`-fwd` and `-back` here relate to the reading direction -- in a left-to-right us comic, `-fwd` bleeds to the right. In right-to-left panelcode marked `rtl` Japanese manga, `fwd` bleeds to the left. Because bleeds relate to the overall flow of the layout, the same encoding can be tagged for either `ltr` or `rtl` reading direction and it will render correctly with no other changes.
+
+
+```panelcode
+  c2.bleed-back + bleed-up-fwd
+_ bleed-down-back + c2.bleed-down
+
+; c2.bleed-back + bleed-up-fwd
+_ bleed-down-back + c2.bleed-down
+{: prtl label='rtl'}
+
+  {::: small }
+```
+
+
+A layout may contain any combination of panels with bleeds and non-bleeds, in any directions. The overall composition is preserved when tagged `rtl`.
+
+
+```panelcode
+  r2.b-ub
++ 2, 1 + b-f
+_ b-d
+;  r2.bleed-up-back
++ 2, 1 + bleed-fwd
+_ bleed-down
+  {: prtl }
+  {::: small}
+```
+
+
+In the CSS renderer bleeds directed towards the interior panels may be used to emulate panel overlaps -- but this is not what they are designed for.
+
+
+```panelcode
+  1 _ 2 + b-u
+```
+
 
 ## Levels of specificity
 
