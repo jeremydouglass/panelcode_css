@@ -9,9 +9,27 @@ r3.gray9 + c2.r2.gray9, 1 + 1z
 _Jeremy Douglass_
 _2017-12_
 
+<nav><ul>
+<li><a href="#basics-rows-and-columns">Basics</a></li>
+<li><a href="#reading-a-panelcode-image">Reading</a></li>
+<li><a href="#spans">Spans</a></li>
+<li><a href="#images">Images</a></li>
+<li><a href="#sizes">Sizes</a></li>
+<li><a href="#spreads">Spreads</a></li>
+<li><a href="#sequences">Sequences</a></li>
+<li><a href="#spaces">Spaces</a></li>
+<li><a href="#ambiguity-and-complexity">Ambiguity</a></li>
+<li><a href="#shapes">Shapes</a></li>
+<li><a href="#fill-color-and-style">Fill</a></li>
+<li><a href="#flow">Flow</a></li>
+<li><a href="#direction">Direction</a></li>
+<li><a href="#bleeds">Bleeds</a></li>
+<li><a href="#code-style">Code Style</a></li>
+</ul></nav>
+
 ```panelcode
-1; 2; 3
-{::: mini }
+  1; 2|3; 1_1|1_1_1; 1+c3_c3+1; 2_2|3_3_3
+  {::: mini nocode }
 ```
 
 **Panelcode** is a minimal markup language for describing visual compositions as abstract layouts.
@@ -45,7 +63,7 @@ Panelcode supports multiple encoding schemes, but examples in this document use 
 -  right-to-left rendering
 
 
-## Basics: Rows and Columns
+## Basics: rows and columns
 
 ```panelcode
   1
@@ -410,7 +428,8 @@ These glyphs are the same html or SVG output, but rendered with a different CSS3
 {:: mini }
 ```
 
-## Sequences and Sorting
+
+## Sequences
 
 The following sequence counts through the number of simple, row-based compositions of 1-3 rows, and 1-3 panels per row, giving a maximum grid of 3x3.
 
@@ -462,7 +481,8 @@ An interesting property of Panelcode strings is that, once reduced to simple row
 
 Panelcodes (and hence the layouts the represent) can be sorted ), and these sortings have some interesting properties. and a set of strings can be sorted. This sorts a . ternary (base 3) number. complexity of each page. A zero-padded numeric sort (shown here) (those composed of simple rows) is that they can be sorted within a maximum grid (e.g. 2x2, 3x3, 4x4). Different sortings methods present different groupings of intuitively "similar" layouts. For example, an alphabetic sort groups layouts by increasing complexity of the top row (`1`, `2`, `3` panels) and then by the second row within each group (`1_1`, `1_2`, `1_3`), et cetera.
 
-## Blanks
+
+## Spaces
 
 Consider the example of comics. While some genres of comics (such as newspaper strips) generally subdivide the available space into panels, many other forms commonly use compositions that leave significant regions of blank space.
 
@@ -518,7 +538,8 @@ In the most complex cases, empty panels can also take column and row arguments, 
 {::: thumb }
 ```
 
-## Complexity and ambiguity
+
+## Ambiguity and Complexity
 
 An empty or blank panel is a placeholder -- the `0` in a blank panel indicates that it does not count towards the total of a group or a total composition. By contrast, unencoded regions may count for one panel -- or more than one panel.
 
@@ -529,8 +550,8 @@ An empty or blank panel is a placeholder -- the `0` in a blank panel indicates t
 
 An unencoded region is a collection of panel-like objects whose geometry is too complex or too non-cartesian to be encode in Panelcode shorthand.
 
-## Shape annotations
 
+## Shapes
 
 ```panelcode
   1 + 1.scale-50 _ 1.scale-50 + 1
@@ -603,7 +624,8 @@ _ skew-back + skew-fwd + skew-back
 {::: small rtl}
 ```
 
-## Color Styles (panel marking)
+
+## Fill: color and style
 
 ```panelcode
   red + green + blue
@@ -727,7 +749,7 @@ While in graphic novels and comicbooks the unit of composition is often the page
 **Links**: Daily strips might be in a single column or in a double-column -- e.g. see THE DAILY GRUNT, 2003 or a 1949 comics page from the Huntingdon Daily News. See also a Daily Herald Sunday page.
 
 
-##  Direction: LTR and RTL
+##  Direction
 
 An encoding may indicate and be rendered in LTR or RTL reading order.
 
