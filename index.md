@@ -690,14 +690,14 @@ When there is no specific page (or there are many pages, or the page is fluid) t
 (NOTE: did this with w12, could create wx and/or use flex. Also overrode unit square dimensions manually-- could make horizontal scroll a style tmeplate).
 
 ```panelcode
-  c3+1+c2+c2+1+c3
-  
+  c3+1+c2+c2+1+c3 {: comicstrip-linear }
+
 ; c3.red
 + 1.yellow
 + c2.green
 + c2.cyan
 + 1.blue
-+ c3.magenta {: w12 label='6 newspaper panels: (c3+1+c2+c2+1+c3)' }
++ c3.magenta {: w12 comicstrip-linear label='6 newspaper panels: (c3+1+c2+c2+1+c3)' }
 
 ```
 
