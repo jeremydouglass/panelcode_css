@@ -84,3 +84,35 @@ div.gallery.prtl details[open] code {
   direction: ltr !important;
 }
 **/
+
+
+/* gallery console visibility override */
+
+/*
+
+These aren't currently necessary because the preparser renders
+the console or doesn't based on the presence of these keywords
+in the Panelcode -- so checking class tags to show / hide isn't
+needed. However, this is an alternate approach that might give
+more flexibility without re-rendering.
+
+.gallery.nocode select {
+  display: none;
+}
+.gallery.nocode:hover select {
+  display: none;
+}
+.gallery.noconsole details {
+  display: none;
+}
+.gallery.noconsole select {
+  display: none;
+}
+.gallery.noconsole:hover select {
+  display: none;
+}
+.gallery.noconsole details {
+  display: none;
+}
+
+*/
