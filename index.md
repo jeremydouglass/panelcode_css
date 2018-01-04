@@ -255,7 +255,7 @@ Finally, a collection such as a spread or gallery can all be styled in the same 
 ; 1_2 | 2_1
 ; 1_2 | 2_1 | r2+1,1 | 1+r2,1
 ; c2.r2+1, 1
-{::: mini }
+  {::: mini nocode }
 ```
 
 Spans are a simple way of creating more complex layouts than combining rows will allow. A span specifies that a panel is proportionately wider that other in its row (column span) or that a panel occupies multiple rows in a rowgroup (row span). A panel may have both its column span and row span specified. In Panelcode spans are indicated with the `c` and `r` attributes, which are attached to panels as suffixes.
@@ -471,7 +471,7 @@ The following sequence counts through the number of simple, row-based compositio
 ; 3_3_1  {: label='3_3_1' }
 ; 3_3_2  {: label='3_3_2' }
 ; 3_3_3  {: label='3_3_3' }
-{::: thumb}
+  {::: thumb}
 ```
 
 An interesting property of Panelcode strings is that, once reduced to simple rows, each string is part of a numeric sequence, counting through the space from a blank page up to the maximum compositional grid. For example, given a work which is never more than 3 columns wide or 3 rows tall, any Panelcode is a ternary number (base 3), running from 1 (a full page) to `3_3_3` (a 3x3 grid).
@@ -532,7 +532,7 @@ In the most complex cases, empty panels can also take column and row arguments, 
 ; 3_(0+1+0)_1              {: label='3_(0+1+0)_1' }
 ; (0+1+0)_(0+1+0)_2        {: label='(0+1+0)_(0+1+0)_2' }
 ; (1+0+1)_(0+1+0)_(1+0+1)  {: label='(1+0+1)_(0+1+0)_(1+0+1)' }
-{::: thumb }
+  {::: thumb }
 ```
 
 
@@ -575,7 +575,7 @@ _ 1.scale-30 + 1.scale-20 + 1.scale-10
 ```panelcode
   2_2
 | 3_3_3
-{::: circle }
+  {::: circle }
 ```
 
 ```panelcode
@@ -609,7 +609,7 @@ This is not the case for skew, tilt, or rotation, however. These are described i
 | 2+r2.skew-back
 , c2.skew-back
 _ skew-back + skew-fwd + skew-back
-{::: small}
+  {::: small}
 ```
 
 ```panelcode
@@ -648,21 +648,21 @@ _ texture3 + texture4
 ; red
 ; 2_1+red+1_2
 ; red+2_2_1+red
-{::: thumb }
+  {::: thumb }
 ```
 
 ```panelcode
   r2+1,1 | 1+r2,1 {:: black }
 ; r2+1,1 | 1+r2,1 {: black }
 ; (3,3){black}_2_1
-{::: thumb }
+  {::: thumb }
 ```
 
 ```panelcode
   1+c2_c2+1{:black}
 | 1+c2_c2+black
 | 1+c2_c2+black{:black}
-{::: small }
+  {::: small }
 ```
 
 
@@ -736,7 +736,7 @@ While a comic strip would never appear in this extreme horizontal format in a ne
 ; c3.red + 1.yellow + c2.green + c2.cyan + 1.blue + c3.magenta
   {: w3 comicstrip-sunday-full label='Sunday full: 4 cols' }
 
-{::: small }
+  {::: small }
 ```
 
 One of the interesting properties of Panelcode is that these simple layout regroupings -- the kind that a newspaper might perform during layout -- are manifest in the transformation of one layout to another. Beginning with the Panelcode for a long strip of panels, we can indicate the row groups of any of the standard newspaper layouts merely by rearranging parantheses:
@@ -921,8 +921,9 @@ In the CSS renderer bleeds directed towards the interior panels may be used to e
 | 1 _ 3 {: ilabel='1 _ 3' }
 | 1 _ 1 + r2 , 1 {: ilabel='1 _ 1 + r2 , 1' }
 | 1.c10.r6 , 1.c6.r6 + 1.c4.r10 , 1.c6.r4 {: ilabel='1.c10.r6 , 1.c6.r6 + 1.c4.r10 , 1.c6.r4 '}
-{::: comicbook-us small}
+  {::: comicbook-us small}
 ```
+
 
 ## Whitespace: delimited data entry
 
@@ -941,7 +942,7 @@ So this two-page spread can be described in a single line:
 |
 c10.r6,c4.r10+c6.r8,c6.r2
 {:blue}
-{:::small}
+  {:::small}
 ```
 
 Panelcode can also be written in a delimiter-prefix style , with one code unit or set of arguments per line. Each line begins with a delimiter indicating that it is a new spread "`|`", layout "`;`" row "`_`", rowgroup line "`,`", or column "`+`".
@@ -1003,7 +1004,7 @@ _ r2
   )
  _ 1
 {: img='images/175.png' }
-{::: comicbook-us small}
+  {::: comicbook-us small}
 ```
 
 ----------
