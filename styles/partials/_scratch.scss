@@ -1,0 +1,31 @@
+/** SCRATCH **/
+
+/** 
+
+Controls / console visibility, objects which should have no console displayed.
+
+In the end I went with an explicit nocontrol / noconsole detected by the pre-parser, but something like might approach be useful for pages that aren't being re-rendered.
+
+
+.nocode + p {
+  display: none;
+}
+.nocode + p + details {
+  display: none;
+}
+.dropcap + p {
+  display: none;
+}
+.dropcap + p + details {
+  display: none;
+}
+.gallery details {
+  display: none;
+  visibility: hidden;
+}
+.gallery details[open] {
+  display: block;
+  visibility: visible;
+}
+
+**/
