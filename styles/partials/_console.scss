@@ -19,11 +19,11 @@ p code {
   border-radius: 4px;
   padding: 1px;
 }
-pre {
+div:not(.highlight) > pre {
   background: #333333;
   padding: 5px;
 }
-pre code {
+div:not(.highlight) > pre code {
   background: #333333;
   border: none;
   border-radius: 0px;
