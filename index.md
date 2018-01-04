@@ -991,53 +991,6 @@ _ r2 + 1
   {:::small}
 ```
 
-#### MISC
-
-
-		| 3
-		 _ 3
-		 _ 1
-		
-		| 2
-		+ c2
-		 _ 1
-		+ r2
-		, 1
-		 _ 1
-		
-		| 2
-		+ c2
-		 _ ( r2
-		+ r3
-		, 1
-		  )
-		 _ 1
-		{: img='images/175.png' }
-		{::: comicbook-us small}
-
-
-```panelcode
-| 3
- _ 3
- _ 1
-
-| 2
-+ c2
- _ 1
-+ r2
-, 1
- _ 1
-
-| 2
-+ c2
- _ ( r2
-+ r3
-, 1
-  )
- _ 1
-{: img='images/175.png' }
-  {::: comicbook-us small}
-```
 
 ----------
 
