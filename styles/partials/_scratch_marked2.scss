@@ -1,0 +1,190 @@
+/* Marked 2 > Preferences > Style > Additional CSS
+   This is verbatim the code that was being used in combination wiht the 
+	latest panelcode-grid.css sheet live compiled by watch.sh while editing
+	the git repo -- no site.css, just a fresh panelcode-grid.css and this.
+*/
+
+body {
+  background: #def;
+  margin: auto;
+  margin-top:    20px;
+  margin-bottom: 20px;
+  padding: 20px 20px 5px 20px;
+  /* border:  1px solid #000; */
+  min-width: 300px;
+  max-width: 800px;
+}
+
+/* header and footer */
+
+header {
+  margin-top: 20px;
+}
+footer {
+  margin-top:  100px;
+  border-top:  1px solid #000;
+  text-align: center;
+  font-size: small;
+  font-style: italic;
+}
+
+/* navigation menu */
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  background: #cde;
+  padding: 5px;
+  margin: 5px;
+  border-right: 0px solid #000;
+}
+nav ul li:last-child {
+  border-right: 0;
+}
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+}
+nav ul li:hover {
+  background: #bcf;
+  text-decoration: none;
+}
+
+/* figures */
+
+figure {
+  display: table;
+  position: relative;
+  background: #f00;
+/*  padding: auto;*/
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+figure .spread {
+  margin: 0 auto;
+}
+figure .layout {
+  margin: 0 auto;
+}
+figcaption {
+  display: table-caption;
+  caption-side: bottom;
+  position: absolute;
+/*  padding: auto;*/
+  bottom: -18px;
+}
+
+/* sections and headers */
+
+section {
+  border-top: 1px solid #000;
+  margin-top:    40px;
+  margin-bottom: 5px;
+}
+h1 {
+  margin-top:  20px;
+  padding-top: 38px;
+}
+h2{
+  display: inline-block;
+}
+
+h3 {
+  border-top: 0px solid #000;
+}
+
+/* marigns and ornaments */
+
+.dropcap {
+  float: left;
+  margin-right:  20px;
+  margin-top:     4px;
+  margin-bottom: 10px;
+  clear: both;
+}
+.dropcap.right {
+  float: right;
+}
+.dropcap+p { /* hang */
+  margin-left: 50px;
+  overflow: auto;
+  display: block;
+}
+.hang {
+  margin-left: 50px;
+  overflow: auto;
+  display: block;
+}
+
+/* code */
+p code {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1px;
+}
+pre {
+/*  background: #333333; */
+  padding: 5px;
+}
+pre code {
+/*  background: #333333; */
+  border: none;
+  border-radius: 0px;
+  color: #eeeeee;
+  font-size: smaller;
+}
+summary {
+  font-size: smaller;
+}
+
+
+/** the controls are inside the gallery **/
+.gallery details {
+  display: none;
+  visibility: hidden;
+}
+.gallery details[open] {
+  display: block;
+  visibility: visible;
+}
+
+.gallery:hover details {
+  display: block;
+  visibility: visible;
+}
+.gallery details[open] select {
+  display: inline;
+  visibility: visible;
+}
+.gallery select {
+  display: none;
+  visibility: hidden;
+}
+.gallery:hover select {
+  display: inline;
+  visibility: visible;
+}
+.gallery.dropcap:hover select {
+  display: none;
+}
+.gallery.dropcap select {
+  display: none;
+}
+.gallery.nocode:hover select {
+  display: none;
+}
+.gallery.nocode select {
+  display: none;
+}
+.dropcap details {
+  display: none !important;
+}
+.gallery.nocode details {
+  display: none !important;
+}
