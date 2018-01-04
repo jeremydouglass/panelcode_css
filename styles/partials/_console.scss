@@ -1,0 +1,62 @@
+/** ==============================
+    Console
+    ============================== **/
+
+/**
+ * A console is an area with raw code and gallery controls
+ * (current resizing, but sorting, filtering, highlighting, etc.)
+ * It can be shown or hidden, and possibly turned on or off.
+ *
+ * Because Panelcode with syntax highlighting (see highlight.scss)
+ * appears in the console, some general formatting appears here.
+ */
+
+/* code */
+
+p code {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1px;
+}
+pre {
+  background: #333333;
+  padding: 5px;
+}
+pre code {
+  background: #333333;
+  border: none;
+  border-radius: 0px;
+  color: #eeeeee;
+  font-size: smaller;
+}
+
+/* gallery code console */
+
+.gallery summary {
+  font-size: smaller;
+}
+.gallery details {
+  display: block;
+  visibility: hidden;
+}
+.gallery details[open] {
+  display: block;
+  visibility: visible;
+}
+.gallery:hover details {
+  display: block;
+  visibility: visible;
+}
+.gallery details[open] select {
+  display: inline;
+  visibility: visible;
+}
+.gallery select {
+  display: none;
+  visibility: hidden;
+}
+.gallery:hover select {
+  display: inline;
+  visibility: visible;
+}
