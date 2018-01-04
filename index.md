@@ -69,7 +69,8 @@ This page was rendered from a Markdown document with inline Panelcode. Throughou
 
 ```panelcode
   1
-; 2 | 3; 1_1 | 1_1_1
+; 2 | 3
+; 1_1 | 1_1_1
 ; 1_2 | 1_2_3 | 4_3_2_1 | 6_4_3_5_2_1
 ; 2_2 | 3_3_3
   {::: mini nocode }
@@ -85,10 +86,10 @@ Panelcode is a very efficient shorthand when encoding simple page layouts. Encod
 A number in Panelcode signifies a simple row of panels. A single number ("`3`") is a valid Panelcode string that describes a layout with a single row of 3-columns.
 
 ```panelcode
-  1 {: label='1'}
-; 2 {: label='2'}
-| 3 {: label='3'}
-{::: small }
+  1
+; 2
+| 3
+  {::: thumb }
 ```
 
 The Panelcode strings "`1`" "`2`" and "`3`" appearing at the bottom of each glyph are not page numbers -- each number describes the row of panels in each layout.
@@ -101,34 +102,23 @@ The Panelcode strings "`1`" "`2`" and "`3`" appearing at the bottom of each glyp
 In Panelcode, a sequence of panels is the basic unit of description: A "`4`" means four panels, as in a typical daily newspaper comic, for example. Those panels proceed in whatever typical reading order they were encoded in -- left-to-right rows and top-to-bottom columns, in this case, but Panelcode input and/or output can be automatically mirrored for e.g. manga, scanlations and imported reprints.
 
 ```panelcode
-  1_1   {: label='1_1'}
-| 1_1_1 {: label='1_1_1'}
-{::: small }
+  1_1
+| 1_1_1
+  {::: thumb }
 ```
 
 Rows are joined into layout stacks using underscores: `1_1` or `1_1_1`.
 
-```panelcode
-  3     {: label='3'}
-| 1_1_1 {: label='1_1_1'}
-{::: mini dropcap nolabel }
-```
+The default row operator "`_`" (the underscore) is the glue used to build complex pages by connecting of simple rows. While `3` described three horizontal panels, `1_1_1` describes three vertical panels. This can be made more concise with one of the shorthand extensions, but it reflects a fundamental aspect of panelcode "gridcode"-style encoding design: it is organized by a primary reading order (top-to-bottom) and a secondary reading order (in this case, left-to-right). In fact, panels connected by the column operator "`+`" are commonly collapsed into row counts: the horizontal panelcode layout `3` could also be writtn `1+1+1`. (The vertical panelcode layout `1_1_1` can -- with an extension -- be written `3v`.)
 
-The default row operator "`_`" (the underscore) is the glue used to build complex pages by connecting of simple rows. While `3` described three horizontal panels, `1_1_1` describes three vertical panels. This can be made more concise with one of the shorthand extensions, but it reflects a fundamental aspect of gridcode encoding design: the primary reading order (in this case, left-to-right) commonly appears in a different way than the secondary reading order (top-to-bottom). In fact, panels connected by the column operator "`+`" are commonly collapsed into row counts: the horizontal panelcode layout `3 could also be writtn `1+1+1``; the vertical panelcode layout `1_1_1` can (with an extension) be written 3v.
+Combine different row counts into layouts: `1_2`, `1_2_3` et cetera.
 
 ```panelcode
-  1_2         {: label='1_2'}
-| 1_2_2       {: label='1_2_3'}
-| 4_3_2_1     {: label='4_3_2_1'}
-| 6_5_4_3_2_1 {: label='6_5_4_3_2_1'}
-{::: small }
-```
-
-Combine different row counts into one layout: `1_2_3`
-
-```panelcode
-  1_2_3     {: label='1_2_3'}
-{::: mini dropcap }
+  1_2
+| 1_2_2
+; 4_3_2_1
+| 6_5_4_3_2_1
+  {::: small }
 ```
 
 When the row operator is used to combine rows then each row may have different panel counts, and every row is assumed by default to be full-width with its own unique panel dimensions.	This is fundamentally unlike a spreadsheet, HTML &lt;table&gt;, or other tabular data presentation system. In	such systems columns are fixed, and rows must be marked of in units or multiples of those columns. In order to create a `1_2_3_4` on a spreadsheet requires 12 columns, and each row must be expressed in multiples of those columns.
@@ -138,15 +128,15 @@ These fixed column constraints are essentially the limitations of attempting to 
 > [Although note that the original Panelcode HTML-Tables renderer accomplished this by making every row or rowgroup its own independent table -- such workarounds are often painful, but not impossible.]
 
 ```panelcode
-  2_2         {: label='2_2'}
-| 3_3_3       {: label='3_3_3'}
-{::: small }
+  2_2
+| 3_3_3
+  {::: small }
 ```
 
 Combine 2_2 or 3_3_3 row counts into stacks to form grids.
 
 ```panelcode
-  8_8_8_8_8_8_8_8 {: label='8_8_8_8_8_8_8_8'}
+  8_8_8_8_8_8_8_8
 ```
 
 This is not to say that spreadsheet-style grids are impossible or even difficult in Panelcode. A chessboard-sized grid can be described by an `8_8_8_8_8_8_8_8` -- or, using multiplier shorthand, an `8*8`.
@@ -176,13 +166,18 @@ Depending on the renderer this box-model of a page or screen may support empty a
 Panelcode glyphs appear by default on an abstract unit square -- for example, it is neither the vertical rectangle of the comic book nor the horizontal rectangle of the newspaper cartoon strip. This is to emphasize the concept that a particular geometric arragement of panels might refer to either medium, or both, or something.Panelcode glphys can also be styled to media-specific dimensions -- either the dimensions of a media genre (e.g. a contemporary US comic), a specific object (e.g. _Mouse Guard_), or a mixed media collection (e.g. the artifacts of _Building Stories_).
 
 ```panelcode
-  c3.grayC + 1.grayB + c2.grayA + c2.gray9 + 1.gray8 + c3.gray7
+  c3.grayC + 1.grayB
++ c2.grayA + c2.gray9
++ 1.gray8 + c3.gray7
   {: w4 label='Abstract unit square (1:1)' }
-; c3.grayC + 1.grayB + c2.grayA + c2.gray9 + 1.gray8 + c3.gray7
+; c3.grayC + 1.grayB
++ c2.grayA + c2.gray9
++ 1.gray8 + c3.gray7
   {: w4 comicstrip-sunday-half label='Newspaper comicstrip ("Sunday half" aspect)'}
-; c3.grayC + 1.grayB + c2.grayA + c2.gray9 + 1.gray8 + c3.gray7
+; c3.grayC + 1.grayB
++ c2.grayA + c2.gray9
++ 1.gray8 + c3.gray7
   {: w4 comicbook-us label='Comicbook page (US aspect)' }
-
 ```
 
 The glyph for `c3+1_2_1+c3` rendered on a unit square, then rerendered while tagged as a newspaper comicstrip (14x10 aspect ratio, Sunday half-page) or as a comicbook page (11x17 aspect ratio, contemporary US comic). Panelcode output may visually match the specific media it was encoded from, or it may also abstract page dimensions when comparing layouts in mixed media collections.
