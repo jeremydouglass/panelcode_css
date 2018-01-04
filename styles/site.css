@@ -111,12 +111,3 @@ h3 {
   overflow: auto;
   display: block;
 }
-
-/* code */
-
-code {
-  background: #f7f7f7;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 1px;
-}
