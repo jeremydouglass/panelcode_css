@@ -665,7 +665,11 @@ _ texture3 + texture4
 {::: small }
 ```
 
-## Comic Books
+
+## Flow
+
+### Comic Books
+
 
 ```panelcode
   1_1_1
@@ -673,10 +677,11 @@ _ texture3 + texture4
 ; 2_2_3
 ; 1+c2_c2+1_3
 ; 3_3_3
-{::: comicbook-us small }
+  {::: comicbook-us small }
 ```
 
-## Newspaper comicstrips: ratios and flow
+
+### Newspaper comicstrips: ratios and flow
 
 The newspaper comic strip, as a form, has a very interesting relationship to panel geometry. Panels almost invariably hhave a fixed height and often have a fixed sequence of width ratios -- traditionally 3:1:2:2:1:3. These ratios were designed with a fluid layout property: a single piece is produced as a six-panel sequence may be laid out (or may have been laid out) in a variety of column counts and aspect ratios in different newspapers, taking up a quarter page or half page, respectively -- or a third of a page, if the optional first two panels are dropped -- or even (rarely) a full page.
 
@@ -701,8 +706,7 @@ The Panelcode here is a simple list of column ratios. It has been further annota
 	(1.c3     + 1        + 1.c2       + 1.c2      + 1      + 1.c3)
 	(1.c3.red + 1.yellow + 1.c2.green + 1.c2.cyan + 1.blue + 1.c3.magenta)
 
-While a comic strip would never appear in this extreme horizontal format in a newspaper, this stream of panels can automatically flow into a dynamic layout -- for example with no particular columns specified, the CSS3 layout algorithm packs the panels into a unit square like this:
-
+While a comic strip would never appear in this extreme horizontal format in a newspaper, this stream of panels can automatically flow into a dynamic layout -- for example with no particular columns specified, the CSS3 layout algorithm packs the panels into a unit square in a way that echos the row arrangement of the "Sunday full-page," one of the layouts for which the six-panel comic strip format was originally designed.
 
 ```panelcode
   c3.red
@@ -710,10 +714,14 @@ While a comic strip would never appear in this extreme horizontal format in a ne
 + c2.green
 + c2.cyan
 + 1.blue
-+ c3.magenta {: w3 label='6 newspaper panels: (c3+1+c2+c2+1+c3)' }
++ c3.magenta {: w3 label='Unit square: c3+1+c2+c2+1+c3' }
+
+; c3.red + 1.yellow + c2.green + c2.cyan + 1.blue + c3.magenta
+  {: w3 comicstrip-sunday-full label='Sunday full: 4 cols' small}
+  {:: default }
 ```
 
-Not coincidentally, the CSS3 Grid layout algorithm has here recreated the "Sunday full-page," one of the layouts for which the six-panel comic strip format was originally designed. Other major reconfigurations of the Sunday newspaper also emerge automatically from setting the number of layout columns, including the quarter-page, half-page, and full-page.
+ Other major reconfigurations of the Sunday newspaper also emerge automatically from setting the number of layout columns, including the quarter-page, half-page, and full-page.
 
 ```panelcode
   c3.red + 1.yellow + c2.green + c2.cyan + 1.blue + c3.magenta
