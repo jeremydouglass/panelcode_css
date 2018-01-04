@@ -183,72 +183,64 @@ Panelcode glyphs appear by default on an abstract unit square -- for example, it
 The glyph for `c3+1_2_1+c3` rendered on a unit square, then rerendered while tagged as a newspaper comicstrip (14x10 aspect ratio, Sunday half-page) or as a comicbook page (11x17 aspect ratio, contemporary US comic). Panelcode output may visually match the specific media it was encoded from, or it may also abstract page dimensions when comparing layouts in mixed media collections.
 
 
-## Images and Panelcode
-
-```panelcode
-  1_1+r2,1 {: img='images/174.png'}
-; 1_1+r2,1 {: img='images/174.png' iover }
-; 1_1+r2,1 {: img='images/174.png' ibefore }
-; 1_1+r2,1 {: img='images/174.png' iafter }
-{::: comicbook-us mini }
-```
-
-Panelcode can also specify methods for companion image display. Specfing an img path displays that image on top of the layout. The ishow and ihide attributes make the image interactively show or hide on hover.
-
-```panelcode
-  1_1+r2,1 {: img='images/174.png'}
-; 1_1+r2,1 {: img='images/174.png' ishow }
-; 1_1+r2,1 {: img='images/174.png' ihide }
-{::: comicbook-us small }
-```
-
-Use `iover` to style the image as semi-opaque (onion skin). The “over” image layer can also be fully shown or fully hidden with `ishow` or `ihide`.
-
-```panelcode
-  1_1+r2,1 {: img='images/174.png' iover }
-; 1_1+r2,1 {: img='images/174.png' iover ishow }
-; 1_1+r2,1 {: img='images/174.png' iover ihide }
-{::: comicbook-us small }
-```
-
-Images can also be displayed in a companion layout joined into a spread either before or after the associated panelcode layout, using `ibefore` or `iafter`. These pages optionally take a separate label, `ilabel`.
-
-```panelcode
-  1_1+r2,1 {: img='images/174.png' ibefore }
-; 1_1+r2,1 {: img='images/174.png' iafter }
-{::: comicbook-us small }
-```
-
-Finally, a collection such as a spread or gallery can all be styled in the same way using a single argument. Here is a gallery:
-
--  styled with `iafter`:
-
-```panelcode
-  1_1+r2,1 {: img='images/174.png' }
-; 2+c2_1+r2,1_1 {: img='images/175.png' }
-; 1+c2_c6+c4_2 {: img='images/176.png' }
-{::: comicbook-us thumb iafter }
-```
-
--  styled with `iover ishow`:
-
-```panelcode
-  1_1+r2,1 {: img='images/174.png' }
-; 2+c2_1+r2,1_1 {: img='images/175.png' }
-; 1+c2_c6+c4_2 {: img='images/176.png' }
-{::: comicbook-us thumb iover ishow }
-```
-
-
 ## Spans
+
+Spans are a simple way of creating more complex layouts than combining rows will allow. A span specifies that a panel is proportionately wider that other in its row (column span) or that a panel occupies multiple rows in a rowgroup (row span). A panel may have both its column span and row span specified. In Panelcode spans are indicated with the `c` and `r` attributes, which are attached to panels as suffixes.
+
+### Column  Spans
 
 ```panelcode
   2
-; 1+c2 | c2 + 1
+; 1+c2 | c2+1
 ; 2_2
 ; 1+c2 _ c2+1 | c2+1 _ 1+c2
-{::: mini }
+  {::: mini nocode }
 ```
+
+Columns are the basic unit of panelcode: `1`, `2`, `3` etc. is the code for a single row of 1, 2, or 3 columns. Panels in simple rows are commutative: a row of `3` = `2+1` = `1+1+1` -- all describe the same layout.
+
+```panelcode
+  3
+; 2 + 1
+; 1 + 1 + 1
+  {::: thumb }
+```
+
+However, this assumes that each panel is of the same proportional width. When this is not the case, the `c` attribute plus a number argument can be added to individual panels to define their proportional width in units. The panelcode `2` is instead written as an expanded group of `1 + 1` of individual panels. One of those panels is annotated with the suffix `.c2` -- this sets the column span equal to 2, making the second column twice as wide as the first (and its default span of c1).
+
+```panelcode
+  1 + 1.c4     {: label='1:4' }
+; 1.c2 + 1.c3  {: label='2:3' }
+  {::: small }
+```
+
+Panelcode attributes are each attached to the panel number with a `.` -- several attributes may be chained, in any order. When the number is `1`, the attribute affects only that panel. When the number describes a simple group, the attribute applies to every panel in that group.
+
+```panelcode
+  2.c2 + 1
+_ 3.c2 + 1 
+  {::: small }
+```
+
+A common use of column spans in comic layouts is to create staggered rows.
+
+```panelcode
+  1 + c2 _ c2 + 1
+| c2 + 1 _ 1 + c2
+  {::: small }
+```
+
+Note that writing panelcode in a compact style, the initial `.` may be ommitted: `1c2`. Further, the panel number `1` may be ommited -- a bare attribute `c2` implicitly modifies a single panel.
+
+```panelcode
+  1 + 1.c2
+; 1 + 1c2
+; 1 + c2
+  {::: thumb }
+```
+
+
+### Row Spans
 
 ```panelcode
   r2+1,1 | 1+r2,1
@@ -258,68 +250,110 @@ Finally, a collection such as a spread or gallery can all be styled in the same 
   {::: mini nocode }
 ```
 
-Spans are a simple way of creating more complex layouts than combining rows will allow. A span specifies that a panel is proportionately wider that other in its row (column span) or that a panel occupies multiple rows in a rowgroup (row span). A panel may have both its column span and row span specified. In Panelcode spans are indicated with the `c` and `r` attributes, which are attached to panels as suffixes.
+Rows are also fundamental to panelcode -- multiple simple rows may be assembled into a single layout with the row delimiter `_`, e.g. `1_2`. For panels that cross multiple rows, however, simple rows must instead defined as complex rowgroups using the `,` rowgroup delimiter, and a panel must be marked with the rowspan attribute `r`  plus the number of rows to span -- `1.r2`, `1.r3` et cetera. As with column spans, the `1.r2` row span may be shortened to `1r2` -- or simply `r2`. 
 
-### Column  Spans
+One of the most common rowgroups is the simple left-hand rowspan: `r2+1,1`. 
 
 ```panelcode
-  2          {: label='2' }
-; 1+c2       {: label='1+c2' }
-| c2+1       {: label='c2+1' }
-; 2_2        {: label='2_2' }
-; 1+c3_c3+1  {: label='1+c3_c3+1' }
-| c3+1_1+c3  {: label='c2+1_1+c3' }
-{::: small }
+  r2 + 1, 1
+; 1 + r2, 1
+  {::: small }
 ```
 
-A row with one column twice as wide as the other may be written 1+c2. Why? Follow these steps:
-
-	    1:    2
-	    2:    2(1 + 1   )
-	    3:    2(1 + 1.c2)
-	    4:    2(1 + c2  )
-	    5:     (1 + c2  )
-	    6:      1 + c2
-
-The panelcode `2` is expanded into a group `(1+1)` of individual panels. One of those panels is annotated with the suffix `.c2` -- this sets the column span equal to 2, making the second column twice as wide as the first (and its default of 1). The result is `2(1+1.c2)`
-
-We can additionally note that almost all of this is optional. A columnspan modifies a single panel by default, so `1.c2` may simply be written `c2`. The `2(` outside the group is hint at the contents, but it is also optional -- and there is only one group, so the group markers are also optional. The concise result? `1+c2`.
-
-### Row Spans
+This looks complex when compared with the similar layouts `1_2` or `2_1`. 
 
 ```panelcode
-  r2+1,1  {: label='r2+1,1' }
-| 1+r2,1  {: label='1+r2,1' }
-{::: small }
+  r2 + 1, 1
+; 1_2
+| 2_1
+  {::: mini }
 ```
 
-For rows that cross cross vertically into multiple rows, a special rowspan indicator is used with "r" for row plus the number of rows to span ("r2", "r3").
+Because the long panel is oriented horizontally rather than vertically these layouts can be described without rowspan notation -- but rowgroup delimiters introduce a lot of flexibilty to build complex layouts.
 
-This concept of a "rowspan" argument is present in early HTML-Tables, and also incorporated into CSS-Grid. Panelcode uses these concepts in part because they are longstanding traditions in rendering tabular data, and in part because shared concepts make it easier to parse a panecode string into a straightforward sequence of HTML or CSS elements that can directly render the described layout.
+The `+` delimiter continues along the same row, while the `,` delimiter acts like a carriage return, leaving the row and proceeding to the next available blank space below. For example, in `r5 + r4, 1`, the next available space  for the `1` is on the 5th row.
 
 ```panelcode
-  1_2  {: label='1_2' }
-| 2_1  {: label='2_1' }
-{::: small }
+  r5 + r4, 1
+  {::: small }
 ```
 
-Compare with these very similar panel groups. Because the long panel is oriented horizontally rather than vertically these layouts can be described with a long row ("`1`"), and the encoding does not require rowspan notation. In fact, these do not require special column notation either -- a full-row panel is simply "`1`".
+> [This concept of a "rowspan" argument is present in early HTML Tables, and also incorporated into CSS3 Grid. Panelcode uses these concepts in part because they are longstanding traditions in rendering tabular data, and in part because shared concepts make it easier to parse a panecode string into a straightforward sequence of HTML or CSS elements that can directly render the described layout.]
+
+Column span and row span attributes may also be combined, as in the multi-row, multi-column panel in this example:
 
 ```panelcode
-  1_2     {: label='1_2' }
-| 2_1     {: label='2_1' }
-| r2+1,1  {: label='r2+1,1' }
-| 1+r2,1  {: label='1+r2,1' }
-{::: small }
+  c2.r3 + r2, 1
+  {::: small }
 ```
 
-These four C-shaped compositions of 3 panels -- two based on row spans, two not -- are uncommon in newspaper comics, but are some of the most common building blocks of comic book pages.
-
-Column spans and row spans may also be combined, as in the multi-row, multi-column panel in this example:
+These C-shaped compositions of 3 panels are uncommon in newspaper comics, but are an extremely common building block of graphic novel and comicbook pages. A typical comicbook might composite this panelgroup along with one or two simple rows:
 
 ```panelcode
-  c2.r2+1,1  {: label='c2.r2+1,1' }
-{::: small }
+  3
+_ r2+1, 1
+_ 1
+  {::: small }
+```
+
+
+## Images
+
+```panelcode
+  1_1+r2,1 {: img='images/174.png'}
+; 1_1+r2,1 {: img='images/174.png' iover }
+; 1_1+r2,1 {: img='images/174.png' ibefore }
+; 1_1+r2,1 {: img='images/174.png' iafter }
+  {::: comicbook-us mini nocode }
+```
+
+Panelcode can also specify methods for companion image display. Specfing an img path displays that image on top of the layout. The `ishow` and `ihide` attributes make the image interactively show or hide on hover.
+
+```panelcode
+  1_1+r2,1 {: img='images/174.png'}
+; 1_1+r2,1 {: img='images/174.png' ishow }
+; 1_1+r2,1 {: img='images/174.png' ihide }
+  {::: comicbook-us small }
+```
+
+Use `iover` to style the image as semi-opaque (onion skin). The “over” image layer can also be made interactive with `ishow` or `ihide` -- from barely opaque to fully shown, or from barely transparent to fully hidden.
+
+```panelcode
+  1_1+r2,1 {: img='images/174.png'}
+| 1_1+r2,1 {: img='images/174.png' ishow }
+| 1_1+r2,1 {: img='images/174.png' ihide }
+; 1_1+r2,1 {: img='images/174.png' iover }
+| 1_1+r2,1 {: img='images/174.png' iover ishow }
+| 1_1+r2,1 {: img='images/174.png' iover ihide }
+  {::: comicbook-us thumb }
+```
+
+Images can also be displayed in a companion layout joined into a spread either before or after the associated panelcode layout, using `ibefore` or `iafter`. These inserted pages optionally take a separate label, `ilabel`.
+
+```panelcode
+  1_1+r2,1 {: img='images/174.png' ibefore }
+; 1_1+r2,1 {: img='images/174.png' iafter }
+  {::: comicbook-us small }
+```
+
+Finally, a collection such as a spread or gallery can all be styled in the same way using a single argument. Here is a gallery:
+
+-  styled with `iafter`:
+
+```panelcode
+  1_1+r2,1      {: img='images/174.png' }
+; 2+c2_1+r2,1_1 {: img='images/175.png' }
+; 1+c2_c6+c4_2  {: img='images/176.png' }
+  {::: comicbook-us thumb iafter }
+```
+
+-  styled with `iover ishow`:
+
+```panelcode
+  1_1+r2,1      {: img='images/174.png' }
+; 2+c2_1+r2,1_1 {: img='images/175.png' }
+; 1+c2_c6+c4_2  {: img='images/176.png' }
+  {::: comicbook-us thumb iover ishow }
 ```
 
 
