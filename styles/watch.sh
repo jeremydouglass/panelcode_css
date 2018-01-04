@@ -1,1 +1,1 @@
-scss --watch panelcode-grid.scss
+scss --watch panelcode-grid.scss panelcode-grid-site.scss site.scss
