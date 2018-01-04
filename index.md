@@ -52,28 +52,18 @@ Panelcode supports multiple encoding schemes, but examples in this document use 
 
 **This document focuses on the gridcode HTML5-CSS3 renderer**, which renders panelcode as either HTML5 web content or stand-alone SVG image files. It is an illustrated tour of some of Panelcode's rendering features. Rather than walking through the complete language syntax, or discussing the design of the parser, it instead focuses on the gridcode renderer and walks through an illustrated tour of basic examples of Panelcode and what you can do with it: describe, summarize, compare, annotate, and vizualize layouts. This renderer supports:
 
--  basic rows and columns
--  spans of multiple row / columns
--  blank spaces
--  marking multi-panel regions
--  panel shapes:
-   -  skew
-   -  scaling
-   -  rotation
-   -  scaling
--  panel annotations:
-   -  color
-   -  texture
-   -  gutter color
--  sizes and styling:
-   -  large, small, and thumb sizes
-   -  mini and micro glyphs
--  media formats:
-   -  abstract
-   -  comicbooks
-   -  newspaper comicstrips
+-  rows and columns
+-  multi-row / columns spans
+-  empty spaces
+-  multi-panel regions
+-  transforms (skew, scale, rotate)
+-  fills (color, texture)
+-  sizes (small, thumb, mini)
+-  media formats (abstract, comic, strip)
 -  right-to-left rendering
+-  bleeds
 
+This page was rendered from a Markdown document with inline Panelcode. Throughout the page you will find rendered examples -- hover over them to access resizing controls and to unfold the code view, showing the code which rendered the gallery
 
 ## Basics: rows and columns
 
