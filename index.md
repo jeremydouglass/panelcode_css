@@ -518,8 +518,8 @@ Panelcodes (and hence the layouts the represent) can be sorted ), and these sort
 Consider the example of comics. While some genres of comics (such as newspaper strips) generally subdivide the available space into panels, many other forms commonly use compositions that leave significant regions of blank space.
 
 ```panelcode
-  0_1  {: label='0_1' }
-| 1_c2+0_1+0c2_0  {: label='1_c2+0_1+0c2_0' }
+  0_1
+| 1_c2+0_1+0c2_0
 ```
 
 When a 0 is used to encode a blank region the corresponding empty area is rendered on the Panelcode grid. For example, 1_0 encodes a page whose bottom half is empty.
@@ -968,7 +968,7 @@ So this two-page spread can be described in a single line:
 ```panelcode
 1_r2+1,1|c10.r6,c4.r10+c6.r8,c6.r2{:::small}
 ```
-...or broken up in various ways, for example organizing each page of a spread on its own line with optional arguments immediately below.
+...or broken up in various ways, for adding spaces around delimters for readability, organizing each page of a spread on its own line with optional arguments immediately below.
 
 ```panelcode
 1_r2+1,1
@@ -983,12 +983,10 @@ Panelcode can also be written in a delimiter-prefix style , with one code unit o
 
 ```panelcode
   1
-_ r2
-+ 1
+_ r2 + 1
 , 1
 | c10.r6
-, c4.r10
-+ c6.r8
+, c4.r10 + c6.r8
 , c6.r2
   {:::small}
 ```
